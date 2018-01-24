@@ -1,9 +1,14 @@
 <template>
   <div id="home">
-      <h1>Home!</h1>
-      <code class="javascript" v-hljs> const test = "Hi"; </code> 
+    <h1><font-awesome-icon icon="home" />&nbsp;Home!</h1>
+    <pre v-highlightjs><code class="javascript">const test = "Hi";</code></pre>
   </div>
 </template>
 
-<script>export default { name: 'home' };
+<script>
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+  export default {
+    name: 'home',
+    components: { FontAwesomeIcon }
+  };
 </script>
