@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar is-info">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://klasa.js.org">
-        <img src="../assets/logo.png" alt="Klasa">&nbsp;&nbsp;Klasa
-      </a>
+      <router-link class="navbar-item title is-4 is-marginless" to="/">
+        <img src="../assets/logo_white-bg.png" class="" alt="Klasa">&nbsp;&nbsp;Klasa
+      </router-link>
       <div class="navbar-burger burger" @click="toggleShowNav" :class="{ 'is-active': showNav }">
         <span></span>
         <span></span>
@@ -12,7 +12,6 @@
     </div>
     <div class="navbar-menu" :class="{ 'is-active': showNav }">
       <div class="navbar-start">
-        <router-link class="navbar-link" to="/"> Home </router-link>
         <div class="navbar-item has-dropdown is-hoverable">
           <router-link class="navbar-link" to="/docs"> Docs </router-link>
           <div class="navbar-dropdown is-boxed">
