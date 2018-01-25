@@ -4,32 +4,20 @@
       <router-link class="navbar-item title is-4 is-marginless" to="/">
         <img src="../assets/logo_white-bg.png" class="" alt="Klasa">&nbsp;&nbsp;Klasa
       </router-link>
-      <div class="navbar-burger burger" @click="toggleShowNav" :class="{ 'is-active': showNav }">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <router-link to="/docs" class="navbar-item is-hidden-desktop">
+        <b-icon icon="book" />&nbsp;Docs
+      </router-link>
+      <a href="https://github.com/dirigeants/klasa" class="navbar-item is-hidden-desktop">
+        <i class="fab fa-github"></i>&nbsp;Github
+      </a>
     </div>
-    <div class="navbar-menu" :class="{ 'is-active': showNav }">
-      <div class="navbar-start">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <router-link class="navbar-link" to="/docs"> Docs </router-link>
-          <div class="navbar-dropdown is-boxed">
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <router-link class="navbar-link" to="/tutorials"> Tutorials </router-link>
-          <div class="navbar-dropdown is-boxed">
-          </div>
-        </div>
-      </div>
-
+    <div class="navbar-menu">
       <div class="navbar-end">
+        <router-link class="navbar-item" to="/docs">
+          <b-icon icon="book" />&nbsp;Docs
+        </router-link>
         <a href="https://github.com/dirigeants/klasa" class="navbar-item">
           <i class="fab fa-github"></i>&nbsp;Github
-        </a>
-        <a href="https://www.npmjs.com/package/klasa" class="navbar-item">
-          <i class="fab fa-npm fa-2x"></i>
         </a>
       </div>
     </div>
@@ -37,18 +25,5 @@
 </template>
 
 <script>
-  export default {
-    name: 'AppNavbar',
-    data() {
-      return {
-        showNav: false
-      };
-    },
-    methods: {
-      toggleShowNav() {
-        this.showNav = !this.showNav;
-      }
-    },
-  };
-
+  export default { name: 'AppNavbar' };
 </script>
