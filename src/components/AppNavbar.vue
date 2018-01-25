@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-            <router-link class="navbar-link" to="/tutoirals"> Tutorials </router-link>
+            <router-link class="navbar-link" to="/tutorials"> Tutorials </router-link>
           <div class="navbar-dropdown is-boxed">
           </div>
         </div>
