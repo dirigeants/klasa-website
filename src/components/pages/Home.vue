@@ -3,7 +3,7 @@
     <br>
     <br>
     <div class="container">
-<pre v-highlightjs><code class="javascript">const klasa = { awesome: true, powerful: true, advanced: true }; </code></pre>
+      <pre v-highlightjs><code class="javascript">const klasa = { awesome: true, powerful: true, advanced: true }; </code></pre>
     </div>
   </div>
 </template>
