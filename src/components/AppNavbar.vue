@@ -24,7 +24,7 @@
 
       <div class="navbar-end">
         <a href="https://github.com/dirigeants/klasa" class="navbar-item">
-        <i class="fab fa-github"></i> Github
+        <font-awesome-icon :icon="['fab', 'github']" />&nbsp;Github
         </a>
       </div>
     </div>
@@ -32,9 +32,10 @@
 </template>
 
 <script>
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
   export default {
     name: 'navbar',
+    components: { FontAwesomeIcon }
   };
-
 </script>
 
