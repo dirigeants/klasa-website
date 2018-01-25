@@ -26,7 +26,7 @@
 
       <div class="navbar-end">
         <a href="https://github.com/dirigeants/klasa" class="navbar-item">
-        <font-awesome-icon :icon="['fab', 'github']" />&nbsp;Github
+        <i class="fab fa-github"></i>&nbsp;Github
         </a>
       </div>
     </div>
@@ -36,10 +36,12 @@
 <script>
   export default {
     name: 'AppNavbar',
-    props: ['showNav'],
+    data() {
+      return { showNav: false };
+    },
     methods: {
       toggleShowNav() {
-        this.$parent.showNav = !this.$parent.showNav;
+        this.showNav = !this.showNav;
       }
     },
   };

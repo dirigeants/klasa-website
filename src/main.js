@@ -2,12 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import VueHighlightJS from 'vue-highlightjs';
-import fontawesome from '@fortawesome/fontawesome';
-import solid from '@fortawesome/fontawesome-free-solid';
-import regular from '@fortawesome/fontawesome-free-regular';
-import brands from '@fortawesome/fontawesome-free-brands';
-
-fontawesome.library.add(solid, regular, brands);
+import Buefy from 'buefy';
+import 'buefy/lib/buefy.css';
 
 import App from './App';
 import router from './router';
@@ -15,6 +11,10 @@ import router from './router';
 Vue.config.productionTip = false;
 
 Vue.use(VueHighlightJS);
+
+Vue.use(Buefy, {
+  defaultIconPack: 'fa'
+});
 
 /* eslint-disable no-new */
 new Vue({

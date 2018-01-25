@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-navbar :showNav="showNav" />
+    <app-navbar />
     <router-view />
     <app-footer />
   </div>
@@ -16,9 +16,6 @@
 
   export default {
     name: 'app',
-    data() {
-      return { showNav: false };
-    },
     components: {
       AppNavbar,
       AppFooter
