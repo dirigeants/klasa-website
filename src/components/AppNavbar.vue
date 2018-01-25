@@ -32,10 +32,8 @@
 </template>
 
 <script>
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
   export default {
-    name: 'navbar',
-    components: { FontAwesomeIcon }
+    name: 'navbar'
   };
 </script>
 
