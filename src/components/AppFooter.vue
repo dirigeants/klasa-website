@@ -11,6 +11,5 @@
 </template>
 
 <script>
-  export default { name: 'footer', };
-
+  export default { name: 'AppFooter', };
 </script>

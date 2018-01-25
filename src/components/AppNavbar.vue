@@ -36,7 +36,7 @@
 
 <script>
   export default {
-    name: 'navbar',
+    name: 'AppNavbar',
     props: ['showNav'],
     methods: {
       toggleShowNav() {

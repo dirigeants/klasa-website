@@ -21,7 +21,7 @@ new Vue({
   el: '#app',
   router,
   // eslint-disable-next-line
-  render: function(el) {
+  render(el) {
     return el(App);
   }
 });

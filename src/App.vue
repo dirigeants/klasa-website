@@ -2,7 +2,7 @@
   <div id="app">
     <app-navbar :showNav="showNav" />
     <router-view />
-    <app-footer/>
+    <app-footer />
   </div>
 </template>
 
