@@ -20,5 +20,8 @@ Vue.use(VueHighlightJS);
 new Vue({
   el: '#app',
   router,
-  render: el => el(App),
+  // eslint-disable-next-line
+  render: function(el) {
+    return el(App);
+  }
 });

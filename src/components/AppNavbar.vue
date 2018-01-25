@@ -2,14 +2,17 @@
   <nav class="navbar is-info">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://klasa.js.org">
-        <img src="../assets/logo.png" alt="Klasa">
+        <img src="../assets/logo.png" alt="Klasa">&nbsp;&nbsp;Klasa
       </a>
+      <div class="navbar-burger burger" @click="toggleShowNav" :class="{ 'is-active': showNav }">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-menu" :class="{ 'is-active': showNav }">
       <div class="navbar-start">
-        <a class="navbar-item" href="https://klasa.js.org">
-          Home
-        </a>
+        <a class="navbar-item" href="https://klasa.js.org">Home</a>
         <div class="navbar-item has-dropdown is-hoverable">
           <router-link class="navbar-link" to="/docs"> Docs </router-link>
           <div class="navbar-dropdown is-boxed">
@@ -33,7 +36,13 @@
 
 <script>
   export default {
-    name: 'navbar'
+    name: 'navbar',
+    props: ['showNav'],
+    methods: {
+      toggleShowNav() {
+        this.$parent.showNav = !this.$parent.showNav;
+      }
+    },
   };
 </script>
 

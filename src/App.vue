@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <app-navbar/>
-    <router-view/><app-footer/>
+    <app-navbar :showNav="showNav" />
+    <router-view />
+    <app-footer/>
   </div>
 </template>
 
@@ -15,6 +16,9 @@
 
   export default {
     name: 'app',
+    data() {
+      return { showNav: false };
+    },
     components: {
       AppNavbar,
       AppFooter
