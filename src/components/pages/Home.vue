@@ -1,11 +1,10 @@
 <template>
   <div id="home">
-    <h1><b-icon icon="home" /> Home!</h1>
-    <pre v-highlightjs><code class="javascript">const test = "Hi";</code></pre>
-    <b-notification type="is-success">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id fermentum quam. Proin sagittis, nibh id hendrerit imperdiet, elit sapien laoreet elit
-    </b-notification>
-    <b-icon icon="user" />
+    <br>
+    <br>
+    <div class="container">
+<pre v-highlightjs><code class="javascript">const klasa = { awesome: true, powerful: true, advanced: true }; </code></pre>
+    </div>
   </div>
 </template>
 
