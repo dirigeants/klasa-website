@@ -12,7 +12,7 @@
     </div>
     <div class="navbar-menu" :class="{ 'is-active': showNav }">
       <div class="navbar-start">
-        <a class="navbar-item" href="https://klasa.js.org">Home</a>
+        <router-link class="navbar-link" to="/"> Home </router-link>
         <div class="navbar-item has-dropdown is-hoverable">
           <router-link class="navbar-link" to="/docs"> Docs </router-link>
           <div class="navbar-dropdown is-boxed">
