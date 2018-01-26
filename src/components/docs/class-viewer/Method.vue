@@ -47,7 +47,7 @@
 
 			<div v-if="method.examples" class="method-examples">
 				Examples:
-				<pre v-for="example in method.examples"><code class="javascript">{{ example }}</code></pre>
+				<pre v-for="example in method.examples" v-highlightjs><code class="javascript">{{ example }}</code></pre>
 			</div>
 
       <see v-if="method.see" :see="method.see" :docs="docs" />
