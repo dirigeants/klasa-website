@@ -1,6 +1,6 @@
 <template>
-  <div class="columns">
-    <div class="column" v-if="properties && properties.length">
+  <div class="columns is-8">
+    <div class="column is-4" v-if="properties && properties.length">
       <aside class="menu">
         <p class="menu-label">Properties</p>
         <ul class="menu-list">
@@ -17,7 +17,7 @@
       </aside>
     </div>
 
-    <div class="column" v-if="methods && methods.length">
+    <div class="column is-4" v-if="methods && methods.length">
       <aside class="menu">
         <p class="menu-label">Methods</p>
         <ul class="menu-list">
@@ -34,7 +34,7 @@
       </aside>
     </div>
 
-    <div class="column" v-if="events && events.length">
+    <div class="column is-4" v-if="events && events.length">
       <aside class="menu">
         <p class="menu-label">Events</p>
         <ul class="menu-list">
