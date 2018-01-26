@@ -16,7 +16,7 @@ export default class DocsSource {
   }
 
   async fetchTags() {
-    if (this.tags) return Promise.resolve(this.tags);
+    if (this.tags) return this.tags;
     try {
       const [{ body: branches }, { body: tags }] = await Promise.all([
         request.get(`https://api.github.com/repos/${this.repo}/branches`),
