@@ -15,7 +15,7 @@
             </p>
           </div>
         </section>
-        <button class="button is-info" title="Scroll to top" @click="scrollTop"><b-icon icon="arrow-up" /></button>
+        <button id="scroll-top" class="button is-info" title="Scroll to top" @click="scrollTop"><b-icon icon="arrow-up" /></button>
       </div>
     </div>  
 </template>
@@ -53,7 +53,53 @@
       scrollTop() {
         window.scrollTo(0, 0);
       },
-    }
+    },
+    mounted() {
+      this.$nextTick(() => {
+        const scroller = document.getElementById('scroll-top');
+        let hideTimeout;
+        let showTimeout;
+
+        const showListener = () => {
+          if ((window.pageYOffset || document.documentElement.scrollTop) > 300) {
+            clearTimeout(hideTimeout);
+            clearTimeout(showTimeout);
+            scroller.style.display = 'block';
+            showTimeout = setTimeout(() => { scroller.style.opacity = '1'; }, 20);
+            window.removeEventListener('scroll', showListener);
+            window.addEventListener('scroll', hideListener);
+          }
+        };
+
+        const hideListener = () => {
+          if ((window.pageYOffset || document.documentElement.scrollTop) < 300) {
+            clearTimeout(hideTimeout);
+            clearTimeout(showTimeout);
+            scroller.style.opacity = '0';
+            hideTimeout = setTimeout(() => { scroller.style.display = 'none'; }, 1000);
+            window.removeEventListener('scroll', hideListener);
+            window.addEventListener('scroll', showListener);
+          }
+        };
+
+        window.addEventListener('scroll', showListener);
+      });
+    },
   };
 </script>
 
+<style>
+  #scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    transition: opacity 0.5s, background 0.3s;
+    display: none;
+    opacity: 0;
+
+    &:hover {
+      background: lighten($color-primary, 15%);
+    }
+  }
+</style>
