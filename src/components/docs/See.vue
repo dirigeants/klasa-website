@@ -3,7 +3,7 @@
     See also:
 
     <ul v-if="see.length > 1">
-      <li v-for="s in parsed">
+      <li v-for="s in parsed" :key="s">
         <router-link v-if="typeof s.link === 'object'" :to="s.link" class="docs-type">{{ s.text }}</router-link>
         <a v-else-if="typeof s.link === 'string'" :href="s.link">{{ s.text }}</a>
         <span v-else>{{ s.text }}</span>

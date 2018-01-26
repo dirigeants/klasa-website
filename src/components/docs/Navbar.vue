@@ -9,14 +9,14 @@
         <div class="level-item">
             <b-field type="is-light">
                 <b-select v-model="sourceChoice" :placeholder="sourceChoice">
-                    <option v-for="source in sources" :value="source.id">{{ source.name }}</option>
+                    <option v-for="source in sources" :key="source" :value="source.id">{{ source.name }}</option>
                 </b-select>
             </b-field>
         </div>
         <div class="level-item">
             <b-field type="is-light">
                 <b-select v-if="tags" v-model="tagChoice" :placeholder="tagChoice">
-                    <option v-for="tag in tags" :value="tag">{{ tag }}</option>
+                    <option v-for="tag in tags" :key="tag" :value="tag">{{ tag }}</option>
                 </b-select>
                 <loading v-else />
             </b-field>

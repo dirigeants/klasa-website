@@ -30,12 +30,12 @@
         </b-tab-item>
         <b-tab-item label="Guide">
           <aside class="menu">
-            <div v-for="(category, categoryID) in docs.custom" v-if="category.name !== 'General'">
+            <div v-for="(category, categoryID) in docs.custom" :key="(category, categoryID)" v-if="category.name !== 'General'">
               <p class="menu-label">
                 {{ category.name }}
               </p>
               <ul class="menu-list">
-                <li v-for="(file, fileID) in category.files">
+                <li v-for="(file, fileID) in category.files" :key="(file, fileID)">
                   <router-link :to="{ name: 'docs-file', params: { category: categoryID, file: fileID } }">
                     {{ file.name }}
                   </router-link>
