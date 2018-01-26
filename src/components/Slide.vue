@@ -1,8 +1,8 @@
 <template>
   <div class="slide">
-    <container>
+    <div class="container">
       <slot />
-    </container>
+    </div>
   </div>
 </template>
 
