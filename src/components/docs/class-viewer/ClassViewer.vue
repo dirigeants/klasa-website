@@ -19,7 +19,7 @@
       <pre v-highlightjs><code class="js">new {{ docs.global }}.{{ clarse.name }}(<span class="constructor-param" v-for="param in constructorParams">{{ param.name }}</span>);</code></pre>
       <param-table :params="clarse.construct.params" :docs="docs" />
     </div>
-
+    <br>
     <overview :properties="properties" :methods="methods" :events="clarse.events" />
 
     <h2 class="title is-3" v-if="properties && properties.length">Properties</h2>
