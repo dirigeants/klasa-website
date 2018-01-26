@@ -1,5 +1,5 @@
 <template>
-  <span class="docs-type">
+  <span>
     {{ nullable ? '?' : ''}}{{ variable ? '...' : '' }}<!--
     --><type-link v-for="type in names" :type="type" :docs="docs" :key="typeKey(type)" />
   </span>

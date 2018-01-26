@@ -1,10 +1,5 @@
 <template>
-  <b-table
-    :data="params"
-    striped="true"
-    narrowed="true"
-    mobile-cards="false">
-
+  <b-table :data="params" :striped="true" :narrowed="true" :mobile-cards="false">
     <template slot-scope="props">
         <b-table-column label="Parameter">
             {{ props.row.name }}
