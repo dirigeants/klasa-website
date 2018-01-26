@@ -7,3 +7,19 @@
   </span>
 </template>
 
+<script>
+  export default {
+    name: 'type-link',
+    props: ['docs', 'type'],
+    computed: {
+      typeName() {
+        if (this.type[0] === 'function') return 'Function';
+        return this.type[0];
+      },
+      link() {
+        if (this.docs.links[this.type[0]]) return this.docs.links[this.type[0]];
+        return null;
+      },
+    },
+  };
+</script>

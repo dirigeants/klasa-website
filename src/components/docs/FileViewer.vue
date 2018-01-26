@@ -8,7 +8,7 @@
 
 <script>
   import Vue from 'vue';
-  import { hljs } from '../../util';
+  import { hljs, convertLinks } from '../../util';
   import SourceButton from './SourceButton.vue';
 
   export default {
@@ -30,6 +30,7 @@
         let content;
         if (this.file.type === 'md') content = this.file.content;
         else content = `# ${this.file.name}\n\`\`\`${this.file.type}\n${this.file.content}\n\`\`\``;
+        content = convertLinks(content, this.docs, this.$router, this.$route);
         return Vue.filter('marked')(content);
       },
     },
