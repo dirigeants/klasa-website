@@ -1,18 +1,16 @@
 <template>
-  <ul class="stats">
-    <li>{{ downloads }} downloads</li>
-    <li>{{ stars }} stars</li>
-    <li>{{ contributors }} contributors</li>
-  </ul>
+  <div id="stats">
+    {{ downloads }} <strong> downloads </strong>  {{ stars }} <strong> stars </strong> {{ contributors }} <strong> contributors </strong>
+  </div>
 </template>
 
 <script>
   import request from 'snekfetch';
 
   const data = {
-    downloads: '290,000+',
-    stars: '1,700+',
-    contributors: '100+',
+    downloads: '1,000+',
+    stars: '21+',
+    contributors: '20+',
     fetching: false,
   };
 
