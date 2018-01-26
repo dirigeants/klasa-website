@@ -1,5 +1,5 @@
 <template>
-  <b-table :data="params" :striped="true" :narrowed="true" :mobile-cards="false">
+  <b-table :data="params" :striped="true" :narrowed="true" :mobile-cards="false" detailed>
     <template slot-scope="props">
         <b-table-column label="Parameter">
             {{ props.row.name }}
@@ -17,6 +17,9 @@
           <em v-if="props.row.optional && typeof props.row.default === 'undefined'">none</em>
           <span v-else v-html="paramDefault(param)"></span>
         </b-table-column>
+    </template>
+    <template slot="detail" slot-scope="props">
+      <div v-html="paramDescription(props.row)"></div>
     </template>
   </b-table>
 </template>
