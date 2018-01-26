@@ -1,26 +1,8 @@
 <template>
-  <div v-if="clarse" id="class-viewer" class="docs-page">
+  <div v-if="clarse">
     <source-button :meta="clarse.meta" :docs="docs" />
 
-    <h1>{{ clarse.name }}</h1>
-    <p class="class-name-extra">
-      <span v-if="clarse.extends">extends <type-link :type="clarse.extends" :docs="docs" /></span>
-      <span v-if="clarse.implements">implements <type-link :type="clarse.implements" :docs="docs" /></span>
-    </p>
-    <span v-if="clarse.abstract" class="badge class-badge" title="This class is abstract, and may not be instantiated itself.">Abstract</span>
-    <span v-if="clarse.deprecated" class="badge class-badge warn" title="This class is deprecated, and may be removed in a future version.">Deprecated</span>
-    <span v-if="clarse.access === 'private'" class="badge class-badge warn" title="This class is private, and may change or be removed at any time.">Private</span>
-
-    <p class="class-desc" v-html="description" v-if="clarse.description"></p>
-    <see v-if="clarse.see" :see="clarse.see" :docs="docs" />
-
-    <div id="class-constructor" v-if="clarse.construct && (showPrivate || clarse.construct.access !== 'private')">
-      <h2>Constructor</h2>
-      <pre v-highlightjs><code class="js">new {{ docs.global }}.{{ clarse.name }}(<span class="constructor-param" v-for="param in constructorParams">{{ param.name }}</span>);</code></pre>
-      <param-table :params="clarse.construct.params" :docs="docs" />
-    </div>
-
-    <overview :properties="properties" :methods="methods" :events="clarse.events" />
+    <heading :clarse="clarse" :docs="docs" />
 
     <h2 class="title is-3" v-if="properties && properties.length">Properties</h2>
     <property v-for="prop in properties" :prop="prop" :docs="docs" :key="prop" />
@@ -35,16 +17,15 @@
 </template>
 
 <script>
-  import Vue from 'vue';
   import TypeLink from '../TypeLink.vue';
   import ParamTable from './ParamTable.vue';
+  import Heading from './Heading';
   import Overview from './Overview';
   import Property from './Property';
   import Method from './Method';
   import Event from './Event';
   import SourceButton from '../SourceButton.vue';
   import See from '../See';
-  import { convertLinks } from '../../../util';
 
   export default {
     name: 'class-viewer',
@@ -52,6 +33,7 @@
     components: {
       TypeLink,
       ParamTable,
+      Heading,
       Overview,
       Property,
       Method,
@@ -67,10 +49,6 @@
     },
 
     computed: {
-      constructorParams() {
-        if (!this.clarse.construct || !this.clarse.construct.params) return null;
-        return this.clarse.construct.params.filter(p => !p.name.includes('.'));
-      },
 
       properties() {
         if (!this.clarse.props) return null;
@@ -92,9 +70,6 @@
         );
       },
 
-      description() {
-        return Vue.filter('marked')(convertLinks(this.clarse.description, this.docs, this.$router, this.$route));
-      },
     },
   };
 </script>
