@@ -22,7 +22,7 @@
 
 <script>
   import Vue from 'vue';
-  import { hljs, convertLinks } from '../../util';
+  import { convertLinks } from '../../util';
   import Types from './Types.vue';
   import ParamTable from './class-viewer/ParamTable.vue';
   import SourceButton from './SourceButton.vue';
@@ -48,12 +48,6 @@
       description() {
         return Vue.filter('marked')(convertLinks(this.typedef.description, this.docs, this.$router, this.$route));
       },
-    },
-
-    mounted() {
-      this.$nextTick(() => {
-        for (const el of this.$el.querySelectorAll('pre code')) hljs(el);
-      });
     },
   };
 </script>

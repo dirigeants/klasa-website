@@ -8,7 +8,7 @@
 
 <script>
   import Vue from 'vue';
-  import { hljs, convertLinks } from '../../util';
+  import { convertLinks } from '../../util';
   import SourceButton from './SourceButton.vue';
 
   export default {
@@ -33,12 +33,6 @@
         content = convertLinks(content, this.docs, this.$router, this.$route);
         return Vue.filter('marked')(content);
       },
-    },
-
-    mounted() {
-      this.$nextTick(() => {
-        for (const el of this.$el.querySelectorAll('pre code')) hljs(el);
-      });
     },
   };
 </script>

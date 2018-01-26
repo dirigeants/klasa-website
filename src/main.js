@@ -3,10 +3,12 @@
 import Vue from 'vue';
 import marked from 'marked';
 import VueHighlightJS from 'vue-highlightjs';
+import highlightjs from 'highlight.js';
 import Buefy from 'buefy';
 
 import App from './App';
 import router from './router';
+
 import SlideComponent from './components/Slide.vue';
 import LoadingComponent from './components/Loading.vue';
 import UnknownPageComponent from './components/UnknownPage.vue';
@@ -23,6 +25,10 @@ Vue.use(VueHighlightJS);
 // Tell Vue.js to use buefy
 Vue.use(Buefy, {
   defaultIconPack: 'fa'
+});
+
+marked.setOptions({
+  highlight: code => highlightjs.highlightAuto(code).value
 });
 
 Vue.filter('marked', text => {

@@ -44,7 +44,7 @@
   import Event from './Event';
   import SourceButton from '../SourceButton.vue';
   import See from '../See';
-  import { hljs, convertLinks } from '../../../util';
+  import { convertLinks } from '../../../util';
 
   export default {
     name: 'class-viewer',
@@ -95,12 +95,6 @@
       description() {
         return Vue.filter('marked')(convertLinks(this.clarse.description, this.docs, this.$router, this.$route));
       },
-    },
-
-    mounted() {
-      this.$nextTick(() => {
-        for (const el of this.$el.querySelectorAll('pre code')) hljs(el);
-      });
     },
   };
 </script>

@@ -27,7 +27,7 @@
   const data = {
     downloads: '1,000+',
     stars: '20+',
-    contributors: '20+',
+    contributors: '19+',
     fetching: false,
   };
 
