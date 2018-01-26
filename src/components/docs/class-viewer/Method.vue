@@ -5,7 +5,7 @@
     <h5 class="title is-5">
       <span class="tag is-primary" v-if="method.scope === 'static'" title="This method is on the class constructor function, not instances.">Static</span>
       <span class="tag is-success" v-if="method.readonly" title="This method cannot be modified.">Read-only</span>
-      <span class="tag is-danger"  v-if="method.deprecated" title="This method is deprecated, and may be removed in a future version.">Deprecated</span>
+      <span class="tag is-danger" v-if="method.deprecated" title="This method is deprecated, and may be removed in a future version.">Deprecated</span>
       <span class="tag is-warning" v-if="method.access === 'private'" title="This method is private, and may change or be removed at any time.">Private</span>
 			<router-link :to="{ name: 'docs-class', query: { scrollTo } }">
 				.{{ method.name }}(<!--
