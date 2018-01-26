@@ -20,7 +20,7 @@
               Typedefs
             </p>
             <ul class="menu-list">
-                <li v-for="typedef in docs.typedefs" v-if="showPrivate || typedef.access !== 'private'">
+                <li v-for="typedef in docs.typedefs" :key="typedef" v-if="showPrivate || typedef.access !== 'private'">
                   <router-link exact :to="{ name: 'docs-typedef', params: { typedef: typedef.name } }">
                     {{ typedef.name }}
                   </router-link>
