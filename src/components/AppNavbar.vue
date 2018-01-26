@@ -1,29 +1,32 @@
 <template>
-  <nav class="navbar is-info">
-    <div class="navbar-brand">
-      <router-link class="navbar-item title is-4 is-marginless" to="/">
-        <img src="../assets/logo_white-bg.png" class="" alt="Klasa">&nbsp;&nbsp;Klasa
-      </router-link>
-      <router-link to="/docs" class="navbar-item is-hidden-desktop">
-        <b-icon icon="book" />&nbsp;Docs
-      </router-link>
-      <a href="https://github.com/dirigeants/klasa" class="navbar-item is-hidden-desktop">
-        <i class="fab fa-github"></i>&nbsp;Github
-      </a>
-    </div>
-    <div class="navbar-menu">
-      <div class="navbar-end">
-        <router-link class="navbar-item" to="/docs">
-          <b-icon icon="book" />&nbsp;Docs
-        </router-link>
-        <a href="https://github.com/dirigeants/klasa" class="navbar-item">
-          <i class="fab fa-github"></i>&nbsp;Github
-        </a>
+  <div class="notification is-info is-marginless is-paddingless">
+    <nav class="level is-mobile">
+      <!-- Left side -->
+      <div class="level-left">
+        <div class="level-item">
+          <router-link class="navbar-item button is-info title is-5 is-marginless" to="/">
+            <img src="../assets/logo_white-bg.png" alt="Klasa">&nbsp;&nbsp;Klasa
+          </router-link>
+        </div>
       </div>
-    </div>
-  </nav>
+ 
+      <!-- Right side -->
+      <div class="level-right">
+        <div class="level-item">
+          <router-link class="navbar-item button is-info is-5 is-marginless" to="/docs">
+            <b-icon icon="book" />&nbsp;&nbsp;Docs
+          </router-link>
+        </div>
+        <div class="level-item">
+          <a href="https://github.com/dirigeants/klasa" class="navbar-item button is-info is-5 is-marginless">
+            <i class="fab fa-github"></i>&nbsp;Github
+          </a>  
+        </div>
+      </div>
+    </nav>
+  </div>
 </template>
-
+ 
 <script>
   export default { name: 'AppNavbar' };
 </script>

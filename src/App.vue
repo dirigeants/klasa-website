@@ -19,3 +19,14 @@
   };
 
 </script>
+
+<style lang="scss">
+  // Import Bulma's core
+  @import "~bulma/sass/utilities/_all";
+
+  $notification-radius: 0 !default;
+
+  // Import Bulma and Buefy styles
+  @import "~bulma";
+  @import "~buefy/src/scss/buefy";
+</style>

@@ -4,7 +4,6 @@ import Vue from 'vue';
 import marked from 'marked';
 import VueHighlightJS from 'vue-highlightjs';
 import Buefy from 'buefy';
-import 'buefy/lib/buefy.css';
 
 import App from './App';
 import router from './router';

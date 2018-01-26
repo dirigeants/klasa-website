@@ -1,43 +1,45 @@
 <template>
-  <nav class="navbar is-light">
-    <div class="navbar-brand">
-      <p class="navbar-item"><strong>Viewing:</strong></p>
-
-      <div class="navbar-item">
-        <b-field type="is-light">
-            <b-select v-model="sourceChoice" :placeholder="sourceChoice">
-                <option v-for="source in sources" :value="source.id">{{ source.name }}</option>
-            </b-select>
-        </b-field>
-      </div>
-
-      <div class="navbar-item">
-        <b-field type="is-light">
-            <b-select v-if="tags" v-model="tagChoice" :placeholder="tagChoice">
-                <option v-for="tag in tags" :value="tag">{{ tag }}</option>
-            </b-select>
-            <loading v-else />
-        </b-field>
-      </div>
-
-      <div class="navbar-item is-hidden-desktop">
-        <router-link to="/search" class="button is-light is-hidden-desktop">
-          <span class="icon is-small">
-            <b-icon icon="search" />
-          </span>
-        </router-link>    
-      </div>
-    </div>
-    <div class="navbar-menu">
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <b-field type="is-light">
-              <b-input v-model="search" placeholder="Search" type="search" icon="search"></b-input>
-          </b-field>
+  <div class="notification is-light is-marginless is-paddingless">
+    <nav class="level is-mobile">
+      <!-- Left side -->
+      <div class="level-left">
+        <p class="level-item">
+          <strong>Viewing:</strong>
+        </p>
+        <div class="level-item">
+            <b-field type="is-light">
+                <b-select v-model="sourceChoice" :placeholder="sourceChoice">
+                    <option v-for="source in sources" :value="source.id">{{ source.name }}</option>
+                </b-select>
+            </b-field>
+        </div>
+        <div class="level-item">
+            <b-field type="is-light">
+                <b-select v-if="tags" v-model="tagChoice" :placeholder="tagChoice">
+                    <option v-for="tag in tags" :value="tag">{{ tag }}</option>
+                </b-select>
+                <loading v-else />
+            </b-field>
         </div>
       </div>
-    </div>
-  </nav>
+
+      <!-- Right side -->
+      <div class="level-right">
+        <div class="level-item is-hidden-mobile">
+          <b-field type="is-light">
+            <b-input v-model="search" placeholder="Search" type="search" icon="search"></b-input>
+          </b-field>
+        </div>
+        <div class="level-item is-hidden-desktop">
+          <router-link to="/search" class="button is-light">
+            <span class="icon is-small">
+              <b-icon icon="search" />
+            </span>
+          </router-link>  
+        </div>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
