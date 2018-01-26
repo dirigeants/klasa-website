@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <app-navbar />
-    <router-view />
-    <app-footer />
+    <div class="container">
+      <app-navbar />
+      <router-view />
+      <app-footer />
+    </div>
   </div>
 </template>
 
@@ -23,8 +25,6 @@
 <style lang="scss">
   // Import Bulma's core
   @import "~bulma/sass/utilities/_all";
-
-  $notification-radius: 0 !default;
 
   // Import Bulma and Buefy styles
   @import "~bulma";

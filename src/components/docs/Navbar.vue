@@ -1,5 +1,5 @@
 <template>
-  <div class="notification is-light is-marginless is-paddingless">
+  <div class="notification is-radiusless is-light is-marginless">
     <nav class="level is-mobile">
       <!-- Left side -->
       <div class="level-left">
