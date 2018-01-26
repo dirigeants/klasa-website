@@ -1,53 +1,55 @@
 <template>
-  <div class="columns is-8">
-    <div class="column is-4" v-if="properties && properties.length">
-      <aside class="menu">
-        <p class="menu-label">Properties</p>
-        <ul class="menu-list">
-          <li v-for="property in properties" :key="scopedName(property)" @click="scroll(scopedName(property))" class="animated-list-item">
-            <router-link :to="{ name: 'docs-class', query: { scrollTo: scopedName(property) } }">
-              {{ property.name }}
-              <span class="tag is-primary is-pulled-right" v-if="property.scope === 'static'">S</span>
-              <span class="tag is-info is-pulled-right" v-if="property.abstract">A</span>
-              <span class="tag is-danger is-pulled-right" v-if="property.deprecated">D</span>
-              <span class="tag is-warning is-pulled-right" v-if="property.access === 'private'">P</span>
-            </router-link>
-          </li>
-        </ul>
-      </aside>
-    </div>
+  <section class="section">
+    <div class="columns is-8">
+      <div class="column is-4" v-if="properties && properties.length">
+        <aside class="menu">
+          <p class="menu-label">Properties</p>
+          <ul class="menu-list">
+            <li v-for="property in properties" :key="scopedName(property)" @click="scroll(scopedName(property))" class="animated-list-item">
+              <router-link :to="{ name: 'docs-class', query: { scrollTo: scopedName(property) } }">
+                {{ property.name }}
+                <span class="tag is-primary is-pulled-right" v-if="property.scope === 'static'">S</span>
+                <span class="tag is-info is-pulled-right" v-if="property.abstract">A</span>
+                <span class="tag is-danger is-pulled-right" v-if="property.deprecated">D</span>
+                <span class="tag is-warning is-pulled-right" v-if="property.access === 'private'">P</span>
+              </router-link>
+            </li>
+          </ul>
+        </aside>
+      </div>
 
-    <div class="column is-4" v-if="methods && methods.length">
-      <aside class="menu">
-        <p class="menu-label">Methods</p>
-        <ul class="menu-list">
-          <li v-for="method in methods" :key="scopedName(method)" @click="scroll(scopedName(method))" class="animated-list-item">
-            <router-link :to="{ name: 'docs-class', query: { scrollTo: scopedName(method) } }">
-              {{ method.name }}
-              <span class="tag is-primary is-pulled-right" v-if="method.scope === 'static'">S</span>
-              <span class="tag is-info is-pulled-right" v-if="method.abstract">A</span>
-              <span class="tag is-danger is-pulled-right" v-if="method.deprecated">D</span>
-              <span class="tag is-warning is-pulled-right" v-if="method.access === 'private'">P</span>
-            </router-link>
-          </li>
-        </ul>
-      </aside>
-    </div>
+      <div class="column is-4" v-if="methods && methods.length">
+        <aside class="menu">
+          <p class="menu-label">Methods</p>
+          <ul class="menu-list">
+            <li v-for="method in methods" :key="scopedName(method)" @click="scroll(scopedName(method))" class="animated-list-item">
+              <router-link :to="{ name: 'docs-class', query: { scrollTo: scopedName(method) } }">
+                {{ method.name }}
+                <span class="tag is-primary is-pulled-right" v-if="method.scope === 'static'">S</span>
+                <span class="tag is-info is-pulled-right" v-if="method.abstract">A</span>
+                <span class="tag is-danger is-pulled-right" v-if="method.deprecated">D</span>
+                <span class="tag is-warning is-pulled-right" v-if="method.access === 'private'">P</span>
+              </router-link>
+            </li>
+          </ul>
+        </aside>
+      </div>
 
-    <div class="column is-4" v-if="events && events.length">
-      <aside class="menu">
-        <p class="menu-label">Events</p>
-        <ul class="menu-list">
-          <li v-for="event in events" :key="scopedName(event)" @click="scroll(event.name)">
-            <router-link :to="{ name: 'docs-class', query: { scrollTo: event.name } }">
-              {{ event.name }}
-              <span class="tag is-danger is-pulled-right" v-if="event.deprecated">D</span>
-            </router-link>
-          </li>
-        </ul>
-      </aside>
+      <div class="column is-4" v-if="events && events.length">
+        <aside class="menu">
+          <p class="menu-label">Events</p>
+          <ul class="menu-list">
+            <li v-for="event in events" :key="scopedName(event)" @click="scroll(event.name)">
+              <router-link :to="{ name: 'docs-class', query: { scrollTo: event.name } }">
+                {{ event.name }}
+                <span class="tag is-danger is-pulled-right" v-if="event.deprecated">D</span>
+              </router-link>
+            </li>
+          </ul>
+        </aside>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

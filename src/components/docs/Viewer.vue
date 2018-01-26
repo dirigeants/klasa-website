@@ -8,13 +8,11 @@
           <router-view :docs="docs" :key="key" :showPrivate="showPrivate" />
         </transition>
         <section class="section">
-          <div class="container">
-            <div class="content has-text-right">
-              <p>
-                Documentation built at {{ new Date(docs.meta.date).toUTCString() }}.<br />
-                Generator: v{{ docs.meta.generator }} &nbsp; Format: {{ docs.meta.format }}
-              </p>
-            </div>
+          <div class="content has-text-right">
+            <p>
+              Documentation built at {{ new Date(docs.meta.date).toUTCString() }}.<br />
+              Generator: v{{ docs.meta.generator }} &nbsp; Format: {{ docs.meta.format }}
+            </p>
           </div>
         </section>
         <button class="button is-info" title="Scroll to top" @click="scrollTop"><b-icon icon="arrow-up" /></button>
