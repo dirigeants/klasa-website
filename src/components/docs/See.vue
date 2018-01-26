@@ -1,6 +1,6 @@
 <template>
-  <p class="docs-see">
-    See also:
+  <section>
+    <strong>See also:</strong>
 
     <ul v-if="see.length > 1">
       <li v-for="s in parsed" :key="s">
@@ -15,7 +15,7 @@
       <a v-else-if="typeof parsed[0].link === 'string'" :href="parsed[0].link">{{ parsed[0].text }}</a>
       <span v-else>{{ parsed[0].text }}</span>
     </span>
-  </p>
+  </section>
 </template>
 
 <script>

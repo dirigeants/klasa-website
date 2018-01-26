@@ -51,7 +51,11 @@
       },
 
       scrollTop() {
-        window.scrollTo(0, 0);
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
       },
     },
     mounted() {
@@ -97,9 +101,5 @@
     transition: opacity 0.5s, background 0.3s;
     display: none;
     opacity: 0;
-
-    &:hover {
-      background: lighten($color-primary, 15%);
-    }
   }
 </style>
