@@ -46,7 +46,7 @@
     data() {
       return {
         sourceChoice: this.source.id,
-        tagChoice: null,
+        tagChoice: this.$route.params.tag,
         tags: null,
         search: this.$route.query.q,
       };
