@@ -8,7 +8,7 @@ export default new DocsSource({
   repo: 'dirigeants/klasa',
   defaultTag: 'stable',
   branchFilter: branch => {
-    if (/greenkeeper/g.test(branch)) return false;
+    if (/^greenkeeper/g.test(branch)) return false;
     return !branchBlacklist.has(branch);
   }
 });
