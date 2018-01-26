@@ -30,7 +30,7 @@
         </b-tab-item>
         <b-tab-item label="Guide">
           <aside class="menu">
-            <div v-for="(category, categoryID) in docs.custom">
+            <div v-for="(category, categoryID) in docs.custom" v-if="category.name !== 'General'">
               <p class="menu-label">
                 {{ category.name }}
               </p>

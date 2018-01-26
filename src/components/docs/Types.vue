@@ -7,7 +7,7 @@
 
 <script>
   import TypeLink from './TypeLink.vue';
-  import { typeKey } from '../../util';
+
   export default {
     name: 'types',
     props: ['names', 'variable', 'nullable', 'docs'],
