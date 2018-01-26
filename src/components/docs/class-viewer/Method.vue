@@ -8,11 +8,7 @@
       <span class="tag is-danger" v-if="method.deprecated" title="This method is deprecated, and may be removed in a future version.">Deprecated</span>
       <span class="tag is-warning" v-if="method.access === 'private'" title="This method is private, and may change or be removed at any time.">Private</span>
 			<router-link :to="{ name: 'docs-class', query: { scrollTo } }">
-				.{{ method.name }}(<!--
-				--><span v-for="param in params" class="method-param" :class="param.optional ? 'optional' : ''"><!--
-          -->{{ param.variable ? '...' : '' }}{{ param.name }}<!--
-        --></span><!--
-				-->)
+				.{{ method.name }}({{params}})
 			</router-link>
 		</h5>
 
@@ -35,7 +31,7 @@
     <div v-if="emits">
       <strong>Emits:</strong>
       <ul v-if="emits.length > 1">
-        <li v-for="event in emits">
+        <li v-for="event in emits" :key="event">
           <router-link :to="event.link" class="docs-type">{{ event.text }}</router-link>
         </li>
       </ul>
@@ -44,7 +40,7 @@
 
     <div v-if="method.examples">
       <strong>Examples:</strong>
-      <pre v-for="example in method.examples" v-highlightjs><code class="javascript">{{ example }}</code></pre>
+      <pre v-for="example in method.examples" :key="example" v-highlightjs><code class="javascript">{{ example }}</code></pre>
     </div>
 
     <see v-if="method.see" :see="method.see" :docs="docs" />
@@ -74,7 +70,14 @@
     computed: {
       params() {
         if (!this.method.params) return null;
-        return this.method.params.filter(p => !p.name.includes('.'));
+        return this.method.params.filter(p => !p.name.includes('.'))
+          .map(p => {
+            let param = p.name;
+            if (param.variable) param = `...${param}`;
+            if (param.optional) param = `[${p.name}]`;
+            return param;
+          })
+          .join(', ');
       },
 
       description() {

@@ -1,7 +1,5 @@
 <template>
   <div v-if="clarse">
-    <source-button :meta="clarse.meta" :docs="docs" />
-
     <heading :clarse="clarse" :docs="docs" />
 
     <h2 class="title is-3" v-if="properties && properties.length">Properties</h2>
