@@ -1,6 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
+import marked from 'marked';
 import VueHighlightJS from 'vue-highlightjs';
 import Buefy from 'buefy';
 import 'buefy/lib/buefy.css';
@@ -16,6 +17,12 @@ Vue.use(VueHighlightJS);
 // Tell Vue.js to use buefy
 Vue.use(Buefy, {
   defaultIconPack: 'fa'
+});
+
+Vue.filter('marked', text => {
+  if (!text) text = '**Documentation missing.**';
+  text = text.replace(/<(info|warn)>([\s\S]+)<\/\1>/gi, '<div class="$1">$2</div>');
+  return marked(text);
 });
 
 /* eslint-disable no-new */

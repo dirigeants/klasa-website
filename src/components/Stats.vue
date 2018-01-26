@@ -1,7 +1,7 @@
 <template>
-  <div id="stats">
-    {{ downloads }} <strong> downloads </strong>  {{ stars }} <strong> stars </strong> {{ contributors }} <strong> contributors </strong>
-  </div>
+  <dev id="stats">
+    <p> {{ downloads }} <strong> Downloads </strong> {{ stars }} <strong> Stars </strong> {{ contributors }} <strong> Contributors </strong> </p>
+  </dev>
 </template>
 
 <script>
@@ -33,6 +33,7 @@
       request.get('https://api.github.com/repos/dirigeants/klasa/stats/contributors').end((err, res) => {
         if (!err) data.contributors = res.body.length.toLocaleString();
       });
+
 
       return data;
     },
