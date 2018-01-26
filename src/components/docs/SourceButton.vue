@@ -1,7 +1,7 @@
 <template>
   <div class="is-pulled-right">
     <a :href="`${meta ? sourceURL(meta.path, meta.file, meta.line) : sourceURL(path)}`" title="Source">
-      <b-icon icon="code" />
+      <b-icon icon="code" size="is-small" />
     </a>
   </div>
 </template>
