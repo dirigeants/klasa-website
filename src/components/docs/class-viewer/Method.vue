@@ -20,10 +20,10 @@
     <span v-if="method.returns">
       <types v-for="rtrn in method.returns.types || method.returns" :names="rtrn" :variable="method.returns.variable" :nullable="method.returns.nullable" :docs="docs" :key="rtrn" />
     </span>
-    <type-link v-else :type="['void']" :docs="docs" class="docs-type" />
+    <type-link v-else :type="['void']" :docs="docs" />
     <p v-if="method.returns && method.returns.description">{{ method.returns.description }}</p>
 
-    <div v-if="method.throws" class="method-throws">
+    <div v-if="method.throws">
       <strong>Throws:</strong>
       <types v-for="thrw in method.throws" :names="thrw" :docs="docs" :key="thrw" />
     </div>
@@ -32,10 +32,10 @@
       <strong>Emits:</strong>
       <ul v-if="emits.length > 1">
         <li v-for="event in emits" :key="event">
-          <router-link :to="event.link" class="docs-type">{{ event.text }}</router-link>
+          <router-link :to="event.link">{{ event.text }}</router-link>
         </li>
       </ul>
-      <router-link v-else :to="emits[0].link" class="docs-type">{{ emits[0].text }}</router-link>
+      <router-link v-else :to="emits[0].link">{{ emits[0].text }}</router-link>
     </div>
 
     <div v-if="method.examples">

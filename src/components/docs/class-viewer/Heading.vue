@@ -19,9 +19,7 @@
 
     <div v-if="clarse.construct && (showPrivate || clarse.construct.access !== 'private')">
       <strong>Constructor:</strong>
-      <pre v-highlightjs>
-        <code class="js">new {{ docs.global }}.{{ clarse.name }}({{ constructorParams }});</code>
-      </pre>
+      <pre v-highlightjs><code class="js">new {{ docs.global }}.{{ clarse.name }}({{ constructorParams }});</code></pre>
       <param-table :params="clarse.construct.params" :docs="docs" />
     </div>
 
