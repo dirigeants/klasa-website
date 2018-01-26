@@ -1,7 +1,24 @@
 <template>
-  <dev id="stats">
-    <p> {{ downloads }} <strong> Downloads </strong> {{ stars }} <strong> Stars </strong> {{ contributors }} <strong> Contributors </strong> </p>
-  </dev>
+  <nav class="level is-mobile">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Downloads</p>
+        <p class="title is-size-5">{{ downloads }}</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Stars</p>
+        <p class="title is-size-5">{{ stars }}</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Contributors</p>
+        <p class="title is-size-5">{{ contributors }}</p>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -9,7 +26,7 @@
 
   const data = {
     downloads: '1,000+',
-    stars: '21+',
+    stars: '20+',
     contributors: '20+',
     fetching: false,
   };

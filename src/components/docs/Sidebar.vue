@@ -1,56 +1,51 @@
 <template>
-  <div id="docs-sidebar">
-
-
-
-
-
-    <div id="open-btn" @click="toggle"><em class="fa fa-bars"></em></div>
-
-    <div id="docs-sidebar-content" :class="visible ? 'open' : 'closed'">
-      <div id="close-btn" @click="toggle">
-        <em class="fa fa-arrow-left" aria-hidden="true"></em>
-      </div>
-
-      <em id="docs-visibility" class="fa" :class="showPrivate ? 'fa-eye' : 'fa-eye-slash'" :title="showPrivate ? 'Hide private' : 'Show private'" @click="togglePrivate"></em>
-
-      <aside class="menu">
-        <div v-for="(category, categoryID) in docs.custom">
-          <p class="menu-label">
-            {{ category.name }}
-          </p>
-          <ul class="menu-list">
-            <li v-for="(file, fileID) in category.files">
-              <router-link :to="{ name: 'docs-file', params: { category: categoryID, file: fileID } }">
-                {{ file.name }}
-              </router-link>
-            </li>
-          </ul>
-        </div>
-        <p class="menu-label">
-          Classes
-        </p>
-        <ul class="menu-list">
-          <li v-for="clarse in docs.classes" v-if="showPrivate || clarse.access !== 'private'" :key="clarse.name" class="animated-list-item">
-            <router-link exact :to="{ name: 'docs-class', params: { class: clarse.name } }">
-              {{ clarse.name }}
-            </router-link>
-          </li>
-        </ul>
-        <p class="menu-label">
-          Typedefs
-        </p>
-        <ul class="menu-list">
-            <li v-for="typedef in docs.typedefs" v-if="showPrivate || typedef.access !== 'private'">
-              <router-link exact :to="{ name: 'docs-typedef', params: { typedef: typedef.name } }">
-                {{ typedef.name }}
-              </router-link>
-            </li>
-        </ul>
-      </aside>
-
-    </div>
-  </div>
+  <section>
+    <b-tabs v-model="activeTab">
+        <b-tab-item label="Docs">
+          <aside class="menu">
+            <div class="is-pulled-right" @click="togglePrivate">
+              <b-icon :icon="showPrivate ? 'eye' : 'eye-slash'" :title="showPrivate ? 'Hide private' : 'Show private'" />
+            </div>
+            <p class="menu-label">
+              Classes
+            </p>
+            <ul class="menu-list">
+              <li v-for="clarse in docs.classes" v-if="showPrivate || clarse.access !== 'private'" :key="clarse.name" class="animated-list-item">
+                <router-link exact :to="{ name: 'docs-class', params: { class: clarse.name } }">
+                  {{ clarse.name }}
+                </router-link>
+              </li>
+            </ul>
+            <p class="menu-label">
+              Typedefs
+            </p>
+            <ul class="menu-list">
+                <li v-for="typedef in docs.typedefs" v-if="showPrivate || typedef.access !== 'private'">
+                  <router-link exact :to="{ name: 'docs-typedef', params: { typedef: typedef.name } }">
+                    {{ typedef.name }}
+                  </router-link>
+                </li>
+            </ul>
+          </aside>
+        </b-tab-item>
+        <b-tab-item label="Guide">
+          <aside class="menu">
+            <div v-for="(category, categoryID) in docs.custom">
+              <p class="menu-label">
+                {{ category.name }}
+              </p>
+              <ul class="menu-list">
+                <li v-for="(file, fileID) in category.files">
+                  <router-link :to="{ name: 'docs-file', params: { category: categoryID, file: fileID } }">
+                    {{ file.name }}
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </b-tab-item>
+    </b-tabs>
+  </section>
 </template>
 
 <script>
