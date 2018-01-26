@@ -30,12 +30,8 @@
             <b-input v-model="search" placeholder="Search" type="search" icon="search"></b-input>
           </b-field>
         </div>
-        <div class="level-item is-hidden-desktop">
-          <router-link to="/search" class="button is-light">
-            <span class="icon is-small">
-              <b-icon icon="search" />
-            </span>
-          </router-link>  
+        <div @click="startSearch" class="level-item is-hidden-desktop">
+          <b-icon icon="search" />
         </div>
       </div>
     </nav>
@@ -70,6 +66,10 @@
       updateTagChoice() {
         if (this.tags) this.tagChoice = this.$route.params.tag || this.source.recentTag || this.source.defaultTag;
       },
+
+      startSearch() {
+        this.$router.push({ name: 'docs-search', query: { q: '' } });
+      }
     },
 
     watch: {
