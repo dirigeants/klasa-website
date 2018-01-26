@@ -1,26 +1,27 @@
 <template>
-  <div class="class-prop class-item" :id="`doc-for-${scrollTo}`">
+  <section class="section" :id="`doc-for-${scrollTo}`">
     <source-button :meta="prop.meta" :docs="docs" />
 
-    <h3><router-link :to="{ name: 'docs-class', query: { scrollTo } }">.{{ prop.name }}</router-link></h3>
-    <span v-if="prop.scope === 'static'" class="badge" title="This property is on the class constructor function, not instances.">Static</span>
-    <span v-if="prop.readonly" class="badge" title="This property cannot be modified.">Read-only</span>
-    <span v-if="prop.deprecated" class="badge warn" title="This property is deprecated, and may be removed in a future version.">Deprecated</span>
-    <span v-if="prop.access === 'private'" class="badge warn" title="This property is private, and may change or be removed at any time.">Private</span>
+    <h5 class="title is-5">
+      <span class="tag is-primary" v-if="prop.scope === 'static'" title="This property is on the class constructor function, not instances.">Static</span>
+      <span class="tag is-success" v-if="prop.readonly" title="This property cannot be modified.">Read-only</span>
+      <span class="tag is-danger"  v-if="prop.deprecated" title="This property is deprecated, and may be removed in a future version.">Deprecated</span>
+      <span class="tag is-warning" v-if="prop.access === 'private'" title="This property is private, and may change or be removed at any time.">Private</span>
+      <router-link :to="{ name: 'docs-class', query: { scrollTo } }">.{{ prop.name }}</router-link>
+    </h5>
+    
+    <h6 class="subtitle is-6" v-html="description"></h6>
 
-    <div class="class-item-details">
-      <p v-html="description"></p>
-      <param-table :params="prop.props" :docs="docs" v-if="prop.props && prop.props.length > 0" />
-      <div class="prop-type">
-        Type:
-        <types v-for="type in prop.type" :names="type" :nullable="prop.nullable" :docs="docs" :key="type" />
-      </div>
-      <div v-if="prop.default" class="prop-default">
-        Default: <code>{{ prop.default }}</code>
-      </div>
-      <see v-if="prop.see" :see="prop.see" :docs="docs" />
+    <param-table :params="prop.props" :docs="docs" v-if="prop.props && prop.props.length" />
+
+    <strong>Type:</strong>
+    <types v-for="type in prop.type" :names="type" :nullable="prop.nullable" :docs="docs" :key="type" />
+
+    <div v-if="prop.default">
+      <strong>Default:</strong> <code>{{ prop.default }}</code>
     </div>
-  </div>
+    <see v-if="prop.see" :see="prop.see" :docs="docs" />
+  </section>
 </template>
 
 <script>

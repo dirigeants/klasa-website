@@ -1,8 +1,12 @@
 <template>
-  <div class="class-method class-item" :id="`doc-for-${scrollTo}`">
+  <section class="section" :id="`doc-for-${scrollTo}`">
     <source-button :meta="method.meta" :docs="docs" />
 
-    <h3>
+    <h5 class="title is-5">
+      <span class="tag is-primary" v-if="method.scope === 'static'" title="This method is on the class constructor function, not instances.">Static</span>
+      <span class="tag is-success" v-if="method.readonly" title="This method cannot be modified.">Read-only</span>
+      <span class="tag is-danger"  v-if="method.deprecated" title="This method is deprecated, and may be removed in a future version.">Deprecated</span>
+      <span class="tag is-warning" v-if="method.access === 'private'" title="This method is private, and may change or be removed at any time.">Private</span>
 			<router-link :to="{ name: 'docs-class', query: { scrollTo } }">
 				.{{ method.name }}(<!--
 				--><span v-for="param in params" class="method-param" :class="param.optional ? 'optional' : ''"><!--
@@ -10,49 +14,41 @@
         --></span><!--
 				-->)
 			</router-link>
-		</h3>
-    <span v-if="method.scope === 'static'" class="badge" title="This method is on the class constructor function, not instances.">Static</span>
-    <span v-if="method.abstract" class="badge" title="This method is abstract, and must be implemented in a child class.">Abstract</span>
-    <span v-if="method.deprecated" class="badge warn" title="This method is deprecated, and may be removed in a future version.">Deprecated</span>
-    <span v-if="method.access === 'private'" class="badge warn" title="This method is private, and may change or be removed at any time.">Private</span>
+		</h5>
 
-    <div class="class-item-details">
-      <p v-html="description"></p>
+    <h6 class="subtitle is-6" v-html="description"></h6>
 
-			<param-table v-if="method.params" :params="method.params" :docs="docs" />
+    <param-table v-if="method.params" :params="method.params" :docs="docs" />
 
-			<div class="method-return">
-        Returns:
-        <span v-if="method.returns">
-  				<types v-for="rtrn in method.returns.types || method.returns" :names="rtrn" :variable="method.returns.variable" :nullable="method.returns.nullable" :docs="docs" :key="rtrn" />
-        </span>
-        <type-link v-else :type="['void']" :docs="docs" class="docs-type" />
-        <p v-if="method.returns && method.returns.description">{{ method.returns.description }}</p>
-			</div>
+    <strong>Returns:</strong>
+    <span v-if="method.returns">
+      <types v-for="rtrn in method.returns.types || method.returns" :names="rtrn" :variable="method.returns.variable" :nullable="method.returns.nullable" :docs="docs" :key="rtrn" />
+    </span>
+    <type-link v-else :type="['void']" :docs="docs" class="docs-type" />
+    <p v-if="method.returns && method.returns.description">{{ method.returns.description }}</p>
 
-      <div v-if="method.throws" class="method-throws">
-        Throws:
-        <types v-for="thrw in method.throws" :names="thrw" :docs="docs" :key="thrw" />
-      </div>
-
-      <div v-if="emits" class="method-emits">
-        Emits:
-        <ul v-if="emits.length > 1">
-          <li v-for="event in emits">
-            <router-link :to="event.link" class="docs-type">{{ event.text }}</router-link>
-          </li>
-        </ul>
-        <router-link v-else :to="emits[0].link" class="docs-type">{{ emits[0].text }}</router-link>
-      </div>
-
-			<div v-if="method.examples" class="method-examples">
-				Examples:
-				<pre v-for="example in method.examples" v-highlightjs><code class="javascript">{{ example }}</code></pre>
-			</div>
-
-      <see v-if="method.see" :see="method.see" :docs="docs" />
+    <div v-if="method.throws" class="method-throws">
+      <strong>Throws:</strong>
+      <types v-for="thrw in method.throws" :names="thrw" :docs="docs" :key="thrw" />
     </div>
-  </div>
+
+    <div v-if="emits">
+      <strong>Emits:</strong>
+      <ul v-if="emits.length > 1">
+        <li v-for="event in emits">
+          <router-link :to="event.link" class="docs-type">{{ event.text }}</router-link>
+        </li>
+      </ul>
+      <router-link v-else :to="emits[0].link" class="docs-type">{{ emits[0].text }}</router-link>
+    </div>
+
+    <div v-if="method.examples">
+      <strong>Examples:</strong>
+      <pre v-for="example in method.examples" v-highlightjs><code class="javascript">{{ example }}</code></pre>
+    </div>
+
+    <see v-if="method.see" :see="method.see" :docs="docs" />
+  </section>
 </template>
 
 <script>
