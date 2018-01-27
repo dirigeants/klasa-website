@@ -21,7 +21,7 @@
             Typedefs
           </p>
           <ul class="menu-list">
-              <li v-for="typedef in docs.typedefs" v-if="showPrivate || typedef.access !== 'private'">
+              <li v-for="typedef in docs.typedefs" v-if="showPrivate || typedef.access !== 'private'" class="animated-list-item">
                 <router-link exact :to="{ name: 'docs-typedef', params: { typedef: typedef.name } }">
                   {{ typedef.name }}
                 </router-link>
@@ -36,7 +36,7 @@
               {{ category.name }}
             </p>
             <ul class="menu-list">
-              <li v-for="(file, fileID) in category.files" >
+              <li v-for="(file, fileID) in category.files"  class="animated-list-item">
                 <router-link :to="{ name: 'docs-file', params: { category: categoryID, file: fileID } }">
                   {{ file.name }}
                 </router-link>

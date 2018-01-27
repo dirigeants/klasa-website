@@ -1,40 +1,55 @@
 <template>
-  <div id="docs-search" class="docs-page">
-    <em id="show-scores" :class="`fa fa-bar-chart ${!showScores ? 'disabled' : ''}`" :title="showScores ? 'Hide scores' : 'Show scores'" @click="toggleScores"></em>
+  <section class="section">
+    <p class="title">
+      <span class="subtitle is-5" @click="toggleScores" :title="showScores ? 'Hide scores' : 'Show scores'"><b-icon icon="chart-bar" size="is-small" /></span> Search
+    </p>
+    <b-field>
+      <b-input v-model.trim="search" placeholder="Search..."
+          type="search"
+          icon="search">
+      </b-input>
+    </b-field>
 
-    <h1>Search</h1>
-    <input v-model.trim="search" type="search" />
-
-    <div id="toggles">
-      <label><input type="checkbox" v-model="toggles['classes']" /> Classes</label>
-      <label><input type="checkbox" v-model="toggles['props']" /> Properties</label>
-      <label><input type="checkbox" v-model="toggles['methods']" /> Methods</label>
-      <label><input type="checkbox" v-model="toggles['events']" /> Events</label>
-      <label><input type="checkbox" v-model="toggles['typedefs']" /> Typedefs</label>
-    </div>
+    <b-field>
+        <b-checkbox-button v-model="toggles" native-value="classes" :type="tagColor('Class')">
+          Classes
+        </b-checkbox-button>
+        <b-checkbox-button v-model="toggles" native-value="props" :type="tagColor('Property')">
+          Properties
+        </b-checkbox-button>
+        <b-checkbox-button v-model="toggles" native-value="methods" :type="tagColor('Method')">
+          Methods
+        </b-checkbox-button>
+        <b-checkbox-button v-model="toggles" native-value="events" :type="tagColor('Event')">
+          Events
+        </b-checkbox-button>
+        <b-checkbox-button v-model="toggles" native-value="typedefs" :type="tagColor('Typedef')">
+          Typedefs
+        </b-checkbox-button>
+    </b-field>
 
     <transition name="fade" mode="out-in">
       <div v-if="search && search.length > 2">
-        <h2 v-if="search && search.length > 2">Results for "{{ search }}"</h2>
+        <h2 class="subtitle" v-if="search && search.length > 2">Results for "{{ search }}"</h2>
 
         <transition name="fade" mode="out-in">
           <transition-group name="animated-list" tag="ul" v-if="results.length > 0" key="results">
             <li v-for="result in results" :key="`${result.key || result.name}`" class="animated-list-item">
               <span v-if="showScores" class="score">{{ Math.round(result.score * 100) }}%</span>
               <router-link :to="result.route">
-                <span class="badge" :title="result.badge">{{ result.badge[0] }}</span>
+                <span :class="`tag ${tagColor(result.badge)}`" :title="result.badge">{{ result.badge[0] }}</span>
                 {{ result.name }}{{ result.badge === 'Method' ? '()' : '' }}
               </router-link>
             </li>
           </transition-group>
 
-          <p v-else key="empty">No results.</p>
+          <h2 class="subtitle" v-else key="empty">No results.</h2>
         </transition>
       </div>
 
-      <p v-else key="short">Your search query must be at least three characters.</p>
+      <h2 class="subtitle" v-else key="short">Your search query must be at least three characters.</h2>
     </transition>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -48,7 +63,14 @@
     data() {
       return {
         search: this.$route.query.q,
-        toggles: { classes: true, props: true, methods: true, events: true, typedefs: true },
+        toggles: ['classes', 'props', 'methods', 'events', 'typedefs'],
+        colors: {
+          Class: 'is-info',
+          Property: 'is-success',
+          Method: 'is-warning',
+          Event: 'is-danger',
+          Typedef: 'is-primary',
+        },
         showScores: false,
       };
     },
@@ -62,7 +84,7 @@
           if (!this.showPrivate && clarse.access === 'private') continue;
 
           let cScore = 0;
-          if (this.toggles.classes) {
+          if (this.toggles.includes('classes')) {
             cScore = searchScore(q, clarse.name.toLowerCase(), null, 1) * 1.05;
             if (cScore >= scoreThreshold) {
               results.push({
@@ -75,7 +97,7 @@
           }
 
           for (const [group, groupName] of [['props', 'Property'], ['methods', 'Method'], ['events', 'Event']]) {
-            if (!clarse[group] || !this.toggles[group]) continue;
+            if (!clarse[group] || !this.toggles.includes(group)) continue;
             for (const item of clarse[group]) {
               if (!this.showPrivate && item.access === 'private') continue;
               const name = fullName(item, clarse, group);
@@ -92,7 +114,7 @@
           }
         }
 
-        if (this.toggles.typedefs) {
+        if (this.toggles.includes('typedefs')) {
           for (const typedef of this.docs.typedefs) {
             if (!this.showPrivate && typedef.access === 'private') continue;
             const tScore = searchScore(q, typedef.name.toLowerCase(), null, 1) * 1.05;
@@ -112,6 +134,10 @@
     },
 
     methods: {
+      tagColor(type) {
+        return this.colors[type];
+      },
+
       toggleScores() {
         this.showScores = !this.showScores;
       },
