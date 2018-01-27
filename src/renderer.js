@@ -14,21 +14,4 @@ renderer.code = (code, language) => {
   return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
 };
 
-renderer.table = (header, body) => `
-  <table class="table is-striped is-narrow">
-    <thead>
-      ${header}
-    </thead>
-    <tbody>
-      ${body}
-    </tbody>
-  </table>
-`;
-
-renderer.heading = (text, level, raw) => `
-  <h${level} class="title" id="${raw.toLowerCase().replace(/[^\w]+/g, '-')}">
-    ${text}
-  </h${level}>
-`;
-
 export default renderer;

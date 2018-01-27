@@ -1,7 +1,7 @@
 <template>
   <section class="section" v-if="file">
     <source-button :path="file.path" :docs="docs" />
-    <div v-html="html"></div>
+    <div class="content" v-html="html"></div>
   </section>
   <unknown-page v-else />
 </template>
