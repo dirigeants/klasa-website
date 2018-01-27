@@ -21,7 +21,7 @@ npm run build
 
 rsync -vau dist/ out/
 
-cd dist
+cd out
 git add --all .
 git config user.name "Travis CI"
 git config user.email "${COMMIT_EMAIL}"
