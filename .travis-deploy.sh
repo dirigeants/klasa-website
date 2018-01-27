@@ -25,6 +25,6 @@ cd out
 git add --all .
 git config user.name "Travis CI"
 git config user.email "${COMMIT_EMAIL}"
-git commit -m "Docs build: ${SHA}" || true
+git commit -m "Vue Build: ${SHA}" || true
 git push "https://${GH_TOKEN}@${GH_REF}" $TARGET_BRANCH
 
