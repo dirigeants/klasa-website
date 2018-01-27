@@ -32,7 +32,6 @@
 
   pre {
     padding: 0px;
-    background-color: #282c34;
   }
   .hljs {
     padding: 1em;
