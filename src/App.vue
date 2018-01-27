@@ -34,19 +34,10 @@
   @import "~buefy/src/scss/buefy";
 
   pre {
-    padding: 0px;
+    padding: 0px !important;
   }
   .hljs {
-    padding: 1em;
-  }
-
-  .content {
-    pre {
-      padding: 0px;
-    }
-    .hljs {
-      padding: 1em;
-    }
+    padding: 1em !important;
   }
 
   .fade-enter-active, .fade-leave-active {
