@@ -92,14 +92,18 @@
   };
 </script>
 
-<style>
+<style lang="scss">
   #scroll-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
-
+    border-radius: 9999px;
     transition: opacity 0.5s, background 0.3s;
     display: none;
     opacity: 0;
+
+    &:hover {
+      background: lighten(#2196F3, 18%);
+    }
   }
 </style>
