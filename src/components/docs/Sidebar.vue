@@ -4,13 +4,13 @@
         <b-tab-item label="Docs">
           <aside class="menu">
             <div class="is-pulled-right" @click="togglePrivate">
-              <b-icon :icon="showPrivate ? 'eye' : 'eye-slash'" :title="showPrivate ? 'Hide private' : 'Show private'" />
+              <b-icon :icon="showPrivate ? 'eye' : 'eye-slash'" :title="showPrivate ? 'Hide private' : 'Show private'" size="is-small" />
             </div>
             <p class="menu-label">
               Classes
             </p>
             <ul class="menu-list">
-              <li v-for="clarse in docs.classes" v-if="showPrivate || clarse.access !== 'private'" :key="clarse.name" class="animated-list-item">
+              <li v-for="clarse in docs.classes" v-if="showPrivate || clarse.access !== 'private'" class="animated-list-item">
                 <router-link exact :to="{ name: 'docs-class', params: { class: clarse.name } }">
                   {{ clarse.name }}
                 </router-link>
@@ -20,7 +20,7 @@
               Typedefs
             </p>
             <ul class="menu-list">
-                <li v-for="typedef in docs.typedefs" :key="typedef" v-if="showPrivate || typedef.access !== 'private'">
+                <li v-for="typedef in docs.typedefs" v-if="showPrivate || typedef.access !== 'private'">
                   <router-link exact :to="{ name: 'docs-typedef', params: { typedef: typedef.name } }">
                     {{ typedef.name }}
                   </router-link>
@@ -30,12 +30,12 @@
         </b-tab-item>
         <b-tab-item label="Guide">
           <aside class="menu">
-            <div v-for="(category, categoryID) in docs.custom" :key="(category, categoryID)" v-if="category.name !== 'General'">
+            <div v-for="(category, categoryID) in docs.custom" v-if="category.name !== 'General'">
               <p class="menu-label">
                 {{ category.name }}
               </p>
               <ul class="menu-list">
-                <li v-for="(file, fileID) in category.files" :key="(file, fileID)">
+                <li v-for="(file, fileID) in category.files" >
                   <router-link :to="{ name: 'docs-file', params: { category: categoryID, file: fileID } }">
                     {{ file.name }}
                   </router-link>

@@ -15,7 +15,7 @@
 
         <b-table-column v-if="hasOptional" label="Default">
           <em v-if="props.row.optional && typeof props.row.default === 'undefined'">none</em>
-          <span v-else v-html="paramDefault(param)"></span>
+          <span v-else v-html="paramDefault(props.row)"></span>
         </b-table-column>
     </template>
     <template slot="detail" slot-scope="props">

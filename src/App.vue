@@ -23,6 +23,9 @@
 </script>
 
 <style lang="scss">
+
+  $light: #d3d3d3;
+
   // Import Bulma's core
   @import "~bulma/sass/utilities/_all";
 
