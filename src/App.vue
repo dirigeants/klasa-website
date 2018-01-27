@@ -40,6 +40,15 @@
     padding: 1em;
   }
 
+  .content {
+    pre {
+      padding: 0px;
+    }
+    .hljs {
+      padding: 1em;
+    }
+  }
+
   .fade-enter-active, .fade-leave-active {
     transition: opacity 0.3s;
   }
