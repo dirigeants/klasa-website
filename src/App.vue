@@ -39,4 +39,44 @@
   .hljs {
     padding: 1em;
   }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.3s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
+  .fade-resize-enter-active, .fade-resize-leave-active {
+    transition: opacity 0.3s, transform 0.3s;
+    transform-origin: top;
+  }
+  .fade-resize-enter, .fade-resize-leave-to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  .fade-slide-enter-active, .fade-slide-leave-active {
+    transition: opacity 0.15s, transform 0.15s;
+  }
+  .fade-slide-enter, .fade-slide-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  .animated-list-item {
+    transition: all 0.3s;
+  }
+  .animated-list-enter, .animated-list-leave-to {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  .animated-list-leave-active {
+    position: absolute;
+
+    .tag {
+      display: none;
+    }
+  }
+
 </style>

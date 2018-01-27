@@ -1,10 +1,11 @@
 <template>
     <div class="columns">
-      <div class="column is-one-fifth is-hidden-mobile">
+      <div :class="`column is-one-fifth ${visible ? '' : 'is-hidden-mobile'}`" >
         <sidebar :docs="docs" @showPrivate="setShowPrivate" />
       </div>
       <div class="column">
-        <transition name="fade-slide" mode="out-in">
+        <div @click="toggle" :class="`button is-white ${visible ? 'is-hidden-mobile' : 'is-hidden-tablet'}`"><b-icon icon="bars" /></div>
+        <transition name="fade-slide" mode="out-in" appear>
           <router-view :docs="docs" :key="key" :showPrivate="showPrivate" />
         </transition>
         <section class="section">
@@ -32,6 +33,7 @@
 
     data() {
       return {
+        visible: false,
         showPrivate: false,
       };
     },
@@ -46,6 +48,9 @@
     },
 
     methods: {
+      toggle() {
+        this.visible = !this.visible;
+      },
       setShowPrivate(show) {
         this.showPrivate = show;
       },

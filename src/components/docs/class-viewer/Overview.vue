@@ -39,7 +39,7 @@
         <aside class="menu">
           <p class="menu-label">Events</p>
           <ul class="menu-list">
-            <li v-for="event in events" :key="scopedName(event)" @click="scroll(event.name)">
+            <li v-for="event in events" :key="scopedName(event)" @click="scroll(event.name)" class="animated-list-item">
               <router-link :to="{ name: 'docs-class', query: { scrollTo: event.name } }">
                 {{ event.name }}
                 <span class="tag is-danger is-pulled-right" v-if="event.deprecated">D</span>
@@ -66,7 +66,7 @@
         const el = document.getElementById(`doc-for-${to}`);
         el.setAttribute('data-scrolled', true);
         setTimeout(() => el.setAttribute('data-scrolled', false), 1000);
-        el.scrollIntoView(true);
+        el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
         window.scrollBy(0, -50);
       },
     },
