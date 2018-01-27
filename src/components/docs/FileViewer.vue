@@ -1,9 +1,9 @@
 <template>
-  <div v-if="file" id="file-viewer" class="docs-page">
+  <section class="section" v-if="file">
     <source-button :path="file.path" :docs="docs" />
     <div v-html="html"></div>
-  </div>
-  <unknown-page v-else class="docs-page" />
+  </section>
+  <unknown-page v-else />
 </template>
 
 <script>
