@@ -1,23 +1,26 @@
 <template>
-  <div v-if="typedef" id="typedef-viewer" class="docs-page">
-    <source-button :meta="typedef.meta" :docs="docs" />
+  <section class="section" v-if="typedef">
+      <source-button :meta="typedef.meta" :docs="docs" />
+      
+      <div v-if="typedef.deprecated" class="tag is-danger is-pulled-right" title="This typedef is deprecated, and may be removed in a future version.">Deprecated</div>
+      <p class="title">{{ typedef.name }}</p>
+      
+      <p class="subtitle" v-html="description" v-if="typedef.description"></p>
+      <see v-if="typedef.see" :see="typedef.see" :docs="docs" />
 
-    <h1>{{ typedef.name }}</h1>
-    <span v-if="typedef.deprecated" class="badge warn" title="This typedef is deprecated, and may be removed in a future version.">Deprecated</span>
-    <p class="typedef-desc" v-html="description" v-if="typedef.description"></p>
-    <see v-if="typedef.see" :see="typedef.see" :docs="docs" />
+      <strong>Types:</strong>
+      <ul>
+        <li v-for="type in typedef.type" :key="type"><types :names="type" :docs="docs" /></li>
+      </ul>
 
-    <h2>Types</h2>
-    <ul id="typedef-types">
-      <li v-for="type in typedef.type" :key="type"><types :names="type" :docs="docs" /></li>
-    </ul>
+      <br />
 
-    <div id="typedef-params" v-if="typedef.props && typedef.props.length > 0">
-      <h2>Properties</h2>
-      <param-table :params="typedef.props" :docs="docs" />
-    </div>
-  </div>
-  <unknown-page v-else class="docs-page" />
+      <div v-if="typedef.props && typedef.props.length">
+        <strong>Properties:</strong>
+        <param-table :params="typedef.props" :docs="docs" />
+      </div>
+  </section>
+  <unknown-page v-else />
 </template>
 
 <script>
