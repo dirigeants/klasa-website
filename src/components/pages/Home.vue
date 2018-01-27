@@ -5,9 +5,9 @@
     <div class="container">
       <div class="has-text-centered">
         <p> Install klasa </p>
-        <pre><code class="bash hljs">npm install klasa</code></pre>
+        <pre v-highlightjs><code class="bash">npm install klasa</code></pre>
         <p> Klasa master </p>
-        <pre><code class="bash hljs">npm install dirigeants/klasa</code></pre>
+        <pre v-highlightjs><code class="bash">npm install dirigeants/klasa</code></pre>
       </div>
       <br>
       <br>
