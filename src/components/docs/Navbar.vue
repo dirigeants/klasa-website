@@ -30,7 +30,7 @@
             <b-input v-model="search" placeholder="Search" type="search" icon="search"></b-input>
           </b-field>
         </div>
-        <div @click="startSearch" class="level-item is-hidden-desktop">
+        <div @click="startSearch" class="level-item is-hidden-tablet">
           <b-icon icon="search" />
         </div>
       </div>

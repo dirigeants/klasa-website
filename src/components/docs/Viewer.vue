@@ -15,7 +15,7 @@
             </p>
           </div>
         </section>
-        <button id="scroll-top" class="button is-info" title="Scroll to top" @click="scrollTop"><b-icon icon="arrow-up" /></button>
+        <button id="scroll-top" class="button is-info is-rounded" title="Scroll to top" @click="scrollTop"><b-icon icon="arrow-up" /></button>
       </div>
     </div>  
 </template>
@@ -97,7 +97,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    border-radius: 9999px;
+
     transition: opacity 0.5s, background 0.3s;
     display: none;
     opacity: 0;

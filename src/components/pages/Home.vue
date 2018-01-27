@@ -7,7 +7,7 @@
         <p> Install klasa </p>
         <pre><code class="bash hljs">npm install klasa</code></pre>
         <p> Klasa master </p>
-        <pre><code class="bash hljs">npm install klasa</code></pre>
+        <pre><code class="bash hljs">npm install dirigeants/klasa</code></pre>
       </div>
       <br>
       <br>
