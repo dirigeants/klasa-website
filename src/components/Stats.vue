@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import request from 'snekfetch';
+  import request from 'superagent';
 
   const data = {
     downloads: '1,000+',
