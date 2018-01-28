@@ -1,4 +1,4 @@
-import request from 'snekfetch';
+import request from 'superagent';
 
 export default class DocsSource {
   constructor(options) {
