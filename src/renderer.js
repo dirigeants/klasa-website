@@ -14,4 +14,17 @@ renderer.code = (code, language) => {
   return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
 };
 
+renderer.table = (header, body) => `
+  <div style="overflow-x:auto;">
+    <table>
+      <thead>
+        ${header}
+      </thead>
+      <tbody>
+        ${body}
+      </tbody>
+    </table>
+  </div>
+`;
+
 export default renderer;

@@ -14,6 +14,7 @@
     computed: {
       typeName() {
         if (this.type[0] === 'function') return 'Function';
+        if (this.type[0].startsWith('external:')) return this.type[0].slice(9);
         return this.type[0];
       },
       link() {
