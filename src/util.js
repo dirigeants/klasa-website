@@ -16,11 +16,12 @@ export function parseLink(link, docs) {
   if (docs.links[split[0]]) {
     return {
       text: text || link,
-      link: {
-        name: docs.links[split[0]].name,
-        params: docs.links[split[0]].params,
-        query: { scrollTo: split[1] ? `${split[1] === '.' ? 's-' : ''}${split[2]}` : undefined },
-      },
+      link: typeof docs.links[split[0]] === 'object' ?
+        {
+          name: docs.links[split[0]].name,
+          params: docs.links[split[0]].params,
+          query: { scrollTo: split[1] ? `${split[1] === '.' ? 's-' : ''}${split[2]}` : undefined },
+        } : docs.links[split[0]],
     };
   }
 
