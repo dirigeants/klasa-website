@@ -51,6 +51,7 @@
 
           // Built-in type links
           docs.links = {
+            this: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this',
             string: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String',
             number: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number',
             boolean: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean',

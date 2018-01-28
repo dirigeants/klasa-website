@@ -5,13 +5,22 @@
     <overview :properties="properties" :methods="methods" :events="clarse.events" />
 
     <h5 class="title is-4" v-if="properties && properties.length">Properties</h5>
-    <property v-for="prop in properties" :prop="prop" :docs="docs" :key="prop" />
+    <div v-for="prop in properties" :key="prop">
+      <property :prop="prop" :docs="docs" />
+      <br />
+    </div>
 
     <h5 class="title is-4" v-if="methods && methods.length">Methods</h5>
-    <method v-for="method in methods" :method="method" :docs="docs" :key="method" />
+    <div v-for="method in methods" :key="method">
+      <method :method="method" :docs="docs" />
+      <br />
+    </div>
 
     <h5 class="title is-4" v-if="clarse.events && clarse.events.length">Events</h5>
-    <event v-for="event in clarse.events" :event="event" :docs="docs" :key="event" />
+    <div v-for="event in clarse.events" :key="event">
+      <event :event="event" :docs="docs" />
+      <br />
+    </div>
   </div>
   <unknown-page v-else class="docs-page" />
 </template>

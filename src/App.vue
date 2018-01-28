@@ -33,6 +33,10 @@
   @import "~bulma";
   @import "~buefy/src/scss/buefy";
 
+  .card-footer-item {
+    justify-content: left;
+  }
+
   pre {
     padding: 0px !important;
   }
