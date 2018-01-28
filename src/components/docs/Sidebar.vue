@@ -57,6 +57,7 @@
     data() {
       return {
         showPrivate: false,
+        activeTab: this.$route.params.file ? 1 : 0,
         active: this.$route.params.class || this.$route.params.typedef || this.$route.params.file,
       };
     },
@@ -81,6 +82,7 @@
           window.scrollTo(0, 90);
         }
         this.active = this.$route.params.class || this.$route.params.typedef || this.$route.params.file;
+        this.activeTab = this.$route.params.file ? 1 : 0;
       },
     },
   };
