@@ -7,7 +7,7 @@ export function sourceURL(url, tag, path, file, line) {
 
 // Converts a JSDoc link value to an object of link information
 export function parseLink(link, docs) {
-  const matches = link.match(/\{@link\s+(.+?)(?:\s+(.+?))?\s*\}/i);
+  const matches = link.match(/\{@(?:link|tutorial)\s+(.+?)(?:\s+(.+?))?\s*\}/i);
   if (matches) link = matches[1];
   let text = matches ? matches[2] : null;
 
@@ -40,7 +40,7 @@ export function parseLink(link, docs) {
 export function convertLinks(text, docs, router, route) {
   if (!text) return null;
 
-  const regex = /\{@link\s+(.+?)(?:\s+(.+?))?\s*\}/gi;
+  const regex = /\{@(?:link|tutorial)\s+(.+?)(?:\s+(.+?))?\s*\}/gi;
   let match;
   let newText = '';
   let start = 0;
@@ -55,6 +55,10 @@ export function convertLinks(text, docs, router, route) {
         if (!parsed.link.params) parsed.link.params = {};
         parsed.link.params.source = route.params.source;
         parsed.link.params.tag = route.params.tag;
+        if (parsed.link.name === 'docs-file') {
+          const { category, file } = parsed.link.params;
+          parsed.text = docs.custom[category].files[file].name;
+        }
         link = router.resolve(parsed.link).href;
       } else {
         link = parsed.link;

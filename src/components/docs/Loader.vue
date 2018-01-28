@@ -83,6 +83,10 @@
           }
           for (const c of docs.classes) docs.links[c.name] = { name: 'docs-class', params: { class: c.name } };
           for (const t of docs.typedefs) docs.links[t.name] = { name: 'docs-typedef', params: { typedef: t.name } };
+          for (const cid in docs.custom) {
+          // eslint-disable-next-line
+            for (const fid in docs.custom[cid].files) docs.links[fid] = { name: 'docs-file', params: { category: cid, file: fid } };
+          }
 
           docs.global = this.source.global;
           docs.source = this.source.source;
