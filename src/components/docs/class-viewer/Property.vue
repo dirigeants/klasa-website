@@ -17,7 +17,11 @@
     <footer class="card-footer">
       <p class="card-footer-item">
         <span>
-          <strong>Type:</strong> <types v-for="type in prop.type" :names="type" :nullable="prop.nullable" :docs="docs" :key="type" />
+          <strong>Type:</strong>
+          <span v-for="(type, index) of prop.type" :key="type">
+            <types :names="type" :nullable="prop.nullable" :docs="docs" />
+            <span v-if="index < prop.type.length - 1"> | </span>
+          </span>
         </span>
       </p>
       <p v-if="prop.default" class="card-footer-item">

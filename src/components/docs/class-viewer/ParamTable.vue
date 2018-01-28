@@ -6,7 +6,10 @@
         </b-table-column>
 
         <b-table-column label="Type">
-          <types v-for="type in props.row.type" :names="type" :variable="props.row.variable" :nullable="props.row.nullable" :docs="docs" :key="type" />
+          <span v-for="(type, index) of props.row.type" :key="type">
+            <types :names="type" :variable="props.row.variable" :nullable="props.row.nullable" :docs="docs" />
+            <span v-if="index < props.row.type.length - 1"> | </span>
+          </span>
         </b-table-column>
 
         <b-table-column v-if="hasOptional" label="Optional">

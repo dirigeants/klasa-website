@@ -40,14 +40,21 @@
         <span>
           <strong>Returns:</strong>
           <span v-if="method.returns">
-            <types v-for="rtrn in method.returns.types || method.returns" :names="rtrn" :variable="method.returns.variable" :nullable="method.returns.nullable" :docs="docs" :key="rtrn" />
+            <span v-for="(rtrn, index) of method.returns.types || method.returns" :key="rtrn">
+              <types :names="rtrn" :variable="method.returns.variable" :nullable="method.returns.nullable" :docs="docs" />
+              <span v-if="index < (method.returns.types || method.returns).length - 1"> | </span>
+            </span>
           </span>
           <type-link v-else :type="['void']" :docs="docs" />
         </span>
       </p>
       <p v-if="method.throws" class="card-footer-item">
         <span>
-          <strong>Throws:</strong> <types v-for="thrw in method.throws" :names="thrw" :docs="docs" :key="thrw" />
+          <strong>Throws:</strong>
+          <span v-for="(thrw, index) of method.throws" :key="thrw">
+            <types :names="thrw" :docs="docs" />
+            <span v-if="index < method.throws.length - 1"> | </span>
+          </span>
         </span>
       </p>
       <p v-if="method.see" class="card-footer-item">
