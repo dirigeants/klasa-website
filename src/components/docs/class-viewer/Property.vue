@@ -2,10 +2,10 @@
   <div class="card" :id="`doc-for-${scrollTo}`">
     <header class="card-header">
       <p class="card-header-title">
-        <span class="tag is-primary" v-if="prop.scope === 'static'" title="This property is on the class constructor function, not instances.">Static</span>
-        <span class="tag is-success" v-if="prop.readonly" title="This property cannot be modified.">Read-only</span>
-        <span class="tag is-danger"  v-if="prop.deprecated" title="This property is deprecated, and may be removed in a future version.">Deprecated</span>
-        <span class="tag is-warning" v-if="prop.access === 'private'" title="This property is private, and may change or be removed at any time.">Private</span>
+        <span v-if="prop.scope === 'static'"><span class="tag is-primary" title="This property is on the class constructor function, not instances.">Static</span>&nbsp;</span>
+        <span v-if="prop.readonly"><span class="tag is-success" title="This property cannot be modified.">Read-only</span>&nbsp;</span>
+        <span v-if="prop.deprecated"><span class="tag is-danger"  title="This property is deprecated, and may be removed in a future version.">Deprecated</span>&nbsp;</span>
+        <span v-if="prop.access === 'private'"><span class="tag is-warning" title="This property is private, and may change or be removed at any time.">Private</span>&nbsp;</span>
         <router-link :to="{ name: 'docs-class', query: { scrollTo } }">.{{ prop.name }}</router-link>
       </p>
       <source-button class="card-header-icon" :meta="prop.meta" :docs="docs" />

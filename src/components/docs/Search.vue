@@ -10,22 +10,22 @@
       </b-input>
     </b-field>
 
-    <b-field>
-        <b-checkbox-button v-model="toggles" native-value="classes" :type="tagColor('Class')">
-          Classes
-        </b-checkbox-button>
-        <b-checkbox-button v-model="toggles" native-value="props" :type="tagColor('Property')">
-          Properties
-        </b-checkbox-button>
-        <b-checkbox-button v-model="toggles" native-value="methods" :type="tagColor('Method')">
-          Methods
-        </b-checkbox-button>
-        <b-checkbox-button v-model="toggles" native-value="events" :type="tagColor('Event')">
-          Events
-        </b-checkbox-button>
-        <b-checkbox-button v-model="toggles" native-value="typedefs" :type="tagColor('Typedef')">
-          Typedefs
-        </b-checkbox-button>
+    <b-field grouped group-multiline>
+      <b-checkbox-button v-model="toggles" native-value="classes" :type="tagColor('Class')">
+        Classes
+      </b-checkbox-button>
+      <b-checkbox-button v-model="toggles" native-value="props" :type="tagColor('Property')">
+        Properties
+      </b-checkbox-button>
+      <b-checkbox-button v-model="toggles" native-value="methods" :type="tagColor('Method')">
+        Methods
+      </b-checkbox-button>
+      <b-checkbox-button v-model="toggles" native-value="events" :type="tagColor('Event')">
+        Events
+      </b-checkbox-button>
+      <b-checkbox-button v-model="toggles" native-value="typedefs" :type="tagColor('Typedef')">
+        Typedefs
+      </b-checkbox-button>
     </b-field>
 
     <transition name="fade" mode="out-in">

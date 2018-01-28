@@ -2,7 +2,7 @@
   <div class="card" :id="`doc-for-${event.name}`">
     <header class="card-header">
       <p class="card-header-title">
-        <span class="tag is-danger" v-if="event.deprecated" title="This event is deprecated, and may be removed in a future version.">Deprecated</span>
+        <span v-if="event.deprecated" ><span class="tag is-danger" title="This event is deprecated, and may be removed in a future version.">Deprecated</span>&nbsp;</span>
         <router-link :to="{ name: 'docs-class', query: { scrollTo: event.name } }">{{ event.name }}</router-link>
       </p>
       <source-button class="card-header-icon" :meta="event.meta" :docs="docs" />
