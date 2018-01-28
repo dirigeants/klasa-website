@@ -12,7 +12,7 @@
           </p>
           <ul class="menu-list">
             <li v-for="clarse in docs.classes" v-if="showPrivate || clarse.access !== 'private'" class="animated-list-item">
-              <router-link exact :to="{ name: 'docs-class', params: { class: clarse.name } }">
+              <router-link exact :to="{ name: 'docs-class', params: { class: clarse.name } }" :class="`${active === clarse.name ? 'is-active' : ''}`">
                 {{ clarse.name }}
               </router-link>
             </li>
@@ -22,7 +22,7 @@
           </p>
           <ul class="menu-list">
               <li v-for="typedef in docs.typedefs" v-if="showPrivate || typedef.access !== 'private'" class="animated-list-item">
-                <router-link exact :to="{ name: 'docs-typedef', params: { typedef: typedef.name } }">
+                <router-link exact :to="{ name: 'docs-typedef', params: { typedef: typedef.name } }" :class="`${active === typedef.name ? 'is-active' : ''}`">
                   {{ typedef.name }}
                 </router-link>
               </li>
@@ -37,7 +37,7 @@
             </p>
             <ul class="menu-list">
               <li v-for="(file, fileID) in category.files"  class="animated-list-item">
-                <router-link :to="{ name: 'docs-file', params: { category: categoryID, file: fileID } }">
+                <router-link :to="{ name: 'docs-file', params: { category: categoryID, file: fileID } }" :class="`${active === fileID ? 'is-active' : ''}`">
                   {{ file.name }}
                 </router-link>
               </li>
@@ -57,6 +57,7 @@
     data() {
       return {
         showPrivate: false,
+        active: this.$route.params.class || this.$route.params.typedef || this.$route.params.file,
       };
     },
 
@@ -79,6 +80,7 @@
         if (!to.query.scrollTo && (window.pageYOffset || document.documentElement.scrollTop) > 300) {
           window.scrollTo(0, 90);
         }
+        this.active = this.$route.params.class || this.$route.params.typedef || this.$route.params.file;
       },
     },
   };
