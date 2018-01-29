@@ -27,8 +27,8 @@
               <router-link :to="{ name: 'docs-class', query: { scrollTo: scopedName(method) } }">
                 {{ method.name }}
                 <span v-if="method.scope === 'static'"><span class="tag is-primary is-pulled-right">S</span>&nbsp;</span>
-                <span v-if="method.abstract"><span class="tag is-info is-pulled-right">A</span>>&nbsp;</span>
-                <span v-if="method.deprecated"><span class="tag is-danger is-pulled-right">D</span>>&nbsp;</span>
+                <span v-if="method.abstract"><span class="tag is-info is-pulled-right">A</span>&nbsp;</span>
+                <span v-if="method.deprecated"><span class="tag is-danger is-pulled-right">D</span>&nbsp;</span>
                 <span v-if="method.access === 'private'"><span class="tag is-warning is-pulled-right">P</span>&nbsp;</span>
               </router-link>
             </li>
@@ -43,7 +43,7 @@
             <li v-for="event in events" :key="scopedName(event)" @click="scroll(event.name)" class="animated-list-item">
               <router-link :to="{ name: 'docs-class', query: { scrollTo: event.name } }">
                 {{ event.name }}
-                <span v-if="event.deprecated"><span class="tag is-danger is-pulled-right">D</span>>&nbsp;</span>
+                <span v-if="event.deprecated"><span class="tag is-danger is-pulled-right">D</span>&nbsp;</span>
               </router-link>
             </li>
           </ul>
