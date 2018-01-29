@@ -2,13 +2,13 @@
   <div>
     <transition name="fade-resize" mode="out-in">
       <router-view v-if="docs" :docs="docs" />
-      <slide v-else>
-        <loading v-if="!error" />
+      <div class="content" v-else>
+        <b-loading v-if="!error" :active.sync="active"></b-loading>
         <p v-else>
           Couldn't load the documentation data.
           <pre>{{ error.toString() }}</pre>
         </p>
-      </slide>
+      </div>
     </transition>
   </div>
 </template>
@@ -22,8 +22,14 @@
       return {
         docs: null,
         error: null,
-        loadingTag: null,
+        loadingTag: null
       };
+    },
+
+    computed: {
+      active() {
+        return Boolean(this.loadingTag);
+      }
     },
 
     methods: {

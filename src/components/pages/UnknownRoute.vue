@@ -1,7 +1,7 @@
 <template>
-  <slide id="unknown-route">
+  <div class="container">
     <unknown-page type="route" />
-  </slide>
+  </div>
 </template>
 
 <script>

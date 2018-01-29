@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <div class="container">
       <app-navbar />
       <router-view />
       <app-footer />
-    </div>
   </div>
 </template>
 
@@ -50,6 +48,7 @@
     padding: 0px !important;
   }
   .hljs {
+    border-radius: $radius-large;
     padding: 1em !important;
   }
 

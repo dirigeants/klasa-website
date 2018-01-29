@@ -25,7 +25,7 @@
     </div>
 
   </div>
-  <unknown-page v-else class="docs-page" />
+  <unknown-page v-else />
 </template>
 
 <script>

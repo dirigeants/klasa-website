@@ -10,14 +10,10 @@ import App from './App';
 import router from './router';
 import renderer from './renderer.js';
 
-import SlideComponent from './components/Slide.vue';
-import LoadingComponent from './components/Loading.vue';
 import UnknownPageComponent from './components/UnknownPage.vue';
 Vue.config.productionTip = false;
 
 // Register all global components
-Vue.component('slide', SlideComponent);
-Vue.component('loading', LoadingComponent);
 Vue.component('unknown-page', UnknownPageComponent);
 
 // Tell Vue.js to use vue-highlightjs

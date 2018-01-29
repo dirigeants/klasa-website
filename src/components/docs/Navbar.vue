@@ -1,40 +1,41 @@
 <template>
-  <div class="notification is-radiusless is-light is-marginless">
-    <nav class="level is-mobile">
-      <!-- Left side -->
-      <div class="level-left">
-        <p class="level-item is-hidden-mobile">
-          <strong>Viewing:</strong>
-        </p>
-        <div class="level-item">
+  <div class="notification is-radiusless is-light">
+    <div class="container">
+      <nav class="level is-mobile">
+        <!-- Left side -->
+        <div class="level-left">
+          <p class="level-item is-hidden-mobile">
+            <strong>Viewing:</strong>
+          </p>
+          <div class="level-item">
             <b-field type="is-light">
-                <b-select v-model="sourceChoice" :placeholder="sourceChoice">
-                    <option v-for="source in sources" :key="source" :value="source.id">{{ source.name }}</option>
-                </b-select>
+              <b-select v-model="sourceChoice" :placeholder="sourceChoice">
+                <option v-for="source in sources" :key="source" :value="source.id">{{ source.name }}</option>
+              </b-select>
             </b-field>
-        </div>
-        <div class="level-item">
+          </div>
+          <div class="level-item">
             <b-field type="is-light">
-                <b-select v-if="tags" v-model="tagChoice" :placeholder="tagChoice">
-                    <option v-for="tag in tags" :key="tag" :value="tag">{{ tag }}</option>
-                </b-select>
-                <loading v-else />
+              <b-select v-model="tagChoice" :placeholder="tagChoice" :loading="!tags">
+                <option v-for="tag in tags" :key="tag" :value="tag">{{ tag }}</option>
+              </b-select>
             </b-field>
+          </div>
         </div>
-      </div>
 
-      <!-- Right side -->
-      <div class="level-right">
-        <div class="level-item is-hidden-mobile">
-          <b-field type="is-light">
-            <b-input v-model="search" placeholder="Search" type="search" icon="search"></b-input>
-          </b-field>
+        <!-- Right side -->
+        <div class="level-right">
+          <div class="level-item is-hidden-mobile">
+            <b-field type="is-light">
+              <b-input v-model="search" placeholder="Search" type="search" icon="search"></b-input>
+            </b-field>
+          </div>
+          <div @click="startSearch" class="level-item is-hidden-tablet">
+            <b-icon icon="search" />
+          </div>
         </div>
-        <div @click="startSearch" class="level-item is-hidden-tablet">
-          <b-icon icon="search" />
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </div>
 </template>
 
