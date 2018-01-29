@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div class="site">
       <app-navbar />
-      <router-view />
+      <router-view class="site-content" />
       <app-footer />
   </div>
 </template>
@@ -33,6 +33,16 @@
   // Import Bulma and Buefy styles
   @import "~bulma";
   @import "~buefy/src/scss/buefy";
+
+  .site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  .site-content {
+    flex: 1;
+  }
 
   .level-left {
     .has-text-left {
