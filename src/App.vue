@@ -39,7 +39,6 @@
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
-    display: -webkit-flex;
   }
 
   .site {
