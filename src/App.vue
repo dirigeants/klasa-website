@@ -35,6 +35,7 @@
   @import "~buefy/src/scss/buefy";
 
   .site {
+    display: -webkit-box;
     min-height: 100vh;
     flex-direction: column;
   }
