@@ -21,10 +21,13 @@
       </nav>
       <source-button class="card-header-icon" :meta="clarse.meta" :docs="docs" />
     </header>
-    <div class="card-content" v-if="clarse.construct && (showPrivate || clarse.construct.access !== 'private')">
-      <strong>Constructor:</strong>
-      <pre v-highlightjs><code class="js">new {{ docs.global }}.{{ clarse.name }}({{ constructorParams }});</code></pre>
-      <param-table :params="clarse.construct.params" :docs="docs" />
+    <div class="card-content" v-if="description || (clarse.construct && (showPrivate || clarse.construct.access !== 'private'))">
+      <p class="subtitle" v-html="description" v-if="clarse.description"></p>
+      <div v-if="clarse.construct && (showPrivate || clarse.construct.access !== 'private')">
+        <strong>Constructor:</strong>
+        <pre v-highlightjs><code class="js">new {{ docs.global }}.{{ clarse.name }}({{ constructorParams }});</code></pre>
+        <param-table :params="clarse.construct.params" :docs="docs" />
+      </div>
     </div>
     <footer class="card-footer">
       <p v-if="clarse.see" class="card-footer-item">
