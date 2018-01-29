@@ -26,6 +26,7 @@
 
   $light: #d3d3d3;
   $menu-item-hover-background-color: #d3d3d3;
+  $menu-item-active-background-color: hsl(204, 86%, 53%);
 
   // Import Bulma's core
   @import "~bulma/sass/utilities/_all";
