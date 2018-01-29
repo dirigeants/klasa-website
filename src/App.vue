@@ -34,8 +34,16 @@
   @import "~bulma";
   @import "~buefy/src/scss/buefy";
 
-  .site {
+  // Flexbox display
+  @mixin flexbox() {
     display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+  }
+
+  .site {
+    @include flexbox;
     min-height: 100vh;
     flex-direction: column;
   }
