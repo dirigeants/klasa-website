@@ -1,10 +1,16 @@
 <template>
   <div class="card" :id="`doc-for-${event.name}`">
     <header class="card-header">
-      <p class="card-header-title">
-        <span v-if="event.deprecated" ><span class="tag is-danger" title="This event is deprecated, and may be removed in a future version.">Deprecated</span>&nbsp;</span>
-        <router-link :to="{ name: 'docs-class', query: { scrollTo: event.name } }">{{ event.name }}</router-link>
-      </p>
+      <nav class="card-header-title level is-marginless">
+        <div class="level-left">
+          <div class="level-item has-text-left">
+            <span v-if="event.deprecated" ><span class="tag is-danger" title="This event is deprecated, and may be removed in a future version.">Deprecated</span>&nbsp;</span>
+          </div>
+          <span class="level-item has-text-left is-marginless">
+            <router-link :to="{ name: 'docs-class', query: { scrollTo: event.name } }">{{ event.name }}</router-link>
+          </span>
+        </div>
+      </nav>
       <source-button class="card-header-icon" :meta="event.meta" :docs="docs" />
     </header>
     <div class="card-content">
