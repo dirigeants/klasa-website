@@ -1,8 +1,8 @@
 <template>
-  <div class="notification is-radiusless is-light">
+  <div class="notification is-light is-radiusless is-paddingless">
     <div class="container">
-      <nav class="level is-mobile">
-        <!-- Left side -->
+      <nav class="level is-mobile docs-nav">
+        
         <div class="level-left">
           <p class="level-item is-hidden-mobile">
             <strong>Viewing:</strong>
@@ -23,7 +23,6 @@
           </div>
         </div>
 
-        <!-- Right side -->
         <div class="level-right">
           <div class="level-item is-hidden-mobile">
             <b-field type="is-light">

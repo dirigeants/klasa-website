@@ -1,5 +1,5 @@
 <template>
-  <div id="docs">
+  <div>
     <docs-navbar :sources="sources" :source="source" />
     <router-view :source="source" :tag="tag" />
   </div>

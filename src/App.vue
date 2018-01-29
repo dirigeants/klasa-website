@@ -55,6 +55,10 @@
     padding: 1.5rem 1.5rem 1.5rem;
   }
 
+  .docs-nav {
+    padding: 1rem;
+  }
+
   .level-left {
     .has-text-left {
       justify-content: left;
