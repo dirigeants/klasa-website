@@ -1,5 +1,5 @@
 <template>
-  <span class="docs-type-link">
+  <span>
     <span v-if="!link" :title="type[0] === '*' ? 'Any type' : null">{{ typeName }}</span><!--
   --><router-link :to="link" v-else-if="typeof link === 'object'">{{ typeName }}</router-link><!--
   --><a :href="link" v-else>{{ typeName }}</a><!--
