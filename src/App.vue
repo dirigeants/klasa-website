@@ -25,6 +25,7 @@
 <style lang="scss">
 
   $light: #d3d3d3;
+  $menu-item-hover-background-color: #d3d3d3;
 
   // Import Bulma's core
   @import "~bulma/sass/utilities/_all";
