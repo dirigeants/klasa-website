@@ -4,6 +4,7 @@
       <nav class="card-header-title level is-marginless">
         <div class="level-left">
           <div class="level-item has-text-left">
+            <span v-if="clarse.interface"><span class="tag" title="This class an interface, and is applied to other classes.">Interface</span>&nbsp;</span>
             <span v-if="clarse.abstract"><span class="tag is-info" title="This class is abstract, and may not be instantiated itself.">Abstract</span>&nbsp;</span>
             <span v-if="clarse.deprecated"><span class="tag is-danger" title="This class is deprecated, and may be removed in a future version.">Deprecated</span>&nbsp;</span>
             <span v-if="clarse.access === 'private'"><span class="tag is-warning" title="This class is private, and may change or be removed at any time.">Private</span>&nbsp;</span>
