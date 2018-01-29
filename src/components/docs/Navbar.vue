@@ -3,7 +3,7 @@
     <nav class="level is-mobile">
       <!-- Left side -->
       <div class="level-left">
-        <p class="level-item">
+        <p class="level-item is-hidden-mobile">
           <strong>Viewing:</strong>
         </p>
         <div class="level-item">
