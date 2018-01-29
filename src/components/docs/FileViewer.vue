@@ -2,6 +2,7 @@
   <div v-if="file">
     <source-button :path="file.path" :docs="docs" />
     <div class="content" v-html="html"></div>
+    <br />
   </div>
   <unknown-page v-else />
 </template>

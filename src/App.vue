@@ -35,7 +35,6 @@
   @import "~buefy/src/scss/buefy";
 
   .site {
-    display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
@@ -61,6 +60,7 @@
   pre {
     padding: 0px !important;
   }
+
   .hljs {
     border-radius: $radius-large;
     padding: 1em !important;
