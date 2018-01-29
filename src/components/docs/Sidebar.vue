@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <div>
     <div @click="toggle" class="button is-white is-hidden-tablet"><b-icon icon="bars" /></div>
     <b-tabs v-model="activeTab">
       <b-tab-item label="Docs">
@@ -46,7 +46,7 @@
         </aside>
       </b-tab-item>
     </b-tabs>
-  </section>
+  </div>
 </template>
 
 <script>

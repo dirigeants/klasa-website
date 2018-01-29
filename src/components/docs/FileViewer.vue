@@ -1,8 +1,8 @@
 <template>
-  <section class="section" v-if="file">
+  <div v-if="file">
     <source-button :path="file.path" :docs="docs" />
     <div class="content" v-html="html"></div>
-  </section>
+  </div>
   <unknown-page v-else />
 </template>
 

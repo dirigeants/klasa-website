@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <div>
     <p class="title">
       <span class="subtitle is-5" @click="toggleScores" :title="showScores ? 'Hide scores' : 'Show scores'"><b-icon icon="chart-bar" size="is-small" /></span> Search
     </p>
@@ -49,7 +49,7 @@
 
       <h2 class="subtitle" v-else key="short">Your search query must be at least three characters.</h2>
     </transition>
-  </section>
+  </div>
 </template>
 
 <script>

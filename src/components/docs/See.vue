@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <div>
     <strong>See also:</strong>
 
     <ul v-if="see.length > 1">
@@ -15,7 +15,7 @@
       <a v-else-if="typeof parsed[0].link === 'string'" :href="parsed[0].link">{{ parsed[0].text }}</a>
       <span v-else>{{ parsed[0].text }}</span>
     </span>
-  </section>
+  </div>
 </template>
 
 <script>
