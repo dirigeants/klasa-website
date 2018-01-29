@@ -1,13 +1,11 @@
 <template>
-<footer class="footer">
-  <div class="container">
+  <footer class="footer">
     <div class="content has-text-centered">
         <h3> Klasa </h3>
         <p> <strong> The most feature complete discord.js bot framework </strong> </p>
         <stats />
     </div>
-  </div>
-</footer>
+  </footer>
 </template>
 
 <script>

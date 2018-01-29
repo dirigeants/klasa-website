@@ -26,6 +26,7 @@
 
   $light: #d3d3d3;
   $menu-item-hover-background-color: #d3d3d3;
+  $footer-background-color: #d3d3d3;
   $menu-item-active-background-color: hsl(204, 86%, 53%);
 
   // Import Bulma's core
@@ -35,8 +36,10 @@
   @import "~bulma";
   @import "~buefy/src/scss/buefy";
 
-  .level-item .has-text-left {
-    justify-content: left;
+  .level-left {
+    .has-text-left {
+      justify-content: left;
+    }
   }
 
   .card-footer-item {
