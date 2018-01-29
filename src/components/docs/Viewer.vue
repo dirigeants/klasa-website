@@ -1,5 +1,5 @@
 <template>
-    <div class="columns">
+    <div class="columns is-gapless">
       <div :class="`column is-one-fifth ${visible ? '' : 'is-hidden-mobile'}`" >
         <sidebar :docs="docs" @showPrivate="setShowPrivate" />
       </div>
