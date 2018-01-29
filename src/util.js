@@ -64,6 +64,7 @@ export function convertLinks(text, docs, router, route) {
       } else {
         link = parsed.link;
       }
+      if (parsed.text.startsWith('external:')) parsed.text = parsed.text.slice(9);
       newText += `[${parsed.text}](${link})`;
     } else {
       newText += parsed.text;
