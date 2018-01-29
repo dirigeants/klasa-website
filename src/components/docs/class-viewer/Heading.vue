@@ -1,29 +1,37 @@
 <template>
-  <section class="section">
-    <source-button :meta="clarse.meta" :docs="docs" />
-
-    <p class="title">
-      <span class="tag is-info" v-if="clarse.abstract" title="This class is abstract, and may not be instantiated itself.">Abstract</span>
-      <span class="tag is-danger" v-if="clarse.deprecated" title="This class is deprecated, and may be removed in a future version.">Deprecated</span>
-      <span class="tag is-warning" v-if="clarse.access === 'private'" title="This class is private, and may change or be removed at any time.">Private</span>
-      {{ clarse.name }}
-      <span class="subtitle" v-if="clarse.extends || clarse.implements">
-        <span v-if="clarse.extends">extends <type-link :type="clarse.extends" :docs="docs" /></span>
-        <span v-if="clarse.implements">implements <type-link :type="clarse.implements" :docs="docs" /></span>
-      </span>
-    </p>
-
-    <h4 class="subtitle" v-html="description" v-if="clarse.description"></h4>
-
-    <see v-if="clarse.see" :see="clarse.see" :docs="docs" />
-
-    <div v-if="clarse.construct && (showPrivate || clarse.construct.access !== 'private')">
+  <div class="card">
+    <header class="card-header">
+      <nav class="card-header-title level is-marginless">
+        <div class="level-left">
+          <div class="level-item">
+            <span v-if="clarse.abstract"><span class="tag is-info" title="This class is abstract, and may not be instantiated itself.">Abstract</span>&nbsp;</span>
+            <span v-if="clarse.deprecated"><span class="tag is-danger" title="This class is deprecated, and may be removed in a future version.">Deprecated</span>&nbsp;</span>
+            <span v-if="clarse.access === 'private'"><span class="tag is-warning" title="This class is private, and may change or be removed at any time.">Private</span>&nbsp;</span>
+          </div>
+          <span class="level-item is-size-3 is-marginless">
+            {{ clarse.name }}&nbsp;
+          </span>
+          <span v-if="clarse.extends" class="level-item is-size-5 is-marginless">
+            extends&nbsp;<type-link :type="clarse.extends" :docs="docs" />&nbsp;
+          </span>
+          <span v-if="clarse.implements" class="level-item is-size-5 is-marginless">
+            implements&nbsp;<type-link :type="clarse.implements" :docs="docs" />&nbsp;
+          </span>
+        </div>
+      </nav>
+      <source-button class="card-header-icon" :meta="clarse.meta" :docs="docs" />
+    </header>
+    <div class="card-content" v-if="clarse.construct && (showPrivate || clarse.construct.access !== 'private')">
       <strong>Constructor:</strong>
       <pre v-highlightjs><code class="js">new {{ docs.global }}.{{ clarse.name }}({{ constructorParams }});</code></pre>
       <param-table :params="clarse.construct.params" :docs="docs" />
     </div>
-
-	</section>
+    <footer class="card-footer">
+      <p v-if="clarse.see" class="card-footer-item">
+        <see :see="clarse.see" :docs="docs" />
+      </p>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -55,3 +63,9 @@
     }
   };
 </script>
+
+<style>
+  .level-item {
+    justify-content: left;
+  }
+</style>

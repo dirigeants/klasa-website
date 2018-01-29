@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <div>
     <div class="columns is-8">
       <div class="column is-4" v-if="properties && properties.length">
         <aside class="menu">
@@ -29,7 +29,7 @@
                 <span v-if="method.scope === 'static'"><span class="tag is-primary is-pulled-right">S</span>&nbsp;</span>
                 <span v-if="method.abstract"><span class="tag is-info is-pulled-right">A</span>>&nbsp;</span>
                 <span v-if="method.deprecated"><span class="tag is-danger is-pulled-right">D</span>>&nbsp;</span>
-                <span v-if="method.access === 'private'"><span class="tag is-warning is-pulled-right">P</span>>&nbsp;</span>
+                <span v-if="method.access === 'private'"><span class="tag is-warning is-pulled-right">P</span>&nbsp;</span>
               </router-link>
             </li>
           </ul>
@@ -50,7 +50,7 @@
         </aside>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>

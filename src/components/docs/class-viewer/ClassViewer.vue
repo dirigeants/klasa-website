@@ -1,8 +1,10 @@
 <template>
   <div v-if="clarse">
     <heading :clarse="clarse" :docs="docs" />
+    <br />
 
     <overview :properties="properties" :methods="methods" :events="clarse.events" />
+    <br />
 
     <h5 class="title is-4" v-if="properties && properties.length">Properties</h5>
     <div v-for="prop in properties" :key="prop">
@@ -21,6 +23,7 @@
       <event :event="event" :docs="docs" />
       <br />
     </div>
+
   </div>
   <unknown-page v-else class="docs-page" />
 </template>

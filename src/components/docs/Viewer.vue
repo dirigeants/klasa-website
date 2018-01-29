@@ -1,24 +1,25 @@
 <template>
-    <div class="columns is-gapless">
-      <div :class="`column is-one-fifth ${visible ? '' : 'is-hidden-mobile'}`" >
-        <sidebar :docs="docs" @showPrivate="setShowPrivate" />
-      </div>
-      <div class="column">
-        <div @click="toggle" :class="`button is-white ${visible ? 'is-hidden-mobile' : 'is-hidden-tablet'}`"><b-icon icon="bars" /></div>
+  <div class="columns is-gapless">
+    <div :class="`column is-one-fifth ${visible ? '' : 'is-hidden-mobile'}`" >
+      <sidebar :docs="docs" @showPrivate="setShowPrivate" />
+    </div>
+    <div class="column">
+      <div @click="toggle" :class="`button is-white ${visible ? 'is-hidden-mobile' : 'is-hidden-tablet'}`"><b-icon icon="bars" /></div>
+      <section class="section">
         <transition name="fade-slide" mode="out-in" appear>
           <router-view :docs="docs" :key="key" :showPrivate="showPrivate" />
         </transition>
-        <section class="section">
-          <div class="content has-text-right">
-            <p>
-              Documentation built at {{ new Date(docs.meta.date).toUTCString() }}.<br />
-              Generator: v{{ docs.meta.generator }} &nbsp; Format: {{ docs.meta.format }}
-            </p>
-          </div>
-        </section>
-        <button id="scroll-top" class="button is-info is-rounded" title="Scroll to top" @click="scrollTop"><b-icon icon="arrow-up" /></button>
-      </div>
-    </div>  
+
+        <div class="content has-text-right">
+          <p>
+            Documentation built at {{ new Date(docs.meta.date).toUTCString() }}.<br />
+            Generator: v{{ docs.meta.generator }} &nbsp; Format: {{ docs.meta.format }}
+          </p>
+        </div>
+      </section>
+      <button id="scroll-top" class="button is-info is-rounded" title="Scroll to top" @click="scrollTop"><b-icon icon="arrow-up" /></button>
+    </div>
+  </div>  
 </template>
 
 <script>
