@@ -2,19 +2,19 @@
   <div class="card">
     <header class="card-header">
       <nav class="card-header-title level is-marginless">
-        <div class="level-left">
+        <div class="level-left has-text-left">
           <div class="level-item">
             <span v-if="clarse.abstract"><span class="tag is-info" title="This class is abstract, and may not be instantiated itself.">Abstract</span>&nbsp;</span>
             <span v-if="clarse.deprecated"><span class="tag is-danger" title="This class is deprecated, and may be removed in a future version.">Deprecated</span>&nbsp;</span>
             <span v-if="clarse.access === 'private'"><span class="tag is-warning" title="This class is private, and may change or be removed at any time.">Private</span>&nbsp;</span>
           </div>
-          <span class="level-item is-size-3 is-marginless">
+          <span class="level-item has-text-left is-size-3 is-marginless">
             {{ clarse.name }}&nbsp;
           </span>
-          <span v-if="clarse.extends" class="level-item is-size-5 is-marginless">
+          <span v-if="clarse.extends" class="level-item has-text-left is-size-5 is-marginless">
             extends&nbsp;<type-link :type="clarse.extends" :docs="docs" />&nbsp;
           </span>
-          <span v-if="clarse.implements" class="level-item is-size-5 is-marginless">
+          <span v-if="clarse.implements" class="level-item has-text-left is-size-5 is-marginless">
             implements&nbsp;<type-link :type="clarse.implements" :docs="docs" />&nbsp;
           </span>
         </div>
@@ -63,9 +63,3 @@
     }
   };
 </script>
-
-<style>
-  .level-item {
-    justify-content: left;
-  }
-</style>

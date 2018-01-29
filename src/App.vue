@@ -35,6 +35,10 @@
   @import "~bulma";
   @import "~buefy/src/scss/buefy";
 
+  .level-item .has-text-left {
+    justify-content: left;
+  }
+
   .card-footer-item {
     justify-content: left;
   }
