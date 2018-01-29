@@ -44,6 +44,10 @@
     flex: 1;
   }
 
+  .footer {
+    padding: 1.5rem 1.5rem 1.5rem;
+  }
+
   .level-left {
     .has-text-left {
       justify-content: left;
