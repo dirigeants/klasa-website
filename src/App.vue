@@ -22,13 +22,14 @@
 
 <style lang="scss">
 
-  $light: #d3d3d3;
-  $menu-item-hover-background-color: #d3d3d3;
-  $footer-background-color: #d3d3d3;
-  $menu-item-active-background-color: hsl(204, 86%, 53%);
+  $light: #c1d5e0;
 
   // Import Bulma's core
   @import "~bulma/sass/utilities/_all";
+
+  $menu-item-active-background-color: $info;
+  $menu-item-hover-background-color: $light;
+  $footer-background-color: $light;
 
   // Import Bulma and Buefy styles
   @import "~bulma";
