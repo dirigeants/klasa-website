@@ -1,18 +1,18 @@
 <template>
-  <nav class="level is-mobile">
-    <div class="level-item has-text-centered">
+  <nav class="columns is-mobile">
+    <div class="column has-text-centered">
       <div>
         <p class="heading">Downloads</p>
         <p class="title is-size-5">{{ downloads }}</p>
       </div>
     </div>
-    <div class="level-item has-text-centered">
+    <div class="column has-text-centered">
       <div>
         <p class="heading">Stars</p>
         <p class="title is-size-5">{{ stars }}</p>
       </div>
     </div>
-    <div class="level-item has-text-centered">
+    <div class="column has-text-centered">
       <div>
         <p class="heading">Contributors</p>
         <p class="title is-size-5">{{ contributors }}</p>

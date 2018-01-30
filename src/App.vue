@@ -48,6 +48,11 @@
     flex-direction: column;
   }
 
+  .logo {
+    width: 100%;
+    max-width: 400px;
+  }
+
   .site-content {
     flex: 1;
   }

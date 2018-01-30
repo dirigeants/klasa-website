@@ -6,7 +6,7 @@
         <div class="level-left">
           <div class="level-item">
             <router-link class="navbar-item button is-info title is-5 is-marginless" to="/">
-              <img src="../assets/logo_white-bg.png" alt="Klasa">&nbsp;&nbsp;Klasa
+              <img src="/static/klasa_icon.svg" alt="Klasa" />&nbsp;Klasa
             </router-link>
           </div>
         </div>
@@ -15,12 +15,14 @@
         <div class="level-right">
           <div class="level-item">
             <router-link class="navbar-item button is-info is-5 is-marginless" to="/docs">
-              <b-icon icon="book" />&nbsp;&nbsp;Docs
+              <span class="icon"><b-icon icon="book" /></span>
+              <span>Docs</span>
             </router-link>
           </div>
           <div class="level-item">
             <a href="https://github.com/dirigeants/klasa" class="navbar-item button is-info is-5 is-marginless">
-              <i class="fab fa-github"></i>&nbsp;Github
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Github</span>
             </a>  
           </div>
         </div>
