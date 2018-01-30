@@ -42,6 +42,7 @@
                 </router-link>
               </li>
             </ul>
+            <br />
           </div>
         </aside>
       </b-tab-item>
