@@ -2,12 +2,12 @@
   <div>
     <transition name="fade-resize" mode="out-in">
       <router-view v-if="docs" :docs="docs" />
-      <div class="content" v-else>
+      <div class="container" v-else>
         <b-loading v-if="!error" :active.sync="active"></b-loading>
-        <p v-else>
+        <section v-else class="section">
           Couldn't load the documentation data.
           <pre>{{ error.toString() }}</pre>
-        </p>
+        </section>
       </div>
     </transition>
   </div>
@@ -105,6 +105,21 @@
           console.error('Error while loading', startSource, startTag, err);
           this.error = err;
           this.loadingTag = null;
+          this.warning();
+        });
+      },
+
+      warning() {
+        this.$snackbar.open({
+          message: 'Couldn\'t load the documentation data.',
+          type: 'is-danger',
+          position: 'is-top',
+          actionText: 'Retry',
+          duration: 10000,
+          queue: false,
+          onAction: () => {
+            this.loadDocs();
+          }
         });
       },
 

@@ -2,7 +2,7 @@
   <div>
     <div @click="toggle" class="button is-white is-hidden-tablet"><b-icon icon="bars" /></div>
     <b-tabs v-model="activeTab">
-      <b-tab-item label="Docs">
+      <b-tab-item label="Classes">
         <aside class="menu">
           <div class="is-pulled-right" @click="togglePrivate">
             <b-icon :icon="showPrivate ? 'eye' : 'eye-slash'" :title="showPrivate ? 'Hide private' : 'Show private'" size="is-small" />
@@ -17,6 +17,13 @@
               </router-link>
             </li>
           </ul>
+        </aside>
+      </b-tab-item>
+      <b-tab-item label="Types">
+        <aside class="menu">
+          <div class="is-pulled-right" @click="togglePrivate">
+            <b-icon :icon="showPrivate ? 'eye' : 'eye-slash'" :title="showPrivate ? 'Hide private' : 'Show private'" size="is-small" />
+          </div>
           <p class="menu-label">
             Typedefs
           </p>
@@ -28,7 +35,7 @@
               </li>
           </ul>
         </aside>
-      </b-tab-item>
+      </b-tab-item> 
       <b-tab-item label="Guide">
         <aside class="menu">
           <div v-for="(category, categoryID) in docs.custom" v-if="category.name !== 'General'">
@@ -58,7 +65,7 @@
     data() {
       return {
         showPrivate: false,
-        activeTab: this.$route.params.file ? 1 : 0,
+        activeTab: this.$route.params.file ? 2 : this.$route.params.typedef ? 1 : 0,
       };
     },
 
@@ -81,7 +88,7 @@
         if (!to.query.scrollTo && (window.pageYOffset || document.documentElement.scrollTop) > 300) {
           window.scrollTo(0, 90);
         }
-        this.activeTab = this.$route.params.file ? 1 : 0;
+        this.activeTab = this.$route.params.file ? 2 : this.$route.params.typedef ? 1 : 0;
       },
     },
   };

@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <unknown-page type="route" />
+    <section class="section has-text-centered">
+      <unknown-page type="route" />
+    </section>
   </div>
 </template>
 
