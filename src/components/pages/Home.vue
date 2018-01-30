@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <section class="section has-text-centered">
-      <img class="logo" src="/static/klasa.svg" />
+      <img class="logo" src="static/klasa.svg" />
       <br />
       <br />
       <div class="tile is-ancestor">

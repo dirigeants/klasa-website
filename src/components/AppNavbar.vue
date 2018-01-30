@@ -6,7 +6,7 @@
         <div class="level-left">
           <div class="level-item">
             <router-link class="navbar-item button is-info title is-5 is-marginless" to="/">
-              <img src="/static/klasa_icon.svg" alt="Klasa" />&nbsp;Klasa
+              <img src="static/klasa_icon.svg" alt="Klasa" />&nbsp;Klasa
             </router-link>
           </div>
         </div>
