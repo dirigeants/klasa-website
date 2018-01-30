@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="8.05515in" height="3.1011in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 18604 7162"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <font id="FontID0" horiz-adv-x="777" font-variant="normal" style="fill-rule:nonzero" font-weight="900">
+	<font-face 
+		font-family="Arial Black">
+		<font-face-src>
+			<font-face-name name="Arial Black"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="A" horiz-adv-x="777" d="M513.5 118.001l-250.665 0 -36.0014 -118.001 -225.834 0 269.5 716 242.168 0 268.332 -716 -231.664 0 -35.8349 118.001zm-46.8329 154.999l-78.1667 257.334 -78.4998 -257.334 156.667 0z"/>
+   <glyph unicode="L" horiz-adv-x="666" d="M72.9995 716l220.999 0 0 -539.999 346.002 0 0 -176.001 -567.001 0 0 716z"/>
+   <glyph unicode="S" horiz-adv-x="722" d="M34.9998 236.834l210.001 13.1653c4.49865,-33.9982 13.8314,-59.9983 27.8319,-77.6672 22.8336,-28.831 55.3331,-43.331 97.6674,-43.331 31.5003,0 55.8327,7.33204 72.833,22.1651 17.1669,14.833 25.667,31.9999 25.667,51.5006 0,18.4991 -8.00059,35.1663 -24.1683,49.8329 -16.1653,14.6665 -53.8319,28.3339 -113,41.4992 -96.9989,21.668 -165.999,50.6679 -207.332,86.8334 -41.6657,36.0014 -62.5011,82.0017 -62.5011,138.001 0,36.6675 10.6675,71.3343 31.9999,104 21.3349,32.8325 53.3348,58.4996 96.1687,77.1676 42.8314,18.6656 101.5,27.9984 175.998,27.9984 91.5011,0 161.168,-17.0003 209.166,-51.1651 48.0011,-34.0007 76.5015,-88.1681 85.6678,-162.502l-208.001 -12.3327c-5.50025,32.4995 -17.1669,56.1682 -34.8333,70.8347 -17.833,14.833 -42.3319,22.1651 -73.4991,22.1651 -25.667,0 -45.1677,-5.50025 -58.1665,-16.3318 -13.0013,-10.834 -19.5007,-24.1683 -19.5007,-39.834 0,-11.3336 5.33373,-21.5014 15.8346,-30.6677 10.1654,-9.49932 34.8333,-18.166 73.8322,-26.3331 96.6658,-20.8329 165.833,-41.9988 207.501,-63.3337 41.8323,-21.3325 72.3334,-47.6656 91.3321,-79.3324 19.0011,-31.5003 28.5004,-66.8332 28.5004,-106.001 0,-45.8313 -12.6658,-88.1656 -37.9997,-126.998 -25.5005,-38.6683 -60.8334,-68.1678 -106.501,-88.1681 -45.5007,-20.0002 -102.832,-29.9991 -172.166,-29.9991 -121.667,0 -206,23.4997 -252.833,70.3327 -46.8354,46.8329 -73.335,106.334 -79.5014,178.501z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Arial Black";font-variant:normal;font-weight:900;src:url("#FontID0") format(svg)}
+    .fil1 {fill:url(#id0)}
+    .fil0 {fill:url(#id1)}
+    .fnt0 {font-weight:900;font-size:3712.94px;font-family:'Arial Black'}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="10370.1" y1="1447.81" x2="12413.7" y2="6031.87">
+   <stop offset="0" style="stop-opacity:1; stop-color:#0098DA"/>
+   <stop offset="0.6" style="stop-opacity:1; stop-color:#0175C0"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#0252A5"/>
+  </linearGradient>
+  <linearGradient id="id1" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="6612.8" y1="-1592.79" x2="13128.5" y2="8706.36">
+  </linearGradient>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M16985 6578l-120 0 -8625 0 -2703 0 -2265 -2723 0 1214 -945 0 0 -3970c-902,458 -1521,1396 -1521,2478 0,1534 1241,2778 2773,2778 316,0 620,-53 903,-151l543 653c-442,196 -932,305 -1446,305 -1977,0 -3579,-1605 -3579,-3585 0,-1876 1439,-3415 3272,-3571 0,1189 0,2379 0,3568l914 -1175 1107 0 -987 1268 1749 2102 2185 0 5080 0 3409 0c650,-507 1068,-1298 1068,-2187 0,-1344 -955,-2464 -2224,-2719 -110,-26 -221,-45 -335,-54l-11437 0 0 -809 11221 0c1978,0 3582,1604 3582,3582 0,1253 -644,2356 -1619,2996z"/>
+  <text x="5783" y="5069"  class="fil1 fnt0">LASA</text>
+ </g>
+</svg>
