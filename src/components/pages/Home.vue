@@ -40,7 +40,7 @@
               <li>Works with any database.</li>
               <li>Powerful and easy to configure permission levels system.</li>
               <li>Per Client/Guild/User configs, and possible to add more.</li>
-              <li>Powerful command handler with: prompting, edits, argument resolving, flags, infinit args, custom args, and so much more...</li>
+              <li>Powerful command handler with: prompting, edits, argument resolving, flags, infinite args, custom args, and so much more...</li>
               <li>Fully customizable.</li>
             </ul>
           </article>
