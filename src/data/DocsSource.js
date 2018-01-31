@@ -7,7 +7,7 @@ export default class DocsSource {
     this.global = options.global;
     this.repo = options.repo;
     this.defaultTag = options.defaultTag || 'master';
-    this.defaultFile = options.defaultFile || { category: 'General', id: 'Home' };
+    this.defaultFile = options.defaultFile || { category: 'Getting Started', id: 'GettingStarted' };
     this.source = options.source || `https://github.com/${this.repo}/blob/`;
     this.branchFilter = options.branchFilter || (branch => branch !== 'master');
     this.tagFilter = options.tagFilter || (() => true);

@@ -4,9 +4,9 @@
       <router-view v-if="docs" :docs="docs" />
       <div class="container" v-else>
         <b-loading v-if="!error" :active.sync="active"></b-loading>
-        <section v-else class="section">
-          Couldn't load the documentation data.
-          <pre>{{ error.toString() }}</pre>
+        <section v-else class="section content">
+          <h1>Couldn't load the documentation data.</h1>
+          <pre v-highlightjs><code class="js">{{ error.toString() }}</code></pre>
         </section>
       </div>
     </transition>

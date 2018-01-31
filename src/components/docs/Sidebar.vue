@@ -2,6 +2,23 @@
   <div>
     <div @click="toggle" class="button is-white is-hidden-tablet"><b-icon icon="bars" /></div>
     <b-tabs v-model="activeTab">
+      <b-tab-item label="Guide">
+        <aside class="menu">
+          <div v-for="(category, categoryID) in docs.custom" v-if="category.name !== 'General'">
+            <p class="menu-label">
+              {{ category.name }}
+            </p>
+            <ul class="menu-list">
+              <li v-for="(file, fileID) in category.files"  class="animated-list-item">
+                <router-link :to="{ name: 'docs-file', params: { category: categoryID, file: fileID } }" :class="`${$route.params.file === fileID ? 'is-active' : ''}`">
+                  {{ file.name }}
+                </router-link>
+              </li>
+            </ul>
+            <br />
+          </div>
+        </aside>
+      </b-tab-item>
       <b-tab-item label="Classes">
         <aside class="menu">
           <div class="is-pulled-right" @click="togglePrivate">
@@ -36,23 +53,6 @@
           </ul>
         </aside>
       </b-tab-item> 
-      <b-tab-item label="Guide">
-        <aside class="menu">
-          <div v-for="(category, categoryID) in docs.custom" v-if="category.name !== 'General'">
-            <p class="menu-label">
-              {{ category.name }}
-            </p>
-            <ul class="menu-list">
-              <li v-for="(file, fileID) in category.files"  class="animated-list-item">
-                <router-link :to="{ name: 'docs-file', params: { category: categoryID, file: fileID } }" :class="`${$route.params.file === fileID ? 'is-active' : ''}`">
-                  {{ file.name }}
-                </router-link>
-              </li>
-            </ul>
-            <br />
-          </div>
-        </aside>
-      </b-tab-item>
     </b-tabs>
   </div>
 </template>
@@ -65,7 +65,7 @@
     data() {
       return {
         showPrivate: false,
-        activeTab: this.$route.params.file ? 2 : this.$route.params.typedef ? 1 : 0,
+        activeTab: this.$route.params.file ? 0 : this.$route.params.class ? 1 : 2,
       };
     },
 
@@ -88,7 +88,7 @@
         if (!to.query.scrollTo && (window.pageYOffset || document.documentElement.scrollTop) > 300) {
           window.scrollTo(0, 90);
         }
-        this.activeTab = this.$route.params.file ? 2 : this.$route.params.typedef ? 1 : 0;
+        this.activeTab = this.$route.params.file ? 0 : this.$route.params.class ? 1 : 2;
       },
     },
   };
