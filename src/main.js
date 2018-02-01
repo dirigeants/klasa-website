@@ -29,7 +29,7 @@ marked.setOptions({ renderer });
 
 Vue.filter('marked', text => {
   if (!text) text = '**Documentation missing.**';
-  text = text.replace(/<(info|warn)>([\s\S]+)<\/\1>/gi, '<div class="$1">$2</div>');
+  else text = text.replace(/<(info|warning|danger)>([\s\S]+)<\/\1>/gi, '<div class="notification is-$1">$2</div>');
   return marked(text);
 });
 
