@@ -38,6 +38,11 @@
       <p v-if="prop.see" class="card-footer-item">
         <see :see="prop.see" :docs="docs" />
       </p>
+      <p v-if="prop.since" class="card-footer-item">
+        <span>
+          <strong>Since:</strong> {{ prop.since }}
+        </span>
+      </p>
     </footer>
   </div>
 </template>

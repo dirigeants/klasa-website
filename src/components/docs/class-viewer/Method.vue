@@ -64,6 +64,11 @@
       <p v-if="method.see" class="card-footer-item">
         <see :see="method.see" :docs="docs" />
       </p>
+      <p v-if="method.since" class="card-footer-item">
+        <span>
+          <strong>Since:</strong> {{ method.since }}
+        </span>
+      </p>
     </footer>
   </div>
 </template>

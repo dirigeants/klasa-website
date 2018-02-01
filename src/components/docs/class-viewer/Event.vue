@@ -21,6 +21,11 @@
       <p v-if="event.see" class="card-footer-item">
         <see :see="event.see" :docs="docs" />
       </p>
+      <p v-if="event.since" class="card-footer-item">
+        <span>
+          <strong>Since:</strong>{{ event.since }}
+        </span>
+      </p>
     </footer>
   </div>
 </template>
