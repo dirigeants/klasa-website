@@ -13,8 +13,7 @@
 
           <div class="content has-text-right">
             <p>
-              Documentation built at {{ new Date(docs.meta.date).toUTCString() }}.<br />
-              Generator: v{{ docs.meta.generator }} &nbsp; Format: {{ docs.meta.format }}
+              Documentation built at {{ new Date(docs.meta.date).toUTCString() }}.
             </p>
           </div>
         </section>
