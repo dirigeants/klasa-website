@@ -41,15 +41,8 @@ export function parseLink(link, docs) {
 export function convertLinks(text, docs, router, route) {
   if (!text) return null;
 
-  const regex = /\{@(?:link|tutorial)\s+(.+?)(?:\s+(.+?))?\s*\}/gi;
-  let match;
-  let newText = '';
-  let start = 0;
-
-  while (match = regex.exec(text)) { // eslint-disable-line no-cond-assign
-    newText += text.slice(start, match.index);
-
-    const parsed = parseLink(match[0], docs);
+  return text.replace(/\{@(?:link|tutorial)\s+(.+?)(?:\s+(.+?))?\s*\}/gi, match => {
+    const parsed = parseLink(match, docs);
     if (parsed.link) {
       let link;
       if (typeof parsed.link === 'object') {
@@ -65,18 +58,8 @@ export function convertLinks(text, docs, router, route) {
         link = parsed.link;
       }
       if (parsed.text.startsWith('external:')) parsed.text = parsed.text.slice(9);
-      newText += `[${parsed.text}](${link})`;
-    } else {
-      newText += parsed.text;
+      return `[${parsed.text}](${link})`;
     }
-
-    start = match.index + match[0].length;
-  }
-
-  if (newText) {
-    newText += text.slice(start);
-    return newText;
-  }
-
-  return text;
+    return parsed.text;
+  });
 }
