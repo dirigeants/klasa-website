@@ -8,7 +8,7 @@
 						<span v-if="method.readonly"><span class="tag is-success" title="This method cannot be modified.">Read-only</span>&nbsp;</span>
 						<span v-if="method.deprecated"><span class="tag is-danger" title="This method is deprecated, and may be removed in a future version.">Deprecated</span>&nbsp;</span>
 						<span v-if="method.access === 'private'"><span class="tag is-warning" title="This method is private, and may change or be removed at any time.">Private</span>&nbsp;</span>
-						<span v-if="method.yields"><span class="tag is-dark" title="This method returns a generator function.">Generator</span>&nbsp;</span>
+						<span v-if="method.generator"><span class="tag is-dark" title="This method returns a generator function.">Generator</span>&nbsp;</span>
 					</div>
 					<span class="level-item has-text-left is-marginless">
 						<router-link :to="{ name: 'docs-class', query: { scrollTo } }">.{{ method.name }}({{ params }})</router-link>

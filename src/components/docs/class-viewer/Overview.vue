@@ -30,7 +30,7 @@
 								<span v-if="method.abstract"><span class="tag is-info is-pulled-right">A</span>&nbsp;</span>
 								<span v-if="method.deprecated"><span class="tag is-danger is-pulled-right">D</span>&nbsp;</span>
 								<span v-if="method.access === 'private'"><span class="tag is-warning is-pulled-right">P</span>&nbsp;</span>
-								<span v-if="method.yields"><span class="tag is-dark is-pulled-right">G</span>&nbsp;</span>
+								<span v-if="method.generator"><span class="tag is-dark is-pulled-right">G</span>&nbsp;</span>
 							</router-link>
 						</li>
 					</ul>
