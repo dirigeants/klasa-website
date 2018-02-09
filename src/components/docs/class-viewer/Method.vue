@@ -10,18 +10,18 @@
 						<span v-if="method.access === 'private'"><span class="tag is-warning" title="This method is private, and may change or be removed at any time.">Private</span>&nbsp;</span>
 					</div>
 					<span class="level-item has-text-left is-marginless">
-						<router-link :to="{ name: 'docs-class', query: { scrollTo } }">.{{ method.name }}({{params}})</router-link>
+						<router-link :to="{ name: 'docs-class', query: { scrollTo } }">.{{ method.name }}({{ params }})</router-link>
 					</span>
 				</div>
 			</nav>
 			<source-button class="card-header-icon" :meta="method.meta" :docs="docs" />
 		</header>
 		<div class="card-content">
-			<div class="content" v-html="description"></div>
-			
+			<div class="content" v-html="description"/>
+
 			<div v-if="method.params">
 				<param-table :params="method.params" :docs="docs" />
-				<br />
+				<br >
 			</div>
 
 			<div v-if="emits">
@@ -74,51 +74,54 @@
 </template>
 
 <script>
-	import Vue from 'vue';
-	import Types from '../Types.vue';
-	import TypeLink from '../TypeLink.vue';
-	import ParamTable from './ParamTable.vue';
-	import SourceButton from '../SourceButton.vue';
-	import See from '../See.vue';
-	import { convertLinks, parseLink } from '../../../util';
+import Vue from 'vue';
+import Types from '../Types.vue';
+import TypeLink from '../TypeLink.vue';
+import ParamTable from './ParamTable.vue';
+import SourceButton from '../SourceButton.vue';
+import See from '../See.vue';
+import { convertLinks, parseLink } from '../../../util';
 
-	export default {
-		name: 'class-method',
-		props: ['method', 'docs'],
-		components: {
-			Types,
-			TypeLink,
-			ParamTable,
-			SourceButton,
-			See
+export default {
+	name: 'ClassMethod',
+
+	components: {
+		Types,
+		TypeLink,
+		ParamTable,
+		SourceButton,
+		See
+	},
+
+	props: ['method', 'docs'],
+
+
+	computed: {
+		params() {
+			if (!this.method.params) return null;
+			return this.method.params.filter(par => !par.name.includes('.'))
+				.map(par => {
+					let param = par.name;
+					if (param.variable) param = `...${param}`;
+					if (param.optional) param = `[${par.name}]`;
+					return param;
+				})
+				.join(', ');
 		},
 
-		computed: {
-			params() {
-				if (!this.method.params) return null;
-				return this.method.params.filter(par => !par.name.includes('.'))
-					.map(par => {
-						let param = par.name;
-						if (param.variable) param = `...${param}`;
-						if (param.optional) param = `[${par.name}]`;
-						return param;
-					})
-					.join(', ');
-			},
+		description() {
+			return Vue.filter('marked')(convertLinks(this.method.description, this.docs, this.$router, this.$route));
+		},
 
-			description() {
-				return Vue.filter('marked')(convertLinks(this.method.description, this.docs, this.$router, this.$route));
-			},
+		emits() {
+			if (!this.method.emits) return null;
+			return this.method.emits.map(emit => parseLink(emit.replace(/:event/i, ''), this.docs));
+		},
 
-			emits() {
-				if (!this.method.emits) return null;
-				return this.method.emits.map(emit => parseLink(emit.replace(/:event/i, ''), this.docs));
-			},
-
-			scrollTo() {
-				return `${this.method.scope === 'static' ? 's-' : ''}${this.method.name}`;
-			}
+		scrollTo() {
+			return `${this.method.scope === 'static' ? 's-' : ''}${this.method.name}`;
 		}
-	};
+	}
+};
 </script>
 

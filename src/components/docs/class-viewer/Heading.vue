@@ -23,7 +23,7 @@
 			<source-button class="card-header-icon" :meta="clarse.meta" :docs="docs" />
 		</header>
 		<div class="card-content" v-if="description || (clarse.construct && (showPrivate || clarse.construct.access !== 'private'))">
-			<p class="subtitle" v-html="description" v-if="clarse.description"></p>
+			<p class="subtitle" v-html="description" v-if="clarse.description"/>
 			<div v-if="clarse.construct && (showPrivate || clarse.construct.access !== 'private')">
 				<strong>Constructor:</strong>
 				<pre v-highlightjs><code class="js">new {{ docs.global }}.{{ clarse.name }}({{ constructorParams }});</code></pre>
@@ -39,31 +39,34 @@
 </template>
 
 <script>
-	import Vue from 'vue';
-	import { convertLinks } from '../../../util';
-	import TypeLink from '../TypeLink.vue';
-	import ParamTable from './ParamTable.vue';
-	import SourceButton from '../SourceButton.vue';
-	import See from '../See';
+import Vue from 'vue';
+import { convertLinks } from '../../../util';
+import TypeLink from '../TypeLink.vue';
+import ParamTable from './ParamTable.vue';
+import SourceButton from '../SourceButton.vue';
+import See from '../See';
 
 
-	export default {
-		name: 'class-heading',
-		props: ['clarse', 'docs'],
-		components: {
-			TypeLink,
-			ParamTable,
-			SourceButton,
-			See
+export default {
+	name: 'ClassHeading',
+
+	components: {
+		TypeLink,
+		ParamTable,
+		SourceButton,
+		See
+	},
+
+	props: ['clarse', 'docs'],
+
+	computed: {
+		constructorParams() {
+			if (!this.clarse.construct || !this.clarse.construct.params) return null;
+			return this.clarse.construct.params.filter(par => !par.name.includes('.')).map(par => par.name).join(', ');
 		},
-		computed: {
-			constructorParams() {
-				if (!this.clarse.construct || !this.clarse.construct.params) return null;
-				return this.clarse.construct.params.filter(par => !par.name.includes('.')).map(par => par.name).join(', ');
-			},
-			description() {
-				return Vue.filter('marked')(convertLinks(this.clarse.description, this.docs, this.$router, this.$route));
-			}
+		description() {
+			return Vue.filter('marked')(convertLinks(this.clarse.description, this.docs, this.$router, this.$route));
 		}
-	};
+	}
+};
 </script>

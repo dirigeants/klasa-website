@@ -19,19 +19,19 @@
 </template>
 
 <script>
-	import { parseLink } from '../../util';
+import { parseLink } from '../../util';
 
-	export default {
-		name: 'docs-see',
-		props: ['see', 'docs'],
+export default {
+	name: 'DocsSee',
+	props: ['see', 'docs'],
 
-		computed: {
-			parsed() {
-				const parsed = new Array(this.see.length);
-				for (let i = 0; i < this.see.length; i++) parsed[i] = parseLink(this.see[i], this.docs);
-				return parsed;
-			}
+	computed: {
+		parsed() {
+			const parsed = new Array(this.see.length);
+			for (let i = 0; i < this.see.length; i++) parsed[i] = parseLink(this.see[i], this.docs);
+			return parsed;
 		}
-	};
+	}
+};
 </script>
 

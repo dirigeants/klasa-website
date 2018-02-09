@@ -17,7 +17,7 @@
 			<source-button class="card-header-icon" :meta="prop.meta" :docs="docs" />
 		</header>
 		<div class="card-content">
-			<div class="content" v-html="description"></div>
+			<div class="content" v-html="description"/>
 			<param-table :params="prop.props" :docs="docs" v-if="prop.props && prop.props.length" />
 		</div>
 		<footer class="card-footer">
@@ -48,32 +48,34 @@
 </template>
 
 <script>
-	import Vue from 'vue';
-	import Types from '../Types.vue';
-	import ParamTable from './ParamTable.vue';
-	import SourceButton from '../SourceButton.vue';
-	import See from '../See.vue';
-	import { convertLinks } from '../../../util';
+import Vue from 'vue';
+import Types from '../Types.vue';
+import ParamTable from './ParamTable.vue';
+import SourceButton from '../SourceButton.vue';
+import See from '../See.vue';
+import { convertLinks } from '../../../util';
 
-	export default {
-		name: 'class-property',
-		props: ['prop', 'docs'],
-		components: {
-			Types,
-			ParamTable,
-			SourceButton,
-			See
+export default {
+	name: 'ClassProperty',
+
+	components: {
+		Types,
+		ParamTable,
+		SourceButton,
+		See
+	},
+
+	props: ['prop', 'docs'],
+
+	computed: {
+		description() {
+			return Vue.filter('marked')(convertLinks(this.prop.description, this.docs, this.$router, this.$route));
 		},
 
-		computed: {
-			description() {
-				return Vue.filter('marked')(convertLinks(this.prop.description, this.docs, this.$router, this.$route));
-			},
-
-			scrollTo() {
-				return `${this.prop.scope === 'static' ? 's-' : ''}${this.prop.name}`;
-			}
+		scrollTo() {
+			return `${this.prop.scope === 'static' ? 's-' : ''}${this.prop.name}`;
 		}
-	};
+	}
+};
 </script>
 

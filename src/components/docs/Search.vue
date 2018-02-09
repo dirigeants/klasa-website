@@ -5,9 +5,8 @@
 		</p>
 		<b-field>
 			<b-input v-model.trim="search" placeholder="Search..."
-					type="search"
-					icon="search">
-			</b-input>
+				type="search"
+				icon="search"/>
 		</b-field>
 
 		<b-field grouped group-multiline>
@@ -53,134 +52,134 @@
 </template>
 
 <script>
-	import levenshtein from 'js-levenshtein';
-	import { sort } from 'timsort';
+import levenshtein from 'js-levenshtein';
+import { sort } from 'timsort';
 
-	export default {
-		name: 'docs-search',
-		props: ['docs', 'showPrivate'],
+export default {
+	name: 'DocsSearch',
+	props: ['docs', 'showPrivate'],
 
-		data() {
-			return {
-				search: this.$route.query.q,
-				toggles: ['classes', 'props', 'methods', 'events', 'typedefs'],
-				colors: {
-					Class: 'is-info',
-					Property: 'is-success',
-					Method: 'is-warning',
-					Event: 'is-danger',
-					Typedef: 'is-primary'
-				},
-				showScores: false
-			};
-		},
+	data() {
+		return {
+			search: this.$route.query.q,
+			toggles: ['classes', 'props', 'methods', 'events', 'typedefs'],
+			colors: {
+				Class: 'is-info',
+				Property: 'is-success',
+				Method: 'is-warning',
+				Event: 'is-danger',
+				Typedef: 'is-primary'
+			},
+			showScores: false
+		};
+	},
 
-		computed: {
-			results() {
-				const query = this.search.toLowerCase();
-				const results = [];
+	computed: {
+		results() {
+			const query = this.search.toLowerCase();
+			const results = [];
 
-				for (const clarse of this.docs.classes) {
-					if (!this.showPrivate && clarse.access === 'private') continue;
+			for (const clarse of this.docs.classes) {
+				if (!this.showPrivate && clarse.access === 'private') continue;
 
-					let cScore = 0;
-					if (this.toggles.includes('classes')) {
-						cScore = searchScore(query, clarse.name.toLowerCase(), null, 1) * 1.05;
-						if (cScore >= scoreThreshold) {
-							results.push({
-								score: cScore,
-								name: clarse.name,
-								route: { name: 'docs-class', params: { class: clarse.name } },
-								badge: 'Class'
-							});
-						}
-					}
-
-					for (const [group, groupName] of [['props', 'Property'], ['methods', 'Method'], ['events', 'Event']]) {
-						if (!clarse[group] || !this.toggles.includes(group)) continue;
-						for (const item of clarse[group]) {
-							if (!this.showPrivate && item.access === 'private') continue;
-							const name = fullName(item, clarse, group);
-							const score = searchScore(query, item.name.toLowerCase(), cScore <= 0.9 ? name.toLowerCase() : null);
-							if (score < scoreThreshold) continue;
-							results.push({
-								score,
-								name,
-								route: { name: 'docs-class', params: { class: clarse.name }, query: { scrollTo: this.scopedName(item) } },
-								badge: groupName,
-								key: group === 'events' ? `e-${name}` : null
-							});
-						}
-					}
-				}
-
-				if (this.toggles.includes('typedefs')) {
-					for (const typedef of this.docs.typedefs) {
-						if (!this.showPrivate && typedef.access === 'private') continue;
-						const tScore = searchScore(query, typedef.name.toLowerCase(), null, 1) * 1.05;
-						if (tScore < scoreThreshold) continue;
+				let cScore = 0;
+				if (this.toggles.includes('classes')) {
+					cScore = searchScore(query, clarse.name.toLowerCase(), null, 1) * 1.05;
+					if (cScore >= scoreThreshold) {
 						results.push({
-							score: tScore,
-							name: typedef.name,
-							route: { name: 'docs-typedef', params: { typedef: typedef.name } },
-							badge: 'Typedef'
+							score: cScore,
+							name: clarse.name,
+							route: { name: 'docs-class', params: { class: clarse.name } },
+							badge: 'Class'
 						});
 					}
 				}
 
-				sort(results, (a, b) => b.score - a.score);
-				return results;
+				for (const [group, groupName] of [['props', 'Property'], ['methods', 'Method'], ['events', 'Event']]) {
+					if (!clarse[group] || !this.toggles.includes(group)) continue;
+					for (const item of clarse[group]) {
+						if (!this.showPrivate && item.access === 'private') continue;
+						const name = fullName(item, clarse, group);
+						const score = searchScore(query, item.name.toLowerCase(), cScore <= 0.9 ? name.toLowerCase() : null);
+						if (score < scoreThreshold) continue;
+						results.push({
+							score,
+							name,
+							route: { name: 'docs-class', params: { class: clarse.name }, query: { scrollTo: this.scopedName(item) } },
+							badge: groupName,
+							key: group === 'events' ? `e-${name}` : null
+						});
+					}
+				}
 			}
+
+			if (this.toggles.includes('typedefs')) {
+				for (const typedef of this.docs.typedefs) {
+					if (!this.showPrivate && typedef.access === 'private') continue;
+					const tScore = searchScore(query, typedef.name.toLowerCase(), null, 1) * 1.05;
+					if (tScore < scoreThreshold) continue;
+					results.push({
+						score: tScore,
+						name: typedef.name,
+						route: { name: 'docs-typedef', params: { typedef: typedef.name } },
+						badge: 'Typedef'
+					});
+				}
+			}
+
+			sort(results, (a, b) => b.score - a.score);
+			return results;
+		}
+	},
+
+	watch: {
+		$route(to) {
+			this.search = to.query.q;
 		},
 
-		methods: {
-			tagColor(type) {
-				return this.colors[type];
-			},
+		/* eslint-disable id-length */
+		search(q) {
+			if (this.$route.query.q === q) return;
+			if (this.$route.query.q) this.$router.replace({ name: 'docs-search', query: { q } });
+			else this.$router.push({ name: 'docs-search', query: { q } });
+		}
+		/* eslint-enable id-length */
+	},
 
-			toggleScores() {
-				this.showScores = !this.showScores;
-			},
-
-			scopedName(item) {
-				return `${item.scope === 'static' ? 's-' : ''}${item.name}`;
-			}
+	methods: {
+		tagColor(type) {
+			return this.colors[type];
 		},
 
-		watch: {
-			$route(to) {
-				this.search = to.query.q;
-			},
+		toggleScores() {
+			this.showScores = !this.showScores;
+		},
 
-			/* eslint-disable id-length */
-			search(q) {
-				if (this.$route.query.q === q) return;
-				if (this.$route.query.q) this.$router.replace({ name: 'docs-search', query: { q } });
-				else this.$router.push({ name: 'docs-search', query: { q } });
-			}
-			/* eslint-enable id-length */
+		scopedName(item) {
+			return `${item.scope === 'static' ? 's-' : ''}${item.name}`;
 		}
-	};
-
-	const scoreThreshold = 0.45;
-
-	function searchScore(query, shortName, longName, identicalWeight) {
-		if (query === shortName || query === longName) return 1 + (identicalWeight === undefined ? 0.5 : identicalWeight);
-
-		const name = longName || shortName;
-		let shorter = query, longer = name;
-		if (query.length > name.length) {
-			longer = query;
-			shorter = name;
-		}
-		if (longer.length === 0) return 1;
-		const score = (longer.length - levenshtein(longer, shorter)) / longer.length;
-
-		return shortName.includes(query) ? Math.max(score, scoreThreshold) : score;
 	}
+};
 
-	function fullName(child, parent) {
-		return `${parent.name + (child.scope === 'static' ? '.' : '#')}${child.name}`;
+const scoreThreshold = 0.45;
+
+function searchScore(query, shortName, longName, identicalWeight) {
+	if (query === shortName || query === longName) return 1 + (identicalWeight === undefined ? 0.5 : identicalWeight);
+
+	const name = longName || shortName;
+	let shorter = query, longer = name;
+	if (query.length > name.length) {
+		longer = query;
+		shorter = name;
 	}
+	if (longer.length === 0) return 1;
+	const score = (longer.length - levenshtein(longer, shorter)) / longer.length;
+
+	return shortName.includes(query) ? Math.max(score, scoreThreshold) : score;
+}
+
+function fullName(child, parent) {
+	return `${parent.name + (child.scope === 'static' ? '.' : '#')}${child.name}`;
+}
 </script>
 

@@ -14,7 +14,7 @@
 			<source-button class="card-header-icon" :meta="event.meta" :docs="docs" />
 		</header>
 		<div class="card-content">
-			<div class="content" v-html="description"></div>
+			<div class="content" v-html="description"/>
 			<param-table :params="event.params" :docs="docs" v-if="event.params && event.params.length" />
 		</div>
 		<footer class="card-footer">
@@ -31,25 +31,27 @@
 </template>
 
 <script>
-	import Vue from 'vue';
-	import ParamTable from './ParamTable.vue';
-	import SourceButton from '../SourceButton.vue';
-	import See from '../See';
-	import { convertLinks } from '../../../util';
+import Vue from 'vue';
+import ParamTable from './ParamTable.vue';
+import SourceButton from '../SourceButton.vue';
+import See from '../See';
+import { convertLinks } from '../../../util';
 
-	export default {
-		name: 'class-event',
-		props: ['event', 'docs'],
-		components: {
-			ParamTable,
-			SourceButton,
-			See
-		},
+export default {
+	name: 'ClassEvent',
 
-		computed: {
-			description() {
-				return Vue.filter('marked')(convertLinks(this.event.description, this.docs, this.$router, this.$route));
-			}
+	components: {
+		ParamTable,
+		SourceButton,
+		See
+	},
+
+	props: ['event', 'docs'],
+
+	computed: {
+		description() {
+			return Vue.filter('marked')(convertLinks(this.event.description, this.docs, this.$router, this.$route));
 		}
-	};
+	}
+};
 </script>

@@ -54,23 +54,23 @@
 </template>
 
 <script>
-	export default {
-		name: 'class-overview',
-		props: ['properties', 'methods', 'events'],
+export default {
+	name: 'ClassOverview',
+	props: ['properties', 'methods', 'events'],
 
-		methods: {
-			scopedName(item) {
-				return `${item.scope === 'static' ? 's-' : ''}${item.name}`;
-			},
+	methods: {
+		scopedName(item) {
+			return `${item.scope === 'static' ? 's-' : ''}${item.name}`;
+		},
 
-			scroll(to) {
-				const el = document.getElementById(`doc-for-${to}`);
-				el.setAttribute('data-scrolled', true);
-				setTimeout(() => el.setAttribute('data-scrolled', false), 1000);
-				el.scrollIntoView(true);
-				window.scrollBy(0, -50);
-			}
+		scroll(to) {
+			const el = document.getElementById(`doc-for-${to}`);
+			el.setAttribute('data-scrolled', true);
+			setTimeout(() => el.setAttribute('data-scrolled', false), 1000);
+			el.scrollIntoView(true);
+			window.scrollBy(0, -50);
 		}
-	};
+	}
+};
 </script>
 

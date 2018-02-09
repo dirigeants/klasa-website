@@ -2,7 +2,7 @@
 	<div class="notification is-light is-radiusless is-paddingless">
 		<div class="container">
 			<nav class="level is-mobile docs-nav">
-				
+
 				<div class="level-left">
 					<p class="level-item is-hidden-mobile">
 						<strong>Viewing:</strong>
@@ -26,7 +26,7 @@
 				<div class="level-right">
 					<div class="level-item is-hidden-mobile">
 						<b-field type="is-light">
-							<b-input v-model="search" placeholder="Search" type="search" icon="search"></b-input>
+							<b-input v-model="search" placeholder="Search" type="search" icon="search"/>
 						</b-field>
 					</div>
 					<div @click="startSearch" class="level-item is-hidden-tablet">
@@ -39,76 +39,77 @@
 </template>
 
 <script>
-	export default {
-		name: 'docs-navbar',
-		props: ['sources', 'source'],
+export default {
+	name: 'DocsNavbar',
+	props: ['sources', 'source'],
 
-		data() {
-			return {
-				sourceChoice: this.source.id,
-				tagChoice: this.$route.params.tag,
-				tags: null,
-				search: this.$route.query.q
-			};
+	data() {
+		return {
+			sourceChoice: this.source.id,
+			tagChoice: this.$route.params.tag,
+			tags: null,
+			search: this.$route.query.q
+		};
+	},
+
+	watch: {
+		sourceChoice(source) {
+			if (this.$route.params.source !== source) this.$router.push({ name: 'docs-source', params: { source } });
 		},
 
-		methods: {
-			loadTags() {
-				this.tags = this.source.tags;
-				if (!this.tags) {
-					const startSource = this.source;
-					this.source.fetchTags().then(tags => {
-						if (this.source.id === startSource.id) this.tags = tags;
-					});
-				}
-			},
-
-			updateTagChoice() {
-				if (this.tags) this.tagChoice = this.$route.params.tag || this.source.recentTag || this.source.defaultTag;
-			},
-
-			startSearch() {
-				// eslint-disable-next-line id-length
-				this.$router.push({ name: 'docs-search', query: { q: '' } });
+		tagChoice(tag) {
+			if (tag && this.$route.params.tag !== tag) {
+				this.$router.push({ name: this.$route.name, params: Object.assign(this.$route.params, { tag }) });
 			}
 		},
 
-		watch: {
-			sourceChoice(source) {
-				if (this.$route.params.source !== source) this.$router.push({ name: 'docs-source', params: { source } });
-			},
-
-			tagChoice(tag) {
-				if (tag && this.$route.params.tag !== tag) {
-					this.$router.push({ name: this.$route.name, params: Object.assign(this.$route.params, { tag }) });
-				}
-			},
-
-			source(source) {
-				this.sourceChoice = source.id;
-				this.tagChoice = null;
-				this.loadTags();
-			},
-
-			/* eslint-disable id-length */
-			search(q) {
-				if (this.$route.query.q) this.$router.replace({ name: 'docs-search', query: { q } });
-				else this.$router.push({ name: 'docs-search', query: { q } });
-			},
-			/* eslint-enable id-length */
-
-			$route(to) {
-				if (this.tagChoice && to.params.tag && this.tagChoice !== to.params.tag) this.tagChoice = to.params.tag;
-			}
-		},
-
-		created() {
+		source(source) {
+			this.sourceChoice = source.id;
+			this.tagChoice = null;
 			this.loadTags();
 		},
 
-		mounted() {
-			this.updateTagChoice();
+		/* eslint-disable id-length */
+		search(q) {
+			if (this.$route.query.q) this.$router.replace({ name: 'docs-search', query: { q } });
+			else this.$router.push({ name: 'docs-search', query: { q } });
+		},
+		/* eslint-enable id-length */
+
+		$route(to) {
+			if (this.tagChoice && to.params.tag && this.tagChoice !== to.params.tag) this.tagChoice = to.params.tag;
 		}
-	};
+	},
+
+	created() {
+		this.loadTags();
+	},
+
+	mounted() {
+		this.updateTagChoice();
+	},
+
+
+	methods: {
+		loadTags() {
+			this.tags = this.source.tags;
+			if (!this.tags) {
+				const startSource = this.source;
+				this.source.fetchTags().then(tags => {
+					if (this.source.id === startSource.id) this.tags = tags;
+				});
+			}
+		},
+
+		updateTagChoice() {
+			if (this.tags) this.tagChoice = this.$route.params.tag || this.source.recentTag || this.source.defaultTag;
+		},
+
+		startSearch() {
+			// eslint-disable-next-line id-length
+			this.$router.push({ name: 'docs-search', query: { q: '' } });
+		}
+	}
+};
 </script>
 

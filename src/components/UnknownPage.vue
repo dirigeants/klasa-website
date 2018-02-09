@@ -6,9 +6,9 @@
 </template>
 
 <script>
-	export default {
-		name: 'unknown-page',
-		props: ['type']
-	};
+export default {
+	name: 'UnknownPage',
+	props: ['type']
+};
 </script>
 

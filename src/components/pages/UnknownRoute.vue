@@ -7,5 +7,5 @@
 </template>
 
 <script>
-	export default { name: 'unknown-route' };
+export default { name: 'UnknownRoute' };
 </script>

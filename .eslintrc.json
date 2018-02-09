@@ -1,20 +1,3 @@
 {
-	"extends": "klasa",
-	"parser": "babel-eslint",
-	"parserOptions": {
-		"sourceType": "module"
-	},
-	"plugins": [
-		"html",
-		"vue"
-	],
-	"env": {
-		"es6": true,
-		"browser": true,
-		"node": true
-	},
-	"settings": {
-		"html/indent": "tab",
-		"html/report-bad-indent": "error"
-	}
+	"extends": "klasa/vue"
 }

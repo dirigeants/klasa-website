@@ -7,17 +7,17 @@
 </template>
 
 <script>
-	import { sourceURL } from '../../util';
+import { sourceURL } from '../../util';
 
-	export default {
-		name: 'source-button',
-		props: ['meta', 'path', 'docs'],
+export default {
+	name: 'SourceButton',
+	props: ['meta', 'path', 'docs'],
 
-		methods: {
-			sourceURL(path, file, line) {
-				return sourceURL(this.docs.source, this.docs.tag, path, file, line);
-			}
+	methods: {
+		sourceURL(path, file, line) {
+			return sourceURL(this.docs.source, this.docs.tag, path, file, line);
 		}
-	};
+	}
+};
 </script>
 

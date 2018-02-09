@@ -1,9 +1,9 @@
 <template>
 	<div class="container">
 		<section class="section has-text-centered">
-			<img class="logo" src="static/klasa.svg" />
-			<br />
-			<br />
+			<img class="logo" src="static/klasa.svg" >
+			<br >
+			<br >
 			<div class="tile is-ancestor">
 				<div class="tile is-parent">
 					<article class="tile is-child box content">
@@ -24,7 +24,7 @@
 						<h5><strong>About:</strong></h5>
 						<p>
 							Klasa is an OOP discord.js bot framework which aims to be the most feature complete,
-							while feeling like a consistant extension of <a href="https://discord.js.org/#/">discord.js</a>. 
+							while feeling like a consistant extension of <a href="https://discord.js.org/#/">discord.js</a>.
 						</p>
 						<p>
 							Originally based on Komada, Klasa has become a <a href="https://en.wikipedia.org/wiki/Ship_of_Theseus">ship of Theseus</a> and so much more.
@@ -51,5 +51,5 @@
 </template>
 
 <script>
-	export default { name: 'home' };
+export default { name: 'Home' };
 </script>
