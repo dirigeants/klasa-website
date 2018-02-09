@@ -103,7 +103,8 @@ export default {
 					Timeout: 'https://nodejs.org/dist/latest/docs/api/timers.html#timers_class_timeout',
 					Buffer: 'https://nodejs.org/dist/latest/docs/api/buffer.html#buffer_class_buffer',
 					ReadableStream: 'https://nodejs.org/dist/latest/docs/api/stream.html#stream_class_stream_readable',
-					ChildProcess: 'https://nodejs.org/dist/latest/docs/api/child_process.html#child_process_class_childprocess'
+					ChildProcess: 'https://nodejs.org/dist/latest/docs/api/child_process.html#child_process_class_childprocess',
+					Iterator: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterator_protocol'
 				};
 
 				// Add links for everything
