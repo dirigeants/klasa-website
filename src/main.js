@@ -20,25 +20,22 @@ Vue.component('unknown-page', UnknownPageComponent);
 Vue.use(VueHighlightJS);
 
 // Tell Vue.js to use buefy
-Vue.use(Buefy, {
-  defaultIconPack: 'fa'
-});
+Vue.use(Buefy, { defaultIconPack: 'fa' });
 
 // Set the renderer to marked.
 marked.setOptions({ renderer });
 
 Vue.filter('marked', text => {
-  if (!text) text = '**Documentation missing.**';
-  else text = text.replace(/<(info|warning|danger)>([\s\S]+)<\/\1>/gi, '<div class="notification is-$1">$2</div>');
-  return marked(text);
+	if (!text) text = '**Documentation missing.**';
+	else text = text.replace(/<(info|warning|danger)>([\s\S]+)<\/\1>/gi, '<div class="notification is-$1">$2</div>');
+	return marked(text);
 });
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  // eslint-disable-next-line
-  render(el) {
-    return el(App);
-  }
+	el: '#app',
+	router,
+	render(el) {
+		return el(App);
+	}
 });
