@@ -1,15 +1,16 @@
 <template>
 	<div>
+		<!-- eslint-disable vue/require-v-for-key -->
 		<div @click="toggle" class="button is-white is-hidden-tablet"><b-icon icon="bars" /></div>
 		<b-tabs v-model="activeTab">
 			<b-tab-item label="Guide">
 				<aside class="menu">
-					<div v-for="(category, categoryID) in docs.custom" :key="categoryID" v-if="category.name !== 'General'">
+					<div v-for="(category, categoryID) in docs.custom" v-if="category.name !== 'General'">
 						<p class="menu-label">
 							{{ category.name }}
 						</p>
 						<ul class="menu-list">
-							<li v-for="(file, fileID) in category.files" :key="fileID" class="animated-list-item">
+							<li v-for="(file, fileID) in category.files" class="animated-list-item">
 								<router-link :to="{ name: 'docs-file', params: { category: categoryID, file: fileID } }" :class="`${$route.params.file === fileID ? 'is-active' : ''}`">
 									{{ file.name }}
 								</router-link>
@@ -28,7 +29,7 @@
 						Classes
 					</p>
 					<ul class="menu-list">
-						<li v-for="clarse in docs.classes" :key="clarse" v-if="showPrivate || clarse.access !== 'private'" class="animated-list-item">
+						<li v-for="clarse in docs.classes" v-if="showPrivate || clarse.access !== 'private'" class="animated-list-item">
 							<router-link exact :to="{ name: 'docs-class', params: { class: clarse.name } }" :class="`${$route.params.class === clarse.name ? 'is-active' : ''}`">
 								{{ clarse.name }}
 							</router-link>
@@ -45,7 +46,7 @@
 						Typedefs
 					</p>
 					<ul class="menu-list">
-						<li v-for="typedef in docs.typedefs" :key="typedef" v-if="showPrivate || typedef.access !== 'private'" class="animated-list-item">
+						<li v-for="typedef in docs.typedefs" v-if="showPrivate || typedef.access !== 'private'" class="animated-list-item">
 							<router-link exact :to="{ name: 'docs-typedef', params: { typedef: typedef.name } }" :class="`${$route.params.typedef === typedef.name ? 'is-active' : ''}`">
 								{{ typedef.name }}
 							</router-link>
@@ -54,6 +55,7 @@
 				</aside>
 			</b-tab-item>
 		</b-tabs>
+		<!-- eslint-enable vue/require-v-for-key -->
 	</div>
 </template>
 
