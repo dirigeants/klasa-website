@@ -19,6 +19,13 @@
 							<span class="icon"><i class="fab fa-npm"/></span>
 						</a>
 					</div>
+					<div class="column">
+						<a href="https://www.patreon.com/klasa" class="button is-info">
+							<span>Support Klasa:</span>
+							<span class="icon"><i class="fab fa-patreon"/></span>
+						</a>
+					</div>
+
 					<div class="column is-two-fifths is-hidden-tablet"/>
 				</div>
 				<stats />
