@@ -13,7 +13,7 @@
 			</b-table-column>
 
 			<b-table-column v-if="hasOptional" label="Optional">
-				<b-icon icon="check" v-if="props.row.optional" />
+				<b-icon v-if="props.row.optional" icon="check" />
 			</b-table-column>
 
 			<b-table-column v-if="hasOptional" label="Default">

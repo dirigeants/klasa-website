@@ -20,10 +20,10 @@
 					</span>
 				</div>
 			</nav>
-			<source-button class="card-header-icon" :meta="clarse.meta" :docs="docs" />
+			<source-button :meta="clarse.meta" :docs="docs" class="card-header-icon" />
 		</header>
-		<div class="card-content" v-if="description || (clarse.construct && (showPrivate || clarse.construct.access !== 'private'))">
-			<p class="subtitle" v-html="description" v-if="clarse.description"/>
+		<div v-if="description || (clarse.construct && (showPrivate || clarse.construct.access !== 'private'))" class="card-content">
+			<p v-if="clarse.description" class="subtitle" v-html="description" />
 			<div v-if="clarse.construct && (showPrivate || clarse.construct.access !== 'private')">
 				<strong>Constructor:</strong>
 				<pre v-highlightjs><code class="js">new {{ docs.global }}.{{ clarse.name }}({{ constructorParams }});</code></pre>

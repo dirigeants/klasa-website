@@ -1,5 +1,5 @@
 <template>
-	<div class="card" :id="`doc-for-${scrollTo}`">
+	<div :id="`doc-for-${scrollTo}`" class="card">
 		<header class="card-header">
 			<nav class="card-header-title level is-marginless">
 				<div class="level-left">
@@ -16,7 +16,7 @@
 					</span>
 				</div>
 			</nav>
-			<source-button class="card-header-icon" :meta="method.meta" :docs="docs" />
+			<source-button :meta="method.meta" :docs="docs" class="card-header-icon" />
 		</header>
 		<div class="card-content">
 			<div class="content" v-html="description"/>
@@ -38,7 +38,7 @@
 
 			<div v-if="method.examples">
 				<strong>Examples:</strong>
-				<pre v-for="example in method.examples" :key="example" v-highlightjs><code class="javascript">{{ example }}</code></pre>
+				<pre v-highlightjs v-for="example in method.examples" :key="example"><code class="javascript">{{ example }}</code></pre>
 			</div>
 		</div>
 		<footer class="card-footer">

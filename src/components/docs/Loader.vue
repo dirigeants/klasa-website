@@ -2,7 +2,7 @@
 	<div>
 		<transition name="fade-resize" mode="out-in">
 			<router-view v-if="docs" :docs="docs" />
-			<div class="container" v-else>
+			<div v-else class="container">
 				<b-loading v-if="!error" :active.sync="active"/>
 				<section v-else class="section content">
 					<h1>Couldn't load the documentation data.</h1>
