@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<!-- eslint-disable vue/require-v-for-key -->
-		<div @click="toggle" class="button is-white is-hidden-tablet"><b-icon icon="bars" /></div>
+		<div class="button is-white is-hidden-tablet" @click="toggle"><b-icon icon="bars" /></div>
 		<b-tabs v-model="activeTab">
 			<b-tab-item label="Guide">
 				<aside class="menu">
@@ -30,7 +30,7 @@
 					</p>
 					<ul class="menu-list">
 						<li v-for="clarse in docs.classes" v-if="showPrivate || clarse.access !== 'private'" class="animated-list-item">
-							<router-link exact :to="{ name: 'docs-class', params: { class: clarse.name } }" :class="`${$route.params.class === clarse.name ? 'is-active' : ''}`">
+							<router-link :to="{ name: 'docs-class', params: { class: clarse.name } }" :class="`${$route.params.class === clarse.name ? 'is-active' : ''}`" exact>
 								{{ clarse.name }}
 							</router-link>
 						</li>
@@ -47,7 +47,7 @@
 					</p>
 					<ul class="menu-list">
 						<li v-for="typedef in docs.typedefs" v-if="showPrivate || typedef.access !== 'private'" class="animated-list-item">
-							<router-link exact :to="{ name: 'docs-typedef', params: { typedef: typedef.name } }" :class="`${$route.params.typedef === typedef.name ? 'is-active' : ''}`">
+							<router-link :to="{ name: 'docs-typedef', params: { typedef: typedef.name } }" :class="`${$route.params.typedef === typedef.name ? 'is-active' : ''}`" exact>
 								{{ typedef.name }}
 							</router-link>
 						</li>

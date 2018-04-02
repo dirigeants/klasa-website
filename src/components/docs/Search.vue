@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<p class="title">
-			<span class="subtitle is-5" @click="toggleScores" :title="showScores ? 'Hide scores' : 'Show scores'"><b-icon icon="chart-bar" size="is-small" /></span> Search
+			<span :title="showScores ? 'Hide scores' : 'Show scores'" class="subtitle is-5" @click="toggleScores"><b-icon icon="chart-bar" size="is-small" /></span> Search
 		</p>
 		<b-field>
 			<b-input v-model.trim="search" placeholder="Search..."
@@ -10,29 +10,29 @@
 		</b-field>
 
 		<b-field grouped group-multiline>
-			<b-checkbox-button v-model="toggles" native-value="classes" :type="tagColor('Class')">
+			<b-checkbox-button v-model="toggles" :type="tagColor('Class')" native-value="classes">
 				Classes
 			</b-checkbox-button>
-			<b-checkbox-button v-model="toggles" native-value="props" :type="tagColor('Property')">
+			<b-checkbox-button v-model="toggles" :type="tagColor('Property')" native-value="props">
 				Properties
 			</b-checkbox-button>
-			<b-checkbox-button v-model="toggles" native-value="methods" :type="tagColor('Method')">
+			<b-checkbox-button v-model="toggles" :type="tagColor('Method')" native-value="methods">
 				Methods
 			</b-checkbox-button>
-			<b-checkbox-button v-model="toggles" native-value="events" :type="tagColor('Event')">
+			<b-checkbox-button v-model="toggles" :type="tagColor('Event')" native-value="events">
 				Events
 			</b-checkbox-button>
-			<b-checkbox-button v-model="toggles" native-value="typedefs" :type="tagColor('Typedef')">
+			<b-checkbox-button v-model="toggles" :type="tagColor('Typedef')" native-value="typedefs">
 				Typedefs
 			</b-checkbox-button>
 		</b-field>
 
 		<transition name="fade" mode="out-in">
 			<div v-if="search && search.length > 2">
-				<h2 class="subtitle" v-if="search && search.length > 2">Results for "{{ search }}"</h2>
+				<h2 v-if="search && search.length > 2" class="subtitle" >Results for "{{ search }}"</h2>
 
 				<transition name="fade" mode="out-in">
-					<transition-group name="animated-list" tag="ul" v-if="results.length > 0" key="results">
+					<transition-group v-if="results.length > 0" key="results" name="animated-list" tag="ul">
 						<li v-for="result in results" :key="`${result.key || result.name}`" class="animated-list-item">
 							<span v-if="showScores" class="score">{{ Math.round(result.score * 100) }}%</span>
 							<router-link :to="result.route">
@@ -42,11 +42,11 @@
 						</li>
 					</transition-group>
 
-					<h2 class="subtitle" v-else key="empty">No results.</h2>
+					<h2 v-else key="empty" class="subtitle">No results.</h2>
 				</transition>
 			</div>
 
-			<h2 class="subtitle" v-else key="short">Your search query must be at least three characters.</h2>
+			<h2 v-else key="short" class="subtitle">Your search query must be at least three characters.</h2>
 		</transition>
 	</div>
 </template>

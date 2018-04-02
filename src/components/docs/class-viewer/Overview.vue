@@ -1,11 +1,11 @@
 <template>
 	<div>
 		<div class="columns is-8">
-			<div class="column is-4" v-if="properties && properties.length">
+			<div v-if="properties && properties.length" class="column is-4">
 				<aside class="menu">
 					<p class="menu-label">Properties</p>
 					<ul class="menu-list">
-						<li v-for="property in properties" :key="scopedName(property)" @click="scroll(scopedName(property))" class="animated-list-item">
+						<li v-for="property in properties" :key="scopedName(property)" class="animated-list-item" @click="scroll(scopedName(property))">
 							<router-link :to="{ name: 'docs-class', query: { scrollTo: scopedName(property) } }">
 								{{ property.name }}
 								<span v-if="property.scope === 'static'"><span class="tag is-primary is-pulled-right">S</span>&nbsp;</span>
@@ -19,11 +19,11 @@
 				</aside>
 			</div>
 
-			<div class="column is-4" v-if="methods && methods.length">
+			<div v-if="methods && methods.length" class="column is-4">
 				<aside class="menu">
 					<p class="menu-label">Methods</p>
 					<ul class="menu-list">
-						<li v-for="method in methods" :key="scopedName(method)" @click="scroll(scopedName(method))" class="animated-list-item">
+						<li v-for="method in methods" :key="scopedName(method)" class="animated-list-item" @click="scroll(scopedName(method))">
 							<router-link :to="{ name: 'docs-class', query: { scrollTo: scopedName(method) } }">
 								{{ method.name }}
 								<span v-if="method.access === 'private'"><span class="tag is-warning is-pulled-right">P</span>&nbsp;</span>
@@ -38,11 +38,11 @@
 				</aside>
 			</div>
 
-			<div class="column is-4" v-if="events && events.length">
+			<div v-if="events && events.length" class="column is-4">
 				<aside class="menu">
 					<p class="menu-label">Events</p>
 					<ul class="menu-list">
-						<li v-for="event in events" :key="scopedName(event)" @click="scroll(event.name)" class="animated-list-item">
+						<li v-for="event in events" :key="scopedName(event)" class="animated-list-item" @click="scroll(event.name)">
 							<router-link :to="{ name: 'docs-class', query: { scrollTo: event.name } }">
 								{{ event.name }}
 								<span v-if="event.deprecated"><span class="tag is-danger is-pulled-right">D</span>&nbsp;</span>

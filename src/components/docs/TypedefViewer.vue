@@ -12,10 +12,10 @@
 						</span>
 					</div>
 				</nav>
-				<source-button class="card-header-icon" :meta="typedef.meta" :docs="docs" />
+				<source-button :meta="typedef.meta" :docs="docs" class="card-header-icon" />
 			</header>
-			<div class="card-content" v-if="typedef.description || (typedef.props && typedef.props.length)">
-				<p class="subtitle" v-html="description" v-if="typedef.description"/>
+			<div v-if="typedef.description || (typedef.props && typedef.props.length)" class="card-content">
+				<p v-if="typedef.description" class="subtitle" v-html="description" />
 				<div v-if="typedef.props && typedef.props.length">
 					<strong>Properties:</strong>
 					<param-table :params="typedef.props" :docs="docs" />

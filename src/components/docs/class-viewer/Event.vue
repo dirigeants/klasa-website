@@ -1,5 +1,5 @@
 <template>
-	<div class="card" :id="`doc-for-${event.name}`">
+	<div :id="`doc-for-${event.name}`" class="card" >
 		<header class="card-header">
 			<nav class="card-header-title level is-marginless">
 				<div class="level-left">
@@ -11,11 +11,11 @@
 					</span>
 				</div>
 			</nav>
-			<source-button class="card-header-icon" :meta="event.meta" :docs="docs" />
+			<source-button :meta="event.meta" :docs="docs" class="card-header-icon" />
 		</header>
 		<div class="card-content">
 			<div class="content" v-html="description"/>
-			<param-table :params="event.params" :docs="docs" v-if="event.params && event.params.length" />
+			<param-table v-if="event.params && event.params.length" :params="event.params" :docs="docs" />
 		</div>
 		<footer class="card-footer">
 			<p v-if="event.see" class="card-footer-item">

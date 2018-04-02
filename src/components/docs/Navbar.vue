@@ -29,7 +29,7 @@
 							<b-input v-model="search" placeholder="Search" type="search" icon="search"/>
 						</b-field>
 					</div>
-					<div @click="startSearch" class="level-item is-hidden-tablet">
+					<div class="level-item is-hidden-tablet" @click="startSearch">
 						<b-icon icon="search" />
 					</div>
 				</div>

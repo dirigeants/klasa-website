@@ -1,5 +1,5 @@
 <template>
-	<div class="card" :id="`doc-for-${scrollTo}`">
+	<div :id="`doc-for-${scrollTo}`" class="card">
 		<header class="card-header">
 			<nav class="card-header-title level is-marginless">
 				<div class="level-left">
@@ -14,11 +14,11 @@
 					</span>
 				</div>
 			</nav>
-			<source-button class="card-header-icon" :meta="prop.meta" :docs="docs" />
+			<source-button :meta="prop.meta" :docs="docs" class="card-header-icon" />
 		</header>
 		<div class="card-content">
 			<div class="content" v-html="description"/>
-			<param-table :params="prop.props" :docs="docs" v-if="prop.props && prop.props.length" />
+			<param-table v-if="prop.props && prop.props.length" :params="prop.props" :docs="docs" />
 		</div>
 		<footer class="card-footer">
 			<p class="card-footer-item">

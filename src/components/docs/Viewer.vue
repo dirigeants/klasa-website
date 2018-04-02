@@ -4,8 +4,8 @@
 			<div :class="`column is-one-fifth ${visible ? '' : 'is-hidden-mobile'}`" >
 				<sidebar :docs="docs" @showPrivate="setShowPrivate" />
 			</div>
-			<div :class="`column ${visible ? '' : 'is-four-fifths'}`">
-				<div @click="toggle" :class="`button is-white ${visible ? 'is-hidden-mobile' : 'is-hidden-tablet'}`"><b-icon icon="bars" /></div>
+			<div class="column is-four-fifths">
+				<div :class="`button is-white ${visible ? 'is-hidden-mobile' : 'is-hidden-tablet'}`" @click="toggle"><b-icon icon="bars" /></div>
 				<section class="section">
 					<transition name="fade-slide" mode="out-in" appear>
 						<router-view :docs="docs" :key="key" :show-private="showPrivate" />
