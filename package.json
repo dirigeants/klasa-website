@@ -24,20 +24,17 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.2",
     "eslint": "^4.19.1",
     "eslint-config-klasa": "github:dirigeants/klasa-lint",
     "eslint-plugin-vue": "^4.4.0",
     "node-sass": "^4.8.3",
     "poi": "^9.6.13",
+    "poi-preset-eslint": "^9.1.1",
     "sass-loader": "^6.0.7"
   },
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
-  },
-  "poi": {
-    "html": {
-      "template": "./index.html"
-    }
   }
 }
