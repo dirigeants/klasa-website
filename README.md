@@ -1,5 +1,7 @@
 # klasa-docs
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dirigeants/klasa-website.svg)](https://greenkeeper.io/)
+
 > Documentation site for Klasa
 
 ## Build Setup
