@@ -34,15 +34,8 @@ export default {
 	@import "~bulma";
 	@import "~buefy/src/scss/buefy";
 
-	// Flexbox display
-	@mixin flexbox() {
-		display: -webkit-box;
-		display: -moz-box;
-		display: -ms-flexbox;
-	}
-
 	.site {
-		@include flexbox;
+		display: flex;
 		min-height: 100vh;
 		flex-direction: column;
 	}
