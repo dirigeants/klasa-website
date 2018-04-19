@@ -29,24 +29,31 @@
 
 		<transition name="fade" mode="out-in">
 			<div v-if="search && search.length > 2">
-				<h2 v-if="search && search.length > 2" class="subtitle" >Results for "{{ search }}"</h2>
+				<div v-if="exactMatches.length">
+					<h2 class="subtitle has-text-weight-semibold">Results for "{{ search }}"</h2>
 
-				<transition name="fade" mode="out-in">
-					<transition-group v-if="results.length > 0" key="results" name="animated-list" tag="ul">
-						<li v-for="result in results" :key="`${result.key || result.name}`" class="animated-list-item">
-							<span v-if="showScores" class="score">{{ Math.round(result.score * 100) }}%</span>
-							<router-link :to="result.route">
-								<span :class="`tag ${tagColor(result.badge)}`" :title="result.badge">{{ result.badge[0] }}</span>
-								{{ result.name }}{{ result.badge === 'Method' ? '()' : '' }}
-							</router-link>
-						</li>
-					</transition-group>
+					<transition name="fade" mode="out-in">
+						<transition-group name="animated-list" tag="ul">
+							<SearchResult v-for="result in exactMatches" :key="`${result.key || result.name}`" :search="search" :result="result" :scores="showScores" :color="tagColor(result.badge)" />
+						</transition-group>
+					</transition>
+					<br>
+				</div>
 
-					<h2 v-else key="empty" class="subtitle">No results.</h2>
-				</transition>
+				<div v-if="partialMatches.length">
+					<h2 class="subtitle has-text-weight-semibold">Similar results for "{{ search }}"</h2>
+
+					<transition name="fade" mode="out-in">
+						<transition-group name="animated-list" tag="ul">
+							<SearchResult v-for="result in partialMatches" :key="`${result.key || result.name}`" :search="search" :result="result" :scores="showScores" :color="tagColor(result.badge)" />
+						</transition-group>
+					</transition>
+					<br>
+				</div>
+				<h2 v-if="!exactMatches.length && !partialMatches.length" class="subtitle has-text-weight-semibold">No results.</h2>
 			</div>
 
-			<h2 v-else key="short" class="subtitle">Your search query must be at least three characters.</h2>
+			<h2 v-else class="subtitle has-text-weight-semibold">Your search query must be at least three characters.</h2>
 		</transition>
 	</div>
 </template>
@@ -55,10 +62,12 @@
 import levenshtein from 'js-levenshtein';
 import { sort } from 'timsort';
 
+import SearchResult from './SearchResult.vue';
+
 export default {
 	name: 'DocsSearch',
+	components: { SearchResult },
 	props: ['docs', 'showPrivate'],
-
 	data() {
 		return {
 			search: this.$route.query.q,
@@ -129,6 +138,14 @@ export default {
 
 			sort(results, (a, b) => b.score - a.score);
 			return results;
+		},
+
+		exactMatches() {
+			return this.results.filter(result => result.score >= 1);
+		},
+
+		partialMatches() {
+			return this.results.filter(result => result.score < 1);
 		}
 	},
 
