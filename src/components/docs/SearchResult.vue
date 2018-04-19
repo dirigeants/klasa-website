@@ -3,7 +3,7 @@
 		<span v-if="scores" class="score">{{ Math.round(result.score * 100) }}%</span>
 		<router-link :to="result.route">
 			<span :class="`tag ${color}`" :title="result.badge">{{ result.badge[0] }}</span>
-			<span v-html="highlightedName">{{ result.badge === 'Method' ? '()' : '' }}</span>
+			<span v-html="highlightedName" />
 		</router-link>
 	</li>
 </template>
@@ -15,7 +15,7 @@ export default {
 
 	computed: {
 		highlightedName() {
-			return this.result.name.replace(new RegExp(this.search.split(' ').join('|'), 'ig'), match => `<strong>${match}</strong>`);
+			return `${this.result.name.replace(new RegExp(this.search.split(' ').join('|'), 'ig'), match => `<strong>${match}</strong>`)}${this.result.badge === 'Method' ? '()' : ''}`;
 		}
 	}
 };
