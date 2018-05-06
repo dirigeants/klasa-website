@@ -1,4 +1,4 @@
-import request from 'superagent';
+import request from 'snekfetch';
 
 export default class DocsSource {
 
@@ -46,8 +46,8 @@ export default class DocsSource {
 	}
 
 	async fetchDocs(tag) {
-		const { text } = await request.get(`https://raw.githubusercontent.com/${this.repo}/docs/${tag}.json`);
-		return JSON.parse(text);
+		const { body } = await request.get(`https://raw.githubusercontent.com/${this.repo}/docs/${tag}.json`);
+		return JSON.parse(body);
 	}
 
 }
