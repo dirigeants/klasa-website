@@ -26,7 +26,7 @@
 				<div class="level-right">
 					<div class="level-item is-hidden-mobile">
 						<b-field type="is-light">
-							<b-input v-model="search" placeholder="Search" type="search" icon="search"/>
+							<b-input v-model="search" placeholder="Search" type="search" icon="search" @keyup.enter.native="startSearch" />
 						</b-field>
 					</div>
 					<div class="level-item is-hidden-tablet" @click="startSearch">
@@ -77,6 +77,7 @@ export default {
 		/* eslint-enable id-length */
 
 		$route(to) {
+			if (this.$route.query.q) this.search = to.query.q;
 			if (this.tagChoice && to.params.tag && this.tagChoice !== to.params.tag) this.tagChoice = to.params.tag;
 		}
 	},
@@ -107,7 +108,7 @@ export default {
 
 		startSearch() {
 			// eslint-disable-next-line id-length
-			this.$router.push({ name: 'docs-search', query: { q: '' } });
+			if (this.$route.name !== 'docs-search') this.$router.replace({ name: 'docs-search', query: { q: this.search } });
 		}
 	}
 };
