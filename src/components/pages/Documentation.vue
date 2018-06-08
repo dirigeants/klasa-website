@@ -7,15 +7,19 @@
 
 <script>
 import MainSource from '../../data/MainSource';
+import DashboardHooksSource from '../../data/DashboardHooksSource';
 import DocsNavbar from '../docs/Navbar.vue';
 
 export default {
 	name: 'Documentation',
-	components: { DocsNavbar	},
+	components: { DocsNavbar },
 
 	data() {
 		return {
-			sources: { [MainSource.id]: MainSource },
+			sources: {
+				[MainSource.id]: MainSource,
+				[DashboardHooksSource.id]: DashboardHooksSource
+			},
 			source: MainSource,
 			tag: MainSource.defaultTag
 		};
