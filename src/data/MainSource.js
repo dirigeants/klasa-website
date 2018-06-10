@@ -3,7 +3,7 @@ import semver from 'semver';
 
 const branchBlacklist = new Set(['gh-pages', 'gh-pages-dev', 'docs', 'webpack', 'indev-old', 'v8']);
 export default new DocsSource({
-	id: 'main',
+	id: 'klasa',
 	name: 'Main library',
 	global: 'Klasa',
 	repo: 'dirigeants/klasa',

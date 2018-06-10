@@ -20,7 +20,7 @@
 						</router-link>
 					</div>
 					<div class="level-item">
-						<a href="https://github.com/dirigeants/klasa" class="navbar-item button is-info is-5 is-marginless">
+						<a :href="`https://github.com/dirigeants/${this.$route.params.source || 'klasa'}/tree/${this.$route.params.tag || 'master'}`" class="navbar-item button is-info is-5 is-marginless">
 							<span class="icon"><i class="fab fa-github"/></span>
 							<span>Github</span>
 						</a>
