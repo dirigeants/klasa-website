@@ -78,7 +78,7 @@ export default {
 
 		$route(to) {
 			if (this.$route.query.q) this.search = to.query.q;
-			if (this.tagChoice && to.params.tag && this.tagChoice !== to.params.tag) this.tagChoice = to.params.tag;
+			if (to.params.tag && this.tagChoice !== to.params.tag) this.tagChoice = to.params.tag;
 		}
 	},
 
