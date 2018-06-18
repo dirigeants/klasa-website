@@ -5,7 +5,7 @@ const branchBlacklist = new Set(['gh-pages', 'gh-pages-dev', 'docs', 'webpack', 
 export default new DocsSource({
 	id: 'klasa-dashboard-hooks',
 	name: 'Dashboard Hooks',
-	global: 'Klasa-Dashboard-Hooks',
+	global: 'kdh',
 	repo: 'dirigeants/klasa-dashboard-hooks',
 	defaultTag: 'master',
 	branchFilter: branch => {
