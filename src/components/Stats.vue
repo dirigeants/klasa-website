@@ -31,7 +31,7 @@ export default {
 	name: 'Stats',
 	data() {
 		return {
-			downloads: 1000,
+			downloads: '1000+',
 			stars: '20+',
 			contributors: '19+',
 			fetching: false
@@ -52,6 +52,7 @@ export default {
 			]);
 
 			if (downloads) {
+				this.downloads = 0;
 				for (const item of downloads.downloads) this.downloads += item.downloads;
 				this.downloads = this.downloads.toLocaleString();
 			}
