@@ -1,4 +1,4 @@
-import request from 'snekfetch';
+const json = res => res.json();
 
 export default class DocsSource {
 
@@ -19,9 +19,9 @@ export default class DocsSource {
 	async fetchTags() {
 		if (this.tags) return this.tags;
 		try {
-			const [{ body: branches }, { body: tags }] = await Promise.all([
-				request.get(`https://api.github.com/repos/${this.repo}/branches`),
-				request.get(`https://api.github.com/repos/${this.repo}/tags`)
+			const [branches, tags] = await Promise.all([
+				fetch(`https://api.github.com/repos/${this.repo}/branches`).then(json),
+				fetch(`https://api.github.com/repos/${this.repo}/tags`).then(json)
 			]);
 
 			this.tags = [this.defaultTag];
@@ -45,9 +45,8 @@ export default class DocsSource {
 		}
 	}
 
-	async fetchDocs(tag) {
-		const { body } = await request.get(`https://raw.githubusercontent.com/${this.repo}/docs/${tag}.json`);
-		return JSON.parse(body);
+	fetchDocs(tag) {
+		return fetch(`https://raw.githubusercontent.com/${this.repo}/docs/${tag}.json`).then(json);
 	}
 
 }

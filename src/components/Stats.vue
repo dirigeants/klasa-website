@@ -22,37 +22,42 @@
 </template>
 
 <script>
-import request from 'snekfetch';
-
-const data = {
-	downloads: '1,000+',
-	stars: '20+',
-	contributors: '19+',
-	fetching: false
+const noop = () => {
+	// noop
 };
+const json = res => res.json();
 
 export default {
 	name: 'Stats',
-
 	data() {
-		if (data.fetching) return data;
-		data.fetching = true;
+		return {
+			downloads: 1000,
+			stars: '20+',
+			contributors: '19+',
+			fetching: false
+		};
+	},
+	beforeMount() {
+		this.fetch();
+	},
+	methods: {
+		async fetch() {
+			if (this.fetching) return;
+			this.fetching = true;
 
-		request.get('https://api.npmjs.org/downloads/range/2013-08-21:2100-08-21/klasa').end((err, res) => {
-			if (err) return;
-			data.downloads = 0;
-			for (const item of res.body.downloads) data.downloads += item.downloads;
-			data.downloads = data.downloads.toLocaleString();
-		});
-		request.get('https://api.github.com/repos/dirigeants/klasa').end((err, res) => {
-			if (!err) data.stars = res.body.stargazers_count.toLocaleString();
-		});
-		request.get('https://api.github.com/repos/dirigeants/klasa/stats/contributors').end((err, res) => {
-			if (!err) data.contributors = res.body.length.toLocaleString();
-		});
+			const [downloads, stars, contributors] = await Promise.all([
+				fetch('https://api.npmjs.org/downloads/range/2013-08-21:2100-08-21/klasa').then(json).catch(noop),
+				fetch('https://api.github.com/repos/dirigeants/klasa').then(json).catch(noop),
+				fetch('https://api.github.com/repos/dirigeants/klasa/stats/contributors').then(json).catch(noop)
+			]);
 
-
-		return data;
+			if (downloads) {
+				for (const item of downloads.downloads) this.downloads += item.downloads;
+				this.downloads = this.downloads.toLocaleString();
+			}
+			if (stars) this.stars = stars.stargazers_count.toLocaleString();
+			if (contributors) this.contributors = contributors.length.toLocaleString();
+		}
 	}
 };
 </script>
