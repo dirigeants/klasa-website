@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.1",
     "eslint-config-klasa": "github:dirigeants/klasa-lint",
     "eslint-plugin-vue": "^4.5.0",
     "node-sass": "^4.9.0",
