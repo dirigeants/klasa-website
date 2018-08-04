@@ -8,7 +8,7 @@
 				<div class="columns">
 					<div class="column is-two-fifths is-hidden-tablet"/>
 					<div class="column">
-						<a href="https://discord.gg/FpEFSyY" class="button is-info">
+						<a class="button is-info" @click="invite()">
 							<span>Have questions?</span>
 							<span class="icon"><i class="fab fa-discord"/></span>
 						</a>
@@ -39,6 +39,12 @@ import Stats from './Stats.vue';
 
 export default {
 	name: 'AppFooter',
-	components: { Stats	}
+	components: { Stats	},
+	methods: {
+		async invite() {
+			const { invite } = await fetch('https://api.klasa.me/invite').then(res => res.json());
+			window.open(invite, '', 'toolbar=no,scrollbars=yes,resizable=yes,width=498,height=666');
+		}
+	}
 };
 </script>
