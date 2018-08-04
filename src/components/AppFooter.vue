@@ -41,9 +41,11 @@ export default {
 	name: 'AppFooter',
 	components: { Stats	},
 	methods: {
-		async invite() {
-			const { invite } = await fetch('https://api.klasa.me/invite').then(res => res.json());
-			window.open(invite, '', 'toolbar=no,scrollbars=yes,resizable=yes,width=498,height=666');
+		invite() {
+			const popup = window.open('about:blank', '', 'toolbar=no,scrollbars=yes,resizable=yes,width=498,height=666');
+			fetch('https://api.klasa.me/invite')
+				.then(res => res.json())
+				.then(({ invite }) => { popup.location = invite; });
 		}
 	}
 };
