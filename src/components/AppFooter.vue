@@ -40,12 +40,9 @@ import Stats from './Stats.vue';
 export default {
 	name: 'AppFooter',
 	components: { Stats	},
-	methods: {
+	computed: {
 		invite() {
-			const popup = window.open('about:blank', '', 'toolbar=no,scrollbars=yes,resizable=yes,width=498,height=666');
-			fetch('https://api.klasa.me/invite')
-				.then(res => res.json())
-				.then(({ invite }) => { popup.location = invite; });
+			return this.$parent.invite;
 		}
 	}
 };

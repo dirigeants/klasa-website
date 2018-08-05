@@ -15,6 +15,14 @@ export default {
 	components: {
 		AppNavbar,
 		AppFooter
+	},
+	methods: {
+		invite() {
+			const popup = window.open('about:blank', '', 'toolbar=no,scrollbars=yes,resizable=yes,width=498,height=666');
+			fetch('https://api.klasa.me/invite')
+				.then(res => res.json())
+				.then(({ invite }) => { popup.location = invite; });
+		}
 	}
 };
 </script>
