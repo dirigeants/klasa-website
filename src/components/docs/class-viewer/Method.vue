@@ -94,7 +94,7 @@ import TypeLink from '../TypeLink.vue';
 import ParamTable from './ParamTable.vue';
 import SourceButton from '../SourceButton.vue';
 import See from '../See.vue';
-import { convertLinks, parseLink } from '../../../util';
+import { convertLinks, parseLink, paramListing } from '../../../util';
 
 export default {
 	name: 'ClassMethod',
@@ -113,14 +113,7 @@ export default {
 	computed: {
 		params() {
 			if (!this.method.params) return null;
-			return this.method.params.filter(par => !par.name.includes('.'))
-				.map(par => {
-					let param = par.name;
-					if (param.variable) param = `...${param}`;
-					if (param.optional) param = `[${par.name}]`;
-					return param;
-				})
-				.join(', ');
+			return paramListing(this.method.params.filter(par => !par.name.includes('.')));
 		},
 
 		description() {

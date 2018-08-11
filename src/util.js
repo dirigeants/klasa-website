@@ -64,3 +64,25 @@ export function convertLinks(text, docs, router, route) {
 		return parsed.text;
 	});
 }
+
+export function paramListing(params) {
+	let paramsNames = '';
+	let bracketCounter = 0;
+	let first = true;
+
+	for (const par of params) {
+		let { name } = par;
+		if (par.variable) name = `...${name}`;
+		if (par.optional) {
+			paramsNames += `${first ? '' : ' '}[${first ? '' : ', '}${name}`;
+			bracketCounter++;
+		} else {
+			paramsNames += `${first ? '' : ', '}${name}`;
+		}
+		first = false;
+	}
+
+	paramsNames += ']'.repeat(bracketCounter);
+
+	return paramsNames;
+}

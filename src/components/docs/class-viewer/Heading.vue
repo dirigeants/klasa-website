@@ -40,7 +40,7 @@
 
 <script>
 import Vue from 'vue';
-import { convertLinks } from '../../../util';
+import { convertLinks, paramListing } from '../../../util';
 import TypeLink from '../TypeLink.vue';
 import ParamTable from './ParamTable.vue';
 import SourceButton from '../SourceButton.vue';
@@ -62,7 +62,7 @@ export default {
 	computed: {
 		constructorParams() {
 			if (!this.clarse.construct || !this.clarse.construct.params) return null;
-			return this.clarse.construct.params.filter(par => !par.name.includes('.')).map(par => par.name).join(', ');
+			return paramListing(this.clarse.construct.params.filter(par => !par.name.includes('.')));
 		},
 		description() {
 			return Vue.filter('marked')(convertLinks(this.clarse.description, this.docs, this.$router, this.$route));
