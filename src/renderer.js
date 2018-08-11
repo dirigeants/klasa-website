@@ -26,12 +26,12 @@ renderer.heading = (text, level) => {
 					</div>
 				</div>
 				${level < 3 ? `
-						<div class="level-right">
-							<div class="level-item has-text-right">
-								<h${level}><a href="${window.location.toString().split('?')[0]}?scrollTo=${escapedText}">#</a></h${level}>
-							</div>
+					<div class="level-right">
+						<div class="level-item has-text-right">
+							<h${level}><a href="${window.location.toString().split('?')[0]}?scrollTo=${escapedText}">#</a></h${level}>
 						</div>
-					` : ''}
+					</div>
+				` : ''}
 			</nav>
 		`;
 };
