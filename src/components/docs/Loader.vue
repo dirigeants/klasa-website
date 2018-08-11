@@ -159,7 +159,7 @@ export default {
 					el.setAttribute('data-scrolled', true);
 					setTimeout(() => el.setAttribute('data-scrolled', false), 1000);
 					el.scrollIntoView(true);
-					window.scrollBy(0, -50);
+					window.scrollBy(0, -10);
 				};
 
 				const delayScroll = fromRoute && (

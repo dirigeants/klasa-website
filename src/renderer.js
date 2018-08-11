@@ -14,6 +14,25 @@ renderer.code = (code, language) => {
 	return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
 };
 
+renderer.heading = (text, level) => {
+	const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+
+	return `
+		<nav class="level is-mobile">
+			<div class="level-left">
+				<div class="level-item">
+					<h${level} id="${escapedText}">${text}</h${level}>
+				</div>
+			</div>
+			<div class="level-right">
+				<div class="level-item has-text-right">
+					<h${level}><a href="${window.location.toString().split('?')[0]}?scrollTo=${escapedText}">#</a></h${level}>
+				</div>
+			</div>
+		</nav>
+	`;
+};
+
 renderer.table = (header, body) => `
 	<div style="overflow-x:auto;">
 		<table>
