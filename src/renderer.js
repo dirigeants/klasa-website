@@ -18,6 +18,7 @@ renderer.heading = (text, level) => {
 	const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
 
 	return `
+		<br>
 		<nav class="level is-mobile">
 			<div class="level-left">
 				<div class="level-item">
