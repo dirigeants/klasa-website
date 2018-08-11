@@ -18,22 +18,10 @@ renderer.heading = (text, level) => {
 	const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
 
 	return `
-			<br>
-			<nav class="level is-mobile">
-				<div class="level-left">
-					<div class="level-item">
-						<h${level} id="${escapedText}">${text}</h${level}>
-					</div>
-				</div>
-				${level < 3 ? `
-					<div class="level-right">
-						<div class="level-item has-text-right">
-							<h${level}><a href="${window.location.toString().split('?')[0]}?scrollTo=${escapedText}">#</a></h${level}>
-						</div>
-					</div>
-				` : ''}
-			</nav>
-		`;
+		<h${level} id="${escapedText}">
+			${level < 3 ? `<a href="${window.location.toString().split('?')[0]}?scrollTo=${escapedText}">#</a> ` : ''}${text}
+		</h${level}>
+	`;
 };
 
 renderer.table = (header, body) => `
