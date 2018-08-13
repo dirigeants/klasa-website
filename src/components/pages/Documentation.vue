@@ -8,6 +8,7 @@
 <script>
 import MainSource from '../../data/MainSource';
 import DashboardHooksSource from '../../data/DashboardHooksSource';
+import MemberGatewaySource from '../../data/MemberGatewaySource';
 import DocsNavbar from '../docs/Navbar.vue';
 
 export default {
@@ -18,7 +19,8 @@ export default {
 		return {
 			sources: {
 				[MainSource.id]: MainSource,
-				[DashboardHooksSource.id]: DashboardHooksSource
+				[DashboardHooksSource.id]: DashboardHooksSource,
+				[MemberGatewaySource.id]: MemberGatewaySource
 			},
 			source: MainSource,
 			tag: MainSource.defaultTag
