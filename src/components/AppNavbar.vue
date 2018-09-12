@@ -27,7 +27,7 @@
 					</div>
 					<div class="level-item">
 						<a :href="`https://github.com/dirigeants/${this.$route.params.source || 'klasa'}/tree/${this.$route.params.tag || 'master'}`"
-						   class="navbar-item button is-info is-5 is-marginless" target="_blank">
+							class="navbar-item button is-info is-5 is-marginless" target="_blank">
 							<span class="icon"><i class="fab fa-github"/></span>
 							<span class="is-hidden-mobile">Github</span>
 						</a>
