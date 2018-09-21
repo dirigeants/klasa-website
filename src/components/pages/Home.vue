@@ -24,10 +24,10 @@
 						<h5><strong>About:</strong></h5>
 						<p>
 							Klasa is an OOP discord.js bot framework which aims to be the most feature complete,
-							while feeling like a consistent extension of <a href="https://discord.js.org/#/">discord.js</a>.
+							while feeling like a consistent extension of <a href="https://discord.js.org/#/" target="_blank">discord.js</a>.
 						</p>
 						<p>
-							Originally based on Komada, Klasa has become a <a href="https://en.wikipedia.org/wiki/Ship_of_Theseus">ship of Theseus</a> and so much more.
+							Originally based on Komada, Klasa has become a <a href="https://en.wikipedia.org/wiki/Ship_of_Theseus" target="_blank">ship of Theseus</a> and so much more.
 							You can only vaguely see similarities between the two frameworks anymore...
 						</p>
 					</article>

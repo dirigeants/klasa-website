@@ -14,13 +14,13 @@
 						</a>
 					</div>
 					<div class="column">
-						<a href="https://www.npmjs.com/package/klasa" class="button is-info">
+						<a href="https://www.npmjs.com/package/klasa" class="button is-info" target="_blank">
 							<span>Published using:</span>
 							<span class="icon"><i class="fab fa-npm"/></span>
 						</a>
 					</div>
 					<div class="column">
-						<a href="https://www.patreon.com/klasa" class="button is-info">
+						<a href="https://www.patreon.com/klasa" class="button is-info" target="_blank">
 							<span>Support Klasa:</span>
 							<span class="icon"><i class="fab fa-patreon"/></span>
 						</a>
