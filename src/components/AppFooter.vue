@@ -29,6 +29,13 @@
 					<div class="column is-two-fifths is-hidden-tablet"/>
 				</div>
 				<stats />
+
+				<p>
+					<a :class="color" @click="toggleDark()">
+						<span class="icon" style="margin-right: 5px;"><i :class="icon"/></span>
+						{{opposite}} Mode
+					</a>
+				</p>
 			</div>
 		</div>
 	</footer>
@@ -43,6 +50,25 @@ export default {
 	computed: {
 		invite() {
 			return this.$parent.invite;
+		}
+	},
+	data() {
+		const darkMode = localStorage.getItem('dark');
+		return {
+			dark: darkMode !== 'false' && darkMode !== null,
+			opposite: darkMode !== 'false' && darkMode !== null ? "Light" : "Dark",
+			icon: darkMode !== 'false' && darkMode !== null ? "fas fa-sun" : "fas fa-moon",
+			color: darkMode !== 'false' && darkMode !== null ? "button is-light is-medium" : "button is-dark is-medium"
+		}
+	},
+	methods: {
+		toggleDark() {
+			this.dark = !this.dark;
+			localStorage.setItem('dark', this.dark);
+			this.dark ? this.$parent.$el.classList.add('dark') : this.$parent.$el.classList.remove('dark');
+			this.opposite = this.dark ? "Light" : "Dark";
+			this.icon = this.dark ? "fas fa-sun" : "fas fa-moon";
+			this.color = this.dark ? "button is-light is-medium" : "button is-dark is-medium";
 		}
 	}
 };

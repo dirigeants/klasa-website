@@ -31,12 +31,6 @@
 							<span class="is-hidden-mobile">Github</span>
 						</a>
 					</div>
-					<div class="level-item">
-						<a @click="toggleDark()" class="navbar-item button is-info is-5 is-marginless">
-							<span class="icon"><i class="fas fa-moon"/></span>
-							<span class="is-hidden-mobile">{{opposite}} Mode</span>
-						</a>
-					</div>
 				</div>
 			</nav>
 		</div>
@@ -49,21 +43,6 @@ export default {
 	computed: {
 		invite() {
 			return this.$parent.invite;
-		}
-	},
-	data() {
-		const darkMode = localStorage.getItem('dark');
-		return {
-			dark: darkMode !== 'false' && darkMode !== null,
-			opposite: darkMode !== 'false' && darkMode !== null ? "Light" : "Dark"
-		}
-	},
-	methods: {
-		toggleDark() {
-			this.dark = !this.dark;
-			localStorage.setItem('dark', this.dark);
-			this.dark ? this.$parent.$el.classList.add('dark') : this.$parent.$el.classList.remove('dark');
-			this.opposite = this.dark ? "Light" : "Dark";
 		}
 	}
 };
