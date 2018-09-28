@@ -62,7 +62,8 @@ export default {
 		toggleDark() {
 			this.dark = !this.dark;
 			localStorage.setItem('dark', this.dark);
-			this.dark ? this.$parent.$el.classList.add('dark') : this.$parent.$el.classList.remove('dark');;
+			this.dark ? this.$parent.$el.classList.add('dark') : this.$parent.$el.classList.remove('dark');
+			this.opposite = this.dark ? "Light" : "Dark";
 		}
 	}
 };

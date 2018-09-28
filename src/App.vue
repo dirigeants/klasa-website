@@ -226,6 +226,10 @@ export default {
 		color: #E0E0E0;
 	}
 
+	.dark .menu-list a:hover {
+		color: #2d2d2d;
+	}
+
 	.dark nav.animated-list-item fa {
 		color: #CFD8DC;
 	}
