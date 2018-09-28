@@ -62,7 +62,7 @@ export default {
 		toggleDark() {
 			this.dark = !this.dark;
 			localStorage.setItem('dark', this.dark);
-			window.location.reload();
+			this.dark ? this.$parent.$el.classList.add('dark') : this.$parent.$el.classList.remove('dark');;
 		}
 	}
 };
