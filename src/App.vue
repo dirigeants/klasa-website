@@ -60,7 +60,7 @@ export default {
 	// Dark Theme
 
 	.dark {
-		background-color: hsl(217, 8%, 9%);
+		background-color: hsl(217, 8%, 10%);
 		color: hsl(0, 0%, 52%);
 
 		$light:  hsl(217, 20%, 18%);
@@ -73,9 +73,9 @@ export default {
 		$grey:  hsl(0, 0%, 52%);
 		$grey-light:  hsl(0, 0%, 29%);
 		$grey-lighter:  hsl(0, 0%, 14%);
-		$white-ter:  hsl(217, 8%, 4%);
-		$white-bis:  hsl(217, 8%, 2%);
-		$white:  hsl(217, 8%, 0%);
+		$white-ter:  hsl(217, 8%, 10%);
+		$white-bis:  hsl(217, 8%, 8%);
+		$white:  hsl(217, 8%, 6%);
 		$orange:  hsl(14, 100%, 47%);
 		$yellow:  hsl(48, 100%, 33%);
 		$green:  hsl(141, 71%, 40%);
