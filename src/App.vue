@@ -22,7 +22,7 @@ export default {
 		};
 	},
 	mounted() {
-		if (this.dark) this.setTheme();
+		this.setTheme();
 	},
 	methods: {
 		invite() {
