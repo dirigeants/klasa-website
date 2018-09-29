@@ -45,7 +45,7 @@ export default {
 
 	.light {
 		$light:  hsl(217, 86%, 90%);
-
+		$orange:  hsl(14, 100%, 47%);
 		// Import Bulma's core
 		@import "~bulma/sass/utilities/_all";
 
@@ -57,6 +57,11 @@ export default {
 		@import "~bulma";
 		@import "~buefy/src/scss/buefy";
 		@import "./style";
+
+		.is-patreon {
+			color: $white-ter;
+			background-color: $orange;
+		}
 	}
 
 	// Dark Theme
@@ -98,6 +103,11 @@ export default {
 		@import "~bulma";
 		@import "~buefy/src/scss/buefy";
 		@import "./style";
+
+		.is-patreon {
+			color: $black-ter;
+			background-color: $orange;
+		}
 	}
 
 	// base stuff
