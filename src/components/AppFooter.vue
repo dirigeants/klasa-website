@@ -51,7 +51,6 @@ export default {
 		toggleDark() {
 			this.$parent.dark = !this.$parent.dark;
 			localStorage.setItem('dark', String(this.$parent.dark));
-			this.$parent.setTheme();
 		}
 	}
 };

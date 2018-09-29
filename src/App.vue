@@ -1,5 +1,5 @@
 <template>
-	<div class="light site">
+	<div :class="`${dark ? 'dark' : 'light'} site`">
 		<app-navbar />
 		<router-view class="site-content" />
 		<app-footer />
@@ -30,10 +30,6 @@ export default {
 			fetch('https://api.klasa.me/invite')
 				.then(res => res.json())
 				.then(({ invite }) => { popup.location = invite; });
-		},
-		setTheme() {
-			if (this.dark) this.$el.classList.replace('light', 'dark');
-			else this.$el.classList.replace('dark', 'light');
 		}
 	}
 };
