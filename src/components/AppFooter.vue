@@ -40,9 +40,6 @@ export default {
 	name: 'AppFooter',
 	components: { Stats	},
 	computed: {
-		invite() {
-			return this.$parent.invite;
-		},
 		dark() {
 			return this.$parent.dark;
 		}
