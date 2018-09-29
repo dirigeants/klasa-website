@@ -21,9 +21,6 @@ export default {
 			dark: JSON.parse(localStorage.getItem('dark'))
 		};
 	},
-	mounted() {
-		this.setTheme();
-	},
 	methods: {
 		invite() {
 			const popup = window.open('about:blank', '', 'toolbar=no,scrollbars=yes,resizable=yes,width=498,height=666');
