@@ -34,6 +34,12 @@ export default {
 
 <style lang="scss">
 
+	.site {
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+	}
+
 	// light Theme
 
 	.light {
