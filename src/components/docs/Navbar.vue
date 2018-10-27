@@ -59,7 +59,7 @@ export default {
 
 		tagChoice(tag) {
 			if (tag && this.$route.params.tag !== tag) {
-				this.$router.push({ name: this.$route.name, params: { ...this.$route.params, tag }, query: this.$route.query } });
+				this.$router.push({ name: this.$route.name, params: { ...this.$route.params, tag }, query: this.$route.query });
 			}
 		},
 
