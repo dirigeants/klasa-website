@@ -91,7 +91,7 @@ export default {
 		findTypeDefs(name, prefix) {
 			const props = [];
 			const typedef = this.docs.typedefs.find(typ => typ.name === name);
-			if (!typedef) return props;
+			if (!typedef || !typedef.props) return props;
 			props.push(...typedef.props.map(prop => ({ ...prop, name: `${prefix}.${prop.name}` })));
 			if (typedef.type[0][0][0]) props.push(...this.findTypeDefs(typedef.type[0][0][0], prefix));
 			return props;
