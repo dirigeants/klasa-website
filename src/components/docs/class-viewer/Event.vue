@@ -15,7 +15,7 @@
 		</header>
 		<div class="card-content">
 			<div class="content" v-html="description"/>
-			<param-table v-if="event.params && event.params.length" :params="event.params" :docs="docs" />
+			<param-table v-if="event.params && event.params.length" :params="params" :docs="docs" />
 		</div>
 		<footer class="card-footer">
 			<p v-if="event.see" class="card-footer-item">
@@ -51,6 +51,26 @@ export default {
 	computed: {
 		description() {
 			return Vue.filter('marked')(convertLinks(this.event.description, this.docs, this.$router, this.$route));
+		},
+		params() {
+			const params = [];
+			if (!this.event.params) return [];
+			for (const param of this.event.params) {
+				params.push(param);
+				if (param.type[0][0][0]) params.push(...this.findTypeDefs(param.type[0][0][0], param.name));
+			}
+			return params;
+		}
+	},
+
+	methods: {
+		findTypeDefs(name, prefix) {
+			const props = [];
+			const typedef = this.docs.typedefs.find(typ => typ.name === name);
+			if (!typedef) return props;
+			props.push(...typedef.props.map(prop => ({ ...prop, name: `${prefix}.${prop.name}` })));
+			if (typedef.type[0][0][0]) props.push(...this.findTypeDefs(typedef.type[0][0][0], prefix));
+			return props;
 		}
 	}
 };

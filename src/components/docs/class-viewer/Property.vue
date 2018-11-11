@@ -18,7 +18,7 @@
 		</header>
 		<div class="card-content">
 			<div class="content" v-html="description"/>
-			<param-table v-if="prop.props && prop.props.length" :params="prop.props" :docs="docs" />
+			<param-table v-if="prop.props && prop.props.length" :params="props" :docs="docs" />
 		</div>
 		<footer class="card-footer">
 			<p class="card-footer-item">
@@ -74,6 +74,27 @@ export default {
 
 		scrollTo() {
 			return `${this.prop.scope === 'static' ? 's-' : ''}${this.prop.name}`;
+		},
+
+		props() {
+			const props = [];
+			if (!this.prop.props) return props;
+			for (const prop of this.prop.props) {
+				props.push(prop);
+				if (prop.type[0][0][0]) props.push(...this.findTypeDefs(prop.type[0][0][0], prop.name));
+			}
+			return props;
+		}
+	},
+
+	methods: {
+		findTypeDefs(name, prefix) {
+			const props = [];
+			const typedef = this.docs.typedefs.find(typ => typ.name === name);
+			if (!typedef) return props;
+			props.push(...typedef.props.map(prop => ({ ...prop, name: `${prefix}.${prop.name}` })));
+			if (typedef.type[0][0][0]) props.push(...this.findTypeDefs(typedef.type[0][0][0], prefix));
+			return props;
 		}
 	}
 };

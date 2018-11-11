@@ -27,7 +27,7 @@
 			<div v-if="clarse.construct && (showPrivate || clarse.construct.access !== 'private')">
 				<strong>Constructor:</strong>
 				<pre v-highlightjs><code class="js">new {{ docs.global }}.{{ clarse.name }}({{ constructorParams }});</code></pre>
-				<param-table :params="clarse.construct.params" :docs="docs" />
+				<param-table :params="params" :docs="docs" />
 			</div>
 		</div>
 		<footer class="card-footer">
@@ -66,6 +66,25 @@ export default {
 		},
 		description() {
 			return Vue.filter('marked')(convertLinks(this.clarse.description, this.docs, this.$router, this.$route));
+		},
+		params() {
+			const params = [];
+			if (!this.clarse.construct || !this.clarse.construct.params) return params;
+			for (const param of this.clarse.construct.params) {
+				params.push(param);
+				if (param.type[0][0][0]) params.push(...this.findTypeDefs(param.type[0][0][0], param.name));
+			}
+			return params;
+		}
+	},
+	methods: {
+		findTypeDefs(name, prefix) {
+			const props = [];
+			const typedef = this.docs.typedefs.find(typ => typ.name === name);
+			if (!typedef) return props;
+			props.push(...typedef.props.map(prop => ({ ...prop, name: `${prefix}.${prop.name}` })));
+			if (typedef.type[0][0][0]) props.push(...this.findTypeDefs(typedef.type[0][0][0], prefix));
+			return props;
 		}
 	}
 };

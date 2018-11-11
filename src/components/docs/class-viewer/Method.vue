@@ -22,7 +22,7 @@
 			<div class="content" v-html="description"/>
 
 			<div v-if="method.params">
-				<param-table :params="method.params" :docs="docs" />
+				<param-table :params="methodParams" :docs="docs" />
 				<br >
 			</div>
 
@@ -127,6 +127,27 @@ export default {
 
 		scrollTo() {
 			return `${this.method.scope === 'static' ? 's-' : ''}${this.method.name}`;
+		},
+
+		methodParams() {
+			const params = [];
+			if (!this.method.params) return params;
+			for (const param of this.method.params) {
+				params.push(param);
+				if (param.type[0][0][0]) params.push(...this.findTypeDefs(param.type[0][0][0], param.name));
+			}
+			return params;
+		}
+	},
+
+	methods: {
+		findTypeDefs(name, prefix) {
+			const props = [];
+			const typedef = this.docs.typedefs.find(typ => typ.name === name);
+			if (!typedef) return props;
+			props.push(...typedef.props.map(prop => ({ ...prop, name: `${prefix}.${prop.name}` })));
+			if (typedef.type[0][0][0]) props.push(...this.findTypeDefs(typedef.type[0][0][0], prefix));
+			return props;
 		}
 	}
 };
