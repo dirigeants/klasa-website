@@ -1,6 +1,6 @@
 # klasa-docs
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dirigeants/klasa-website.svg)](https://greenkeeper.io/)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=dirigeants/klasa-website)](https://dependabot.com)
 
 > Documentation site for Klasa
 
