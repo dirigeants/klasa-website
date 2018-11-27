@@ -7,11 +7,10 @@
 			<div class="tile is-ancestor">
 				<b-tooltip
 					class="tile is-parent"
-					label="The stable branch is currently unstable! Please use the master branch for now."
+					label="The stable branch is currently unsupported awaiting a stable discord.js v12 release! Please use the master branch for now."
 					type="is-danger"
-					multilined
-				>
-					<article class="tile is-child box content stable-article">
+					multilined>
+					<article class="tile is-child box content is-not-feeling-so-good">
 						<h5><strong>Install Stable</strong></h5>
 						<pre v-highlightjs><code class="bash">npm install klasa</code></pre>
 					</article>
