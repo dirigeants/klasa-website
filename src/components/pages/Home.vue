@@ -40,10 +40,10 @@
 					<article class="tile is-child box content has-text-left">
 						<h5><strong>Key Features:</strong></h5>
 						<ul>
-							<li>OOP and completely hot-reloadable (all commands, events, inhibitors, ect).</li>
+							<li>OOP and completely hot-reloadable (all commands, events, inhibitors, etc).</li>
 							<li>Works with any database.</li>
 							<li>Powerful and easy to configure permission levels system.</li>
-							<li>Per Client/Guild/User configs, and possible to add more.</li>
+							<li>Per Client/Guild/User settings, and possible to add more.</li>
 							<li>Powerful command handler with: prompting, edits, argument resolving, flags, infinite args, custom args, and so much more...</li>
 							<li>Fully customizable.</li>
 						</ul>
