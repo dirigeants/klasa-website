@@ -122,7 +122,7 @@ export default {
 
 		emits() {
 			if (!this.method.emits) return null;
-			return this.method.emits.map(emit => parseLink(emit.replace(/:event/i, ''), this.docs));
+			return this.method.emits.map(emit => parseLink(emit.replace(/:event/i, ''), undefined, this.docs));
 		},
 
 		scrollTo() {

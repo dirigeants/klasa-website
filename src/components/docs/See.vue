@@ -28,7 +28,7 @@ export default {
 	computed: {
 		parsed() {
 			const parsed = new Array(this.see.length);
-			for (let i = 0; i < this.see.length; i++) parsed[i] = parseLink(this.see[i], this.docs);
+			for (let i = 0; i < this.see.length; i++) parsed[i] = parseLink(this.see[i], undefined, this.docs);
 			return parsed;
 		}
 	}
