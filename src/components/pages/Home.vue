@@ -5,12 +5,18 @@
 			<br >
 			<br >
 			<div class="tile is-ancestor">
-				<div class="tile is-parent">
-					<article class="tile is-child box content">
+				<b-tooltip
+					class="tile is-parent"
+					label="The stable branch is currently unstable! Please use the master branch for now."
+					type="is-danger"
+					multilined
+				>
+					<article class="tile is-child box content stable-article">
 						<h5><strong>Install Stable</strong></h5>
 						<pre v-highlightjs><code class="bash">npm install klasa</code></pre>
 					</article>
-				</div>
+				</b-tooltip>
+
 				<div class="tile is-parent">
 					<article class="tile is-child box content">
 						<h5><strong>Install Master</strong></h5>
