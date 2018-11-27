@@ -55,15 +55,21 @@ export function mdLink(parsed, docs, router, route) {
 
 // Convert types to a md link string
 export function typeLinks(types, docs, router, route) {
-	return types.map(current => current.map(cur => cur.map((cu, i) => i ? cu : mdLink(parseLink(cu, undefined, docs), docs, router, route)).join('')).join('').replace(/</g, '&#60;')).join(' &#124; ');
+	return types.map(current =>
+		current.map(cur =>
+			cur.map((cu, i) =>
+				i ? cu : mdLink(parseLink(cu, undefined, docs), docs, router, route)
+			).join('')
+		).join('')
+	).join(' &#124; ').replace(/</g, '&#60;');
 }
 
 // Converts all JSDoc links to markdown links
 export function convertLinks(text, docs, router, route) {
 	if (!text) return null;
 
-	return text.replace(/\{@(?:link|tutorial)\s+(.+?)(?:\s+(.+?))?\s*\}/gi, (match, link, text) => {
-		const parsed = parseLink(link, text, docs);
+	return text.replace(/\{@(?:link|tutorial)\s+(.+?)(?:\s+(.+?))?\s*\}/gi, (match, link, txt) => {
+		const parsed = parseLink(link, txt, docs);
 		if (parsed.link) return mdLink(parsed, docs, router, route);
 		return parsed.text;
 	}).replace(/\{@typedef\s+(.+?)\s*\}/gi, (match, p1) => {
