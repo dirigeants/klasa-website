@@ -56,10 +56,10 @@ export function mdLink(parsed, docs, router, route) {
 // Convert types to a md link string
 export function typeLinks(types, docs, router, route) {
 	return types.map(current =>
-		current.map(cur =>
+		current.map(cur => Array.isArray(cur) ?
 			cur.map((cu, i) =>
 				i ? cu : mdLink(parseLink(cu, undefined, docs), docs, router, route)
-			).join('')
+			).join('') : cur
 		).join('')
 	).join(' &#124; ').replace(/</g, '&#60;');
 }
@@ -68,20 +68,24 @@ export function typeLinks(types, docs, router, route) {
 export function convertLinks(text, docs, router, route) {
 	if (!text) return null;
 
-	return text.replace(/\{@(?:link|tutorial)\s+(.+?)(?:\s+(.+?))?\s*\}/gi, (match, link, txt) => {
-		const parsed = parseLink(link, txt, docs);
-		if (parsed.link) return mdLink(parsed, docs, router, route);
-		return parsed.text;
-	}).replace(/\{@typedef\s+(.+?)\s*\}/gi, (match, p1) => {
-		if (!p1) return match;
-		const typedef = docs.typedefs.find(type => type.name === p1);
-		if (!typedef || !typedef.props || !typedef.props.length) return match;
-		const returnMessage = ['| Name | Default | Type | Description |', '| -- | -- | -- | -- |'];
-		for (const prop of typedef.props) {
-			returnMessage.push(`| **${prop.name}** | \`${prop.default}\` | ${typeLinks(prop.type, docs, router, route)} | ${prop.description} |`);
-		}
-		return returnMessage.join('\n');
-	});
+	return text
+		.replace(/\{@(?:link|tutorial)\s+(.+?)(?:\s+(.+?))?\s*\}/gi, (match, link, txt) => {
+			const parsed = parseLink(link, txt, docs);
+			if (parsed.link) return mdLink(parsed, docs, router, route);
+			return parsed.text;
+		})
+		.replace(/\{@typedef\s+(.+?)\}/gi, (match, p1) => {
+			if (!p1) return match;
+			const typedef = docs.typedefs.find(type => type.name === p1);
+			if (!typedef || !typedef.props || !typedef.props.length) return match;
+			const returnMessage = ['| Name | Default | Type | Description |', '| -- | -- | -- | -- |'];
+			for (const prop of typedef.props) {
+				returnMessage.push(`| **${prop.name}** | \`${prop.default}\` | ${typeLinks(prop.type, docs, router, route)} | ${prop.description} |`);
+			}
+			return returnMessage.join('\n');
+		})
+		.replace(/\{@scrollto\s+(.+?)\}/gi, (match, destination) => `[${destination}](/#${route.path}?scrollTo=${destination.toLowerCase().replace(/[^\w]+/g, '-')})`)
+		.replace(/\{branch\}/gi, route.params.tag || 'master');
 }
 
 export function paramListing(params) {
