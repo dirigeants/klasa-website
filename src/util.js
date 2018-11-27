@@ -56,10 +56,10 @@ export function mdLink(parsed, docs, router, route) {
 // Convert types to a md link string
 export function typeLinks(types, docs, router, route) {
 	return types.map(current =>
-		current.map(cur =>
+		current.map(cur => Array.isArray(cur) ?
 			cur.map((cu, i) =>
 				i ? cu : mdLink(parseLink(cu, undefined, docs), docs, router, route)
-			).join('')
+			).join('') : cur
 		).join('')
 	).join(' &#124; ').replace(/</g, '&#60;');
 }
