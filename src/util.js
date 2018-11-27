@@ -67,7 +67,7 @@ export function typeLinks(types, docs, router, route) {
 // Converts all JSDoc links to markdown links
 export function convertLinks(text, docs, router, route) {
 	if (!text) return null;
-	console.log(route);
+
 	return text
 		.replace(/\{@(?:link|tutorial)\s+(.+?)(?:\s+(.+?))?\s*\}/gi, (match, link, txt) => {
 			const parsed = parseLink(link, txt, docs);
