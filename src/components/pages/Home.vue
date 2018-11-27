@@ -15,7 +15,6 @@
 						<pre v-highlightjs><code class="bash">npm install klasa</code></pre>
 					</article>
 				</b-tooltip>
-
 				<div class="tile is-parent">
 					<article class="tile is-child box content">
 						<h5><strong>Install Master</strong></h5>
