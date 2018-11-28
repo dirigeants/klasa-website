@@ -8,9 +8,6 @@ export default new DocsSource({
 	global: 'kdh',
 	repo: 'dirigeants/klasa-dashboard-hooks',
 	defaultTag: 'master',
-	branchFilter: branch => {
-		if (/^greenkeeper/g.test(branch)) return false;
-		return !branchBlacklist.has(branch);
-	},
+	branchFilter: branch => !branchBlacklist.has(branch),
 	tagFilter: tag => semver.gte(tag, '0.0.0')
 });

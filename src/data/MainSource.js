@@ -8,9 +8,6 @@ export default new DocsSource({
 	global: 'Klasa',
 	repo: 'dirigeants/klasa',
 	defaultTag: 'stable',
-	branchFilter: branch => {
-		if (/^greenkeeper/g.test(branch)) return false;
-		return !branchBlacklist.has(branch);
-	},
+	branchFilter: branch => !branchBlacklist.has(branch),
 	tagFilter: tag => semver.gte(tag, '0.5.0')
 });
