@@ -85,7 +85,7 @@ export function convertLinks(text, docs, router, route) {
 			return returnMessage.join('\n');
 		})
 		.replace(/\{@scrollto\s+(.+?)\}/gi, (match, destination) => `[${destination}](/#${route.path}?scrollTo=${destination.toLowerCase().replace(/[^\w]+/g, '-')})`)
-		.replace(/\{branch\}/gi, route.params.tag || 'master');
+		.replace(/\{@branch\}/gi, route.params.tag || 'master');
 }
 
 export function paramListing(params) {
