@@ -5,12 +5,16 @@
 			<br >
 			<br >
 			<div class="tile is-ancestor">
-				<div class="tile is-parent">
-					<article class="tile is-child box content">
+				<b-tooltip
+					class="tile is-parent"
+					label="The stable branch is currently unsupported awaiting a stable discord.js v12 release! Please use the master branch for now."
+					type="is-danger"
+					multilined>
+					<article class="tile is-child box content is-not-feeling-so-good">
 						<h5><strong>Install Stable</strong></h5>
 						<pre v-highlightjs><code class="bash">npm install klasa</code></pre>
 					</article>
-				</div>
+				</b-tooltip>
 				<div class="tile is-parent">
 					<article class="tile is-child box content">
 						<h5><strong>Install Master</strong></h5>
@@ -36,10 +40,10 @@
 					<article class="tile is-child box content has-text-left">
 						<h5><strong>Key Features:</strong></h5>
 						<ul>
-							<li>OOP and completely hot-reloadable (all commands, events, inhibitors, ect).</li>
+							<li>OOP and completely hot-reloadable (all commands, events, inhibitors, etc).</li>
 							<li>Works with any database.</li>
 							<li>Powerful and easy to configure permission levels system.</li>
-							<li>Per Client/Guild/User configs, and possible to add more.</li>
+							<li>Per Client/Guild/User settings, and possible to add more.</li>
 							<li>Powerful command handler with: prompting, edits, argument resolving, flags, infinite args, custom args, and so much more...</li>
 							<li>Fully customizable.</li>
 						</ul>
