@@ -1,15 +1,16 @@
 <template>
 	<div class="container">
 		<section class="section has-text-centered">
-			<img class="logo" src="static/klasa.svg" >
-			<br >
-			<br >
+			<img class="logo" src="static/klasa.svg">
+			<br>
+			<br>
 			<div class="tile is-ancestor">
 				<b-tooltip
 					class="tile is-parent"
 					label="The stable branch is currently unsupported awaiting a stable discord.js v12 release! Please use the master branch for now."
 					type="is-danger"
-					multilined>
+					multilined
+				>
 					<article class="tile is-child box content is-not-feeling-so-good">
 						<h5><strong>Install Stable</strong></h5>
 						<pre v-highlightjs><code class="bash">npm install klasa</code></pre>
@@ -28,10 +29,14 @@
 						<h5><strong>About:</strong></h5>
 						<p>
 							Klasa is an OOP discord.js bot framework which aims to be the most feature complete,
-							while feeling like a consistent extension of <a href="https://discord.js.org/#/">discord.js</a>.
+							while feeling like a consistent extension of <a href="https://discord.js.org/#/">
+								discord.js
+							</a>.
 						</p>
 						<p>
-							Originally based on Komada, Klasa has become a <a href="https://en.wikipedia.org/wiki/Ship_of_Theseus">ship of Theseus</a> and so much more.
+							Originally based on Komada, Klasa has become a <a href="https://en.wikipedia.org/wiki/Ship_of_Theseus">
+								ship of Theseus
+							</a> and so much more.
 							You can only vaguely see similarities between the two frameworks anymore...
 						</p>
 					</article>

@@ -1,8 +1,8 @@
 <template>
 	<div v-if="file">
 		<source-button :path="file.path" :docs="docs" />
-		<div class="content" v-html="html"/>
-		<br >
+		<div class="content" v-html="html" />
+		<br>
 	</div>
 	<unknown-page v-else />
 </template>

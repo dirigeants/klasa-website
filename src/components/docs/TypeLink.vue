@@ -1,9 +1,17 @@
 <template>
 	<span>
-		<span v-if="!link" :title="type[0] === '*' ? 'Any type' : null">{{ typeName }}</span><!--
-	--><router-link v-else-if="typeof link === 'object'" :to="link">{{ typeName }}</router-link><!--
-	--><a v-else :href="link">{{ typeName }}</a><!--
-	--><span v-if="type[1]">{{ type[1] }}</span>
+		<span v-if="!link" :title="type[0] === '*' ? 'Any type' : null">
+			{{ typeName }}
+		</span><!--
+	--><router-link v-else-if="typeof link === 'object'" :to="link">
+{{ typeName }}
+</router-link><!--
+	--><a v-else :href="link">
+{{ typeName }}
+</a><!--
+	--><span v-if="type[1]">
+{{ type[1] }}
+</span>
 	</span>
 </template>
 

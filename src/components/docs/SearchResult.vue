@@ -1,8 +1,12 @@
 <template>
 	<li class="animated-list-item">
-		<span v-if="scores" class="score">{{ Math.round(result.score * 100) }}%</span>
+		<span v-if="scores" class="score">
+			{{ Math.round(result.score * 100) }}%
+		</span>
 		<router-link :to="result.route">
-			<span :class="`tag ${color}`" :title="result.badge">{{ result.badge[0] }}</span>
+			<span :class="`tag ${color}`" :title="result.badge">
+				{{ result.badge[0] }}
+			</span>
 			<span v-html="highlightedName" />
 		</router-link>
 	</li>

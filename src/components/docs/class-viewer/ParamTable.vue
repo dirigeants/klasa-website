@@ -6,9 +6,11 @@
 			</b-table-column>
 
 			<b-table-column label="Type">
-				<span v-for="(type, index) of props.row.type" :key="type">
+				<span v-for="(type, index) of props.row.type" :key="index">
 					<types :names="type" :variable="props.row.variable" :nullable="props.row.nullable" :docs="docs" />
-					<span v-if="index < props.row.type.length - 1"> | </span>
+					<span v-if="index < props.row.type.length - 1">
+						|
+					</span>
 				</span>
 			</b-table-column>
 
@@ -17,12 +19,14 @@
 			</b-table-column>
 
 			<b-table-column v-if="hasOptional" label="Default">
-				<em v-if="props.row.optional && typeof props.row.default === 'undefined'">none</em>
-				<span v-else v-html="paramDefault(props.row)"/>
+				<em v-if="props.row.optional && typeof props.row.default === 'undefined'">
+					none
+				</em>
+				<span v-else v-html="paramDefault(props.row)" />
 			</b-table-column>
 		</template>
 		<template slot="detail" slot-scope="props">
-			<div v-html="paramDescription(props.row)"/>
+			<div v-html="paramDescription(props.row)" />
 		</template>
 	</b-table>
 </template>
