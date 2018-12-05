@@ -2,20 +2,32 @@
 	<nav class="columns is-mobile">
 		<div class="column has-text-centered">
 			<div>
-				<p class="heading">Downloads</p>
-				<p class="title is-size-5">{{ downloads }}</p>
+				<p class="heading">
+					Downloads
+				</p>
+				<p class="title is-size-5">
+					{{ downloads }}
+				</p>
 			</div>
 		</div>
 		<div class="column has-text-centered">
 			<div>
-				<p class="heading">Stars</p>
-				<p class="title is-size-5">{{ stars }}</p>
+				<p class="heading">
+					Stars
+				</p>
+				<p class="title is-size-5">
+					{{ stars }}
+				</p>
 			</div>
 		</div>
 		<div class="column has-text-centered">
 			<div>
-				<p class="heading">Contributors</p>
-				<p class="title is-size-5">{{ contributors }}</p>
+				<p class="heading">
+					Contributors
+				</p>
+				<p class="title is-size-5">
+					{{ contributors }}
+				</p>
 			</div>
 		</div>
 	</nav>

@@ -1,12 +1,15 @@
 <template>
 	<div>
 		<p class="title">
-			<span :title="showScores ? 'Hide scores' : 'Show scores'" class="subtitle is-5" @click="toggleScores"><b-icon icon="chart-bar" size="is-small" /></span> Search
+			<span :title="showScores ? 'Hide scores' : 'Show scores'" class="subtitle is-5" @click="toggleScores">
+				<b-icon icon="chart-bar" size="is-small" />
+			</span> Search
 		</p>
 		<b-field>
 			<b-input v-model.trim="search" placeholder="Search..."
 				type="search"
-				icon="search"/>
+				icon="search"
+			/>
 		</b-field>
 
 		<b-field grouped group-multiline>
@@ -30,7 +33,9 @@
 		<transition name="fade" mode="out-in">
 			<div v-if="search && search.length > 2">
 				<div v-if="exactMatches.length">
-					<h2 class="subtitle has-text-weight-semibold">Results for "{{ search }}"</h2>
+					<h2 class="subtitle has-text-weight-semibold">
+						Results for "{{ search }}"
+					</h2>
 
 					<transition name="fade" mode="out-in">
 						<transition-group name="animated-list" tag="ul">
@@ -41,7 +46,9 @@
 				</div>
 
 				<div v-if="partialMatches.length">
-					<h2 class="subtitle has-text-weight-semibold">Similar results for "{{ search }}"</h2>
+					<h2 class="subtitle has-text-weight-semibold">
+						Similar results for "{{ search }}"
+					</h2>
 
 					<transition name="fade" mode="out-in">
 						<transition-group name="animated-list" tag="ul">
@@ -50,10 +57,14 @@
 					</transition>
 					<br>
 				</div>
-				<h2 v-if="!exactMatches.length && !partialMatches.length" class="subtitle has-text-weight-semibold">No results.</h2>
+				<h2 v-if="!exactMatches.length && !partialMatches.length" class="subtitle has-text-weight-semibold">
+					No results.
+				</h2>
 			</div>
 
-			<h2 v-else class="subtitle has-text-weight-semibold">Your search query must be at least three characters.</h2>
+			<h2 v-else class="subtitle has-text-weight-semibold">
+				Your search query must be at least three characters.
+			</h2>
 		</transition>
 	</div>
 </template>

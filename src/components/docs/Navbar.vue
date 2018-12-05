@@ -2,7 +2,6 @@
 	<div class="notification is-light is-radiusless is-paddingless">
 		<div class="container">
 			<nav class="level is-mobile docs-nav">
-
 				<div class="level-left">
 					<p class="level-item is-hidden-mobile">
 						<strong>Viewing:</strong>
@@ -10,14 +9,18 @@
 					<div class="level-item">
 						<b-field type="is-light">
 							<b-select v-model="sourceChoice" :placeholder="sourceChoice">
-								<option v-for="source in sources" :key="source" :value="source.id">{{ source.name }}</option>
+								<option v-for="(src, index) in sources" :key="index" :value="src.id">
+									{{ src.name }}
+								</option>
 							</b-select>
 						</b-field>
 					</div>
 					<div class="level-item">
 						<b-field type="is-light">
 							<b-select v-model="tagChoice" :placeholder="tagChoice" :loading="!tags">
-								<option v-for="tag in tags" :key="tag" :value="tag">{{ tag }}</option>
+								<option v-for="(tag, index) in tags" :key="index" :value="tag">
+									{{ tag }}
+								</option>
 							</b-select>
 						</b-field>
 					</div>

@@ -1,29 +1,34 @@
 <template>
 	<div v-if="clarse">
-		<heading :clarse="clarse" :docs="docs" />
-		<br >
+		<heading :clarse="clarse" :docs="docs" :show-private="showPrivate" />
+		<br>
 
 		<overview :properties="properties" :methods="methods" :events="clarse.events" />
-		<br >
+		<br>
 
-		<h5 v-if="properties && properties.length" class="title is-4">Properties</h5>
-		<div v-for="prop in properties" :key="prop">
+		<h5 v-if="properties && properties.length" class="title is-4">
+			Properties
+		</h5>
+		<div v-for="(prop, key) of properties" :key="`${key}-property`">
 			<property :prop="prop" :docs="docs" />
-			<br >
+			<br>
 		</div>
 
-		<h5 v-if="methods && methods.length" class="title is-4">Methods</h5>
-		<div v-for="method in methods" :key="method">
+		<h5 v-if="methods && methods.length" class="title is-4">
+			Methods
+		</h5>
+		<div v-for="(method, key) of methods" :key="`${key}-method`">
 			<method :method="method" :docs="docs" />
-			<br >
+			<br>
 		</div>
 
-		<h5 v-if="clarse.events && clarse.events.length" class="title is-4">Events</h5>
-		<div v-for="event in clarse.events" :key="event">
+		<h5 v-if="clarse.events && clarse.events.length" class="title is-4">
+			Events
+		</h5>
+		<div v-for="(event, key) of clarse.events" :key="`${key}-event`">
 			<event :event="event" :docs="docs" />
-			<br >
+			<br>
 		</div>
-
 	</div>
 	<unknown-page v-else />
 </template>

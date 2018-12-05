@@ -1,11 +1,15 @@
 <template>
-	<div v-if="typedef" >
+	<div v-if="typedef">
 		<div class="card">
 			<header class="card-header">
 				<nav class="card-header-title level is-marginless">
 					<div class="level-left">
 						<div class="level-item">
-							<span v-if="typedef.deprecated"><span class="tag is-danger" title="This typedef is deprecated, and may be removed in a future version.">Deprecated</span>&nbsp;</span>
+							<span v-if="typedef.deprecated">
+								<span class="tag is-danger" title="This typedef is deprecated, and may be removed in a future version.">
+									Deprecated
+								</span>&nbsp;
+							</span>
 						</div>
 						<span class="level-item is-size-3 is-marginless">
 							{{ typedef.name }}&nbsp;
@@ -25,15 +29,17 @@
 				<p class="card-footer-item">
 					<span>
 						<strong>Type:</strong>
-						<span v-for="(type, index) of typedef.type" :key="type">
+						<span v-for="(type, index) of typedef.type" :key="index">
 							<types :names="type" :nullable="typedef.nullable" :docs="docs" />
-							<span v-if="index < typedef.type.length - 1"> | </span>
+							<span v-if="index < typedef.type.length - 1">
+								|
+							</span>
 						</span>
 					</span>
 				</p>
 			</footer>
 		</div>
-		<br >
+		<br>
 	</div>
 	<unknown-page v-else />
 </template>
@@ -44,7 +50,6 @@ import { convertLinks } from '../../util';
 import Types from './Types.vue';
 import ParamTable from './class-viewer/ParamTable.vue';
 import SourceButton from './SourceButton.vue';
-import See from './See.vue';
 
 export default {
 	name: 'TypedefViewer',
@@ -52,8 +57,7 @@ export default {
 	components: {
 		Types,
 		ParamTable,
-		SourceButton,
-		See
+		SourceButton
 	},
 
 	props: ['docs'],
