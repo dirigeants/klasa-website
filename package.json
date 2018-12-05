@@ -31,7 +31,7 @@
     "poi": "^10.2.10",
     "poi-preset-eslint": "^9.1.1",
     "sass-loader": "^7.1.0",
-    "webpack": "^4.19.0"
+    "webpack": "^4.27.0"
   },
   "engines": {
     "node": ">= 6.0.0",
