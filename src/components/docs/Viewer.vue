@@ -12,12 +12,6 @@
 					<transition name="fade-slide" mode="out-in" appear>
 						<router-view :key="key" :docs="docs" :show-private="showPrivate" />
 					</transition>
-
-					<div class="content has-text-right">
-						<p>
-							Documentation built at {{ new Date(docs.meta.date).toUTCString() }}.
-						</p>
-					</div>
 				</section>
 				<button id="scroll-top" class="button is-info is-rounded" title="Scroll to top" @click="scrollTop">
 					<b-icon icon="arrow-up" />
