@@ -20,7 +20,7 @@
 							</span>&nbsp;
 						</span>
 						<span v-if="method.abstract">
-							<span class="tag is-info" title="This method is abstract, and should be implimented in child classes.">
+							<span class="tag is-info" title="This method is abstract, and should be implemented in child classes.">
 								Abstract
 							</span>&nbsp;
 						</span>
