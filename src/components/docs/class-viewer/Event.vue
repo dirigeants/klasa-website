@@ -40,7 +40,7 @@
 import Vue from 'vue';
 import ParamTable from './ParamTable.vue';
 import SourceButton from '../SourceButton.vue';
-import See from '../See';
+import See from '../See.vue';
 import { convertLinks } from '../../../util';
 
 export default {

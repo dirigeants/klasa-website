@@ -60,7 +60,7 @@ import { convertLinks, paramListing } from '../../../util';
 import TypeLink from '../TypeLink.vue';
 import ParamTable from './ParamTable.vue';
 import SourceButton from '../SourceButton.vue';
-import See from '../See';
+import See from '../See.vue';
 
 
 export default {

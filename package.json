@@ -6,31 +6,33 @@
   "private": true,
   "main": "src/main.js",
   "scripts": {
-    "dev": "poi",
+    "dev": "poi --serve --open",
     "start": "npm run dev",
     "test": "npm run lint",
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "eslint --ext .js,.vue src --fix",
-    "build": "poi build"
+    "build": "poi --prod"
   },
   "dependencies": {
-    "buefy": "^0.7.0",
+    "buefy": "^0.7.1",
     "bulma": "^0.7.2",
     "js-levenshtein": "^1.1.4",
-    "marked": "^0.5.0",
+    "marked": "^0.5.2",
     "timsort": "^0.3.0",
     "vue-highlightjs": "^1.3.3",
     "vue-router": "^3.0.2"
   },
   "devDependencies": {
+    "@poi/plugin-eslint": "^12.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.0.1",
     "eslint-config-klasa": "github:dirigeants/klasa-lint",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.9.3",
-    "poi": "^10.2.10",
-    "poi-preset-eslint": "^9.1.1",
+    "poi": "^12.0.1",
     "sass-loader": "^7.1.0",
+    "vue": "^2.5.18",
+    "vue-template-compiler": "^2.5.18",
     "webpack": "^4.27.1"
   },
   "engines": {

@@ -6,7 +6,7 @@ import VueHighlightJS from 'vue-highlightjs';
 
 import Buefy from 'buefy';
 
-import App from './App';
+import App from './App.vue';
 import router from './router';
 import renderer from './renderer.js';
 

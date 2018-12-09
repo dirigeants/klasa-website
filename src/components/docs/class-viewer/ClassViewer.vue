@@ -34,11 +34,11 @@
 </template>
 
 <script>
-import Heading from './Heading';
-import Overview from './Overview';
-import Property from './Property';
-import Method from './Method';
-import Event from './Event';
+import Heading from './Heading.vue';
+import Overview from './Overview.vue';
+import Property from './Property.vue';
+import Method from './Method.vue';
+import Event from './Event.vue';
 
 export default {
 	name: 'ClassViewer',
