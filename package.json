@@ -31,7 +31,7 @@
     "node-sass": "^4.11.0",
     "poi": "^12.0.2",
     "sass-loader": "^7.1.0",
-    "vue": "^2.5.18",
+    "vue": "^2.5.19",
     "vue-template-compiler": "^2.5.19",
     "webpack": "^4.27.1"
   },
