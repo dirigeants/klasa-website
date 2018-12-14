@@ -3589,9 +3589,9 @@ javascript-stringify@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/javascript-stringify/-/javascript-stringify-1.6.0.tgz#142d111f3a6e3dae8f4a9afd77d45855b5a9cce3"
 
-joycon@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/joycon/-/joycon-2.2.0.tgz#b600876a4dd62866ac47e803de8cce004b0bf660"
+joycon@^2.2.1:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/joycon/-/joycon-2.2.2.tgz#c1c331b3a66c42bd386346c485639d392f4a9f80"
 
 js-base64@^2.1.8:
   version "2.4.9"
@@ -4680,9 +4680,9 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-poi@^12.0.2:
-  version "12.0.2"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.0.2.tgz#be2101a7dece8aa6eb7f21cfbe461f0e63df0833"
+poi@^12.1.0:
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.1.0.tgz#1956dcbe698bfc4db2f39d8e3cdbc4bbe775edf9"
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
@@ -4716,7 +4716,7 @@ poi@^12.0.2:
     get-port "^4.0.0"
     gzip-size "^5.0.0"
     html-webpack-plugin "^4.0.0-beta.4"
-    joycon "^2.2.0"
+    joycon "^2.2.1"
     launch-editor-middleware "^2.2.1"
     lodash.merge "^4.6.1"
     mini-css-extract-plugin "^0.4.5"
