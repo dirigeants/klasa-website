@@ -648,9 +648,9 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@poi/dev-utils@^12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@poi/dev-utils/-/dev-utils-12.0.0.tgz#705186032a090834eb521168e1cef0093b823b21"
+"@poi/dev-utils@^12.0.2":
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/@poi/dev-utils/-/dev-utils-12.0.2.tgz#5777a82e52d3d5f3b37f1a6dccbe30dfd34380de"
   dependencies:
     address "^1.0.3"
     chalk "^2.4.1"
@@ -4680,9 +4680,9 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-poi@^12.1.0:
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.1.0.tgz#1956dcbe698bfc4db2f39d8e3cdbc4bbe775edf9"
+poi@^12.1.6:
+  version "12.1.6"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.1.6.tgz#fa04d3a019fb279775594cfb2540d455fd9ab302"
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
@@ -4696,7 +4696,7 @@ poi@^12.1.0:
     "@babel/preset-typescript" "^7.1.0"
     "@babel/runtime" "^7.1.5"
     "@intervolga/optimize-cssnano-plugin" "^1.0.6"
-    "@poi/dev-utils" "^12.0.0"
+    "@poi/dev-utils" "^12.0.2"
     "@poi/logger" "^12.0.0"
     babel-helper-vue-jsx-merge-props "^2.0.3"
     babel-loader "^8.0.4"
