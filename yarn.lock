@@ -1089,6 +1089,10 @@ babel-loader@^8.0.4:
     mkdirp "^0.5.1"
     util.promisify "^1.0.0"
 
+babel-plugin-assets-named-imports@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-assets-named-imports/-/babel-plugin-assets-named-imports-0.2.0.tgz#c71222cd0f3843155c42384c82126091a1024b21"
+
 babel-plugin-macros@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/babel-plugin-macros/-/babel-plugin-macros-2.4.2.tgz#21b1a2e82e2130403c5ff785cba6548e9b644b28"
@@ -4680,9 +4684,9 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-poi@^12.1.6:
-  version "12.1.6"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.1.6.tgz#fa04d3a019fb279775594cfb2540d455fd9ab302"
+poi@^12.2.2:
+  version "12.2.2"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.2.2.tgz#0389f7f5ee347af17accd2bd25c6bf54eab6fa7e"
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
@@ -4700,6 +4704,7 @@ poi@^12.1.6:
     "@poi/logger" "^12.0.0"
     babel-helper-vue-jsx-merge-props "^2.0.3"
     babel-loader "^8.0.4"
+    babel-plugin-assets-named-imports "^0.2.0"
     babel-plugin-macros "^2.4.2"
     babel-plugin-transform-vue-jsx "^4.0.0"
     cac "^6.3.6"
