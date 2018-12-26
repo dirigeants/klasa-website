@@ -1317,9 +1317,9 @@ bytes@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
 
-cac@^6.3.6:
-  version "6.3.9"
-  resolved "https://registry.yarnpkg.com/cac/-/cac-6.3.9.tgz#0cdf3f2d3a7d3fb71ab89c476c73e472084859a2"
+cac@^6.3.12:
+  version "6.3.12"
+  resolved "https://registry.yarnpkg.com/cac/-/cac-6.3.12.tgz#eb45205c7d09ac7c141104e8b8d1859bd9a09d39"
 
 cacache@^10.0.4:
   version "10.0.4"
@@ -4684,9 +4684,9 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-poi@^12.2.6:
-  version "12.2.6"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.2.6.tgz#ae41bd13ae5f3cb987207c91165b15796ec5cbd1"
+poi@^12.2.7:
+  version "12.2.7"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.2.7.tgz#36a1599a73384bc86552040f8a6d90c326fba3ac"
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
@@ -4707,7 +4707,7 @@ poi@^12.2.6:
     babel-plugin-assets-named-imports "^0.2.0"
     babel-plugin-macros "^2.4.2"
     babel-plugin-transform-vue-jsx "^4.0.0"
-    cac "^6.3.6"
+    cac "^6.3.12"
     cache-loader "^1.2.5"
     case-sensitive-paths-webpack-plugin "^2.1.2"
     chalk "^2.4.1"
