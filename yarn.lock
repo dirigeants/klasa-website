@@ -648,17 +648,16 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@poi/dev-utils@^12.0.3":
-  version "12.0.3"
-  resolved "https://registry.yarnpkg.com/@poi/dev-utils/-/dev-utils-12.0.3.tgz#8e46bb3e97139f14d190d4150ce0354c6dedaace"
+"@poi/dev-utils@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/@poi/dev-utils/-/dev-utils-12.1.0.tgz#646b159a75a1d74bac5cb784a3e75b8b755dd67c"
   dependencies:
     address "^1.0.3"
-    chalk "^2.4.1"
     cross-spawn "^6.0.5"
     opn "^5.4.0"
     react-error-overlay "^4.0.1"
     sockjs-client "^1.1.5"
-    strip-ansi "^4.0.0"
+    strip-ansi "3.0.0"
 
 "@poi/logger@^12.0.0":
   version "12.0.0"
@@ -673,6 +672,12 @@
     eslint "^5.9.0"
     eslint-formatter-pretty "^2.0.0"
     eslint-loader "^2.1.1"
+
+"@poi/pnp-webpack-plugin@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@poi/pnp-webpack-plugin/-/pnp-webpack-plugin-0.0.1.tgz#2cd2ade7fa6b69382f0f72c76d472b326c561c3b"
+  dependencies:
+    pnpapi "0.0.0"
 
 "@vue/component-compiler-utils@^2.0.0":
   version "2.3.0"
@@ -4691,9 +4696,13 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-poi@^12.2.14:
-  version "12.2.14"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.2.14.tgz#7e93236d7219baa8ae87935bf2a34dce24f16d1e"
+pnpapi@0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/pnpapi/-/pnpapi-0.0.0.tgz#90fe6bd18be67d3bb39cc93cb67188b1bf63a384"
+
+poi@^12.4.2:
+  version "12.4.2"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.4.2.tgz#1ccebfe59ba73335666c639db07554515290b37f"
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
@@ -4707,8 +4716,9 @@ poi@^12.2.14:
     "@babel/preset-typescript" "^7.1.0"
     "@babel/runtime" "^7.1.5"
     "@intervolga/optimize-cssnano-plugin" "^1.0.6"
-    "@poi/dev-utils" "^12.0.3"
+    "@poi/dev-utils" "^12.1.0"
     "@poi/logger" "^12.0.0"
+    "@poi/pnp-webpack-plugin" "^0.0.1"
     babel-helper-vue-jsx-merge-props "^2.0.3"
     babel-loader "^8.0.4"
     babel-plugin-assets-named-imports "^0.2.0"
@@ -5948,6 +5958,12 @@ string_decoder@~1.1.1:
   resolved "http://registry.npmjs.org/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
   dependencies:
     safe-buffer "~5.1.0"
+
+strip-ansi@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-3.0.0.tgz#7510b665567ca914ccb5d7e072763ac968be3724"
+  dependencies:
+    ansi-regex "^2.0.0"
 
 strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   version "3.0.1"
