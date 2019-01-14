@@ -673,11 +673,9 @@
     eslint-formatter-pretty "^2.0.0"
     eslint-loader "^2.1.1"
 
-"@poi/pnp-webpack-plugin@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@poi/pnp-webpack-plugin/-/pnp-webpack-plugin-0.0.1.tgz#2cd2ade7fa6b69382f0f72c76d472b326c561c3b"
-  dependencies:
-    pnpapi "0.0.0"
+"@poi/pnp-webpack-plugin@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@poi/pnp-webpack-plugin/-/pnp-webpack-plugin-0.0.2.tgz#4633d4445637a2ed3b3da7f831ea7ee38587e6d7"
 
 "@vue/component-compiler-utils@^2.0.0":
   version "2.3.0"
@@ -4696,13 +4694,9 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-pnpapi@0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/pnpapi/-/pnpapi-0.0.0.tgz#90fe6bd18be67d3bb39cc93cb67188b1bf63a384"
-
-poi@^12.4.2:
-  version "12.4.2"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.4.2.tgz#1ccebfe59ba73335666c639db07554515290b37f"
+poi@^12.4.3:
+  version "12.4.3"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.4.3.tgz#8c27018c934abe031956831c948392a0acb2c463"
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
@@ -4718,7 +4712,7 @@ poi@^12.4.2:
     "@intervolga/optimize-cssnano-plugin" "^1.0.6"
     "@poi/dev-utils" "^12.1.0"
     "@poi/logger" "^12.0.0"
-    "@poi/pnp-webpack-plugin" "^0.0.1"
+    "@poi/pnp-webpack-plugin" "^0.0.2"
     babel-helper-vue-jsx-merge-props "^2.0.3"
     babel-loader "^8.0.4"
     babel-plugin-assets-named-imports "^0.2.0"
