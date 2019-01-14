@@ -31,8 +31,8 @@
     "node-sass": "^4.11.0",
     "poi": "^12.4.2",
     "sass-loader": "^7.1.0",
-    "vue": "^2.5.21",
-    "vue-template-compiler": "^2.5.21",
+    "vue": "^2.5.22",
+    "vue-template-compiler": "^2.5.22",
     "webpack": "^4.28.4"
   },
   "engines": {
