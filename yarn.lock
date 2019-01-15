@@ -4694,9 +4694,9 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-poi@^12.4.3:
-  version "12.4.3"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.4.3.tgz#8c27018c934abe031956831c948392a0acb2c463"
+poi@^12.4.4:
+  version "12.4.4"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.4.4.tgz#f8dd1f2b51f15688ef7ce5733c9893489f161d74"
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
