@@ -648,9 +648,9 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@poi/dev-utils@^12.1.0":
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/@poi/dev-utils/-/dev-utils-12.1.0.tgz#646b159a75a1d74bac5cb784a3e75b8b755dd67c"
+"@poi/dev-utils@^12.1.1":
+  version "12.1.1"
+  resolved "https://registry.yarnpkg.com/@poi/dev-utils/-/dev-utils-12.1.1.tgz#3a0c2c92f886cf4b6395aa8e803ca2462c99d09c"
   dependencies:
     address "^1.0.3"
     cross-spawn "^6.0.5"
@@ -4568,6 +4568,10 @@ parse-json@^4.0.0:
     error-ex "^1.3.1"
     json-parse-better-errors "^1.0.1"
 
+parse-ms@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/parse-ms/-/parse-ms-2.0.0.tgz#7b3640295100caf3fa0100ccceb56635b62f9d62"
+
 parseurl@~1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.2.tgz#fc289d4ed8993119460c156253262cdc8de65bf3"
@@ -4688,9 +4692,9 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-poi@^12.4.6:
-  version "12.4.6"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.4.6.tgz#0cb2f3317678942743dfa03afd1544d2ed9958b0"
+poi@^12.4.8:
+  version "12.4.8"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.4.8.tgz#733a22c92c7a94ace827259bfdb9ddad78f1a73b"
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
@@ -4704,7 +4708,7 @@ poi@^12.4.6:
     "@babel/preset-typescript" "^7.1.0"
     "@babel/runtime" "^7.1.5"
     "@intervolga/optimize-cssnano-plugin" "^1.0.6"
-    "@poi/dev-utils" "^12.1.0"
+    "@poi/dev-utils" "^12.1.1"
     "@poi/logger" "^12.0.0"
     "@poi/pnp-webpack-plugin" "^0.0.2"
     babel-helper-vue-jsx-merge-props "^2.0.3"
@@ -4732,6 +4736,7 @@ poi@^12.4.6:
     mini-css-extract-plugin "^0.4.5"
     ora "^3.0.0"
     postcss-loader "^3.0.0"
+    pretty-ms "^4.0.0"
     resolve-from "^4.0.0"
     string-width "^2.1.1"
     superstruct "^0.6.0"
@@ -5073,6 +5078,12 @@ pretty-error@^2.1.1:
   dependencies:
     renderkid "^2.0.1"
     utila "~0.4"
+
+pretty-ms@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/pretty-ms/-/pretty-ms-4.0.0.tgz#31baf41b94fd02227098aaa03bd62608eb0d6e92"
+  dependencies:
+    parse-ms "^2.0.0"
 
 private@^0.1.6:
   version "0.1.8"
