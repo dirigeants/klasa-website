@@ -33,7 +33,7 @@
     "sass-loader": "^7.1.0",
     "vue": "^2.6.2",
     "vue-template-compiler": "^2.6.2",
-    "webpack": "^4.29.0"
+    "webpack": "^4.29.1"
   },
   "engines": {
     "node": ">= 6.0.0",
