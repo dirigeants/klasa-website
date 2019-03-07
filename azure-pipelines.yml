@@ -15,7 +15,7 @@ jobs:
     parameters:
       type: 'Vue'
       command: 'build'
-      ghRef: 'github.com/bdistin/fs-nextra'
+      ghRef: 'github.com/dirigeants/klasa-website'
       targetBranch: 'gh-pages'
       masterOnly: 'true'
       dependsOn: 'Lint'
