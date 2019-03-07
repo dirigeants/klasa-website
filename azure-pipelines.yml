@@ -1,0 +1,21 @@
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: dirigeants/pipelines
+      endpoint: dirigeants
+
+trigger:
+- master
+
+jobs:
+  - template: lint.yml@templates
+
+  - template: docs.yml@templates
+    parameters:
+      type: 'Vue'
+      command: 'build'
+      ghRef: 'github.com/dirigeants/klasa-website'
+      targetBranch: 'gh-pages'
+      masterOnly: 'true'
+      dependsOn: 'Lint'

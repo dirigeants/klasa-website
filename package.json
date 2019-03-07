@@ -7,10 +7,9 @@
   "main": "src/main.js",
   "scripts": {
     "dev": "poi --serve --open",
-    "start": "npm run dev",
-    "test": "npm run lint",
-    "lint": "eslint --ext .js,.vue src",
-    "lint:fix": "eslint --ext .js,.vue src --fix",
+    "start": "yarn run dev",
+    "test:lint": "eslint --ext .js,.vue src",
+    "lint": "eslint --ext .js,.vue src --fix",
     "build": "poi --prod"
   },
   "dependencies": {
