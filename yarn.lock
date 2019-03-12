@@ -673,9 +673,9 @@
     eslint-formatter-pretty "^2.0.0"
     eslint-loader "^2.1.1"
 
-"@poi/plugin-html-entry@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@poi/plugin-html-entry/-/plugin-html-entry-0.1.1.tgz#41ed44c13424cf3209a8d26b664995e3e8168dff"
+"@poi/plugin-html-entry@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@poi/plugin-html-entry/-/plugin-html-entry-0.1.2.tgz#c0d92120f268e2780c627f18beda0814c6dccb93"
   dependencies:
     chokidar "^2.0.4"
     fs-extra "^7.0.1"
@@ -4727,9 +4727,9 @@ plur@^3.0.1:
   dependencies:
     irregular-plurals "^2.0.0"
 
-poi@^12.5.5:
-  version "12.5.5"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.5.5.tgz#b9004e361a8e350c296463da89939c0f013d2ec5"
+poi@^12.5.6:
+  version "12.5.6"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.5.6.tgz#481357db7147fb8a5287d0b981bb508f60ec80c1"
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
@@ -4745,7 +4745,7 @@ poi@^12.5.5:
     "@intervolga/optimize-cssnano-plugin" "^1.0.6"
     "@poi/dev-utils" "^12.1.1"
     "@poi/logger" "^12.0.0"
-    "@poi/plugin-html-entry" "^0.1.1"
+    "@poi/plugin-html-entry" "^0.1.2"
     "@poi/pnp-webpack-plugin" "^0.0.2"
     babel-helper-vue-jsx-merge-props "^2.0.3"
     babel-loader "^8.0.4"
