@@ -4727,9 +4727,9 @@ plur@^3.0.1:
   dependencies:
     irregular-plurals "^2.0.0"
 
-poi@^12.5.8:
-  version "12.5.8"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.5.8.tgz#8c4bcc9e594af3cf16ff3714f202e94e44907f4d"
+poi@^12.5.9:
+  version "12.5.9"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.5.9.tgz#b599d1032bdd3ecfc47af2d6d35f0b5270bceb8b"
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
