@@ -14,6 +14,16 @@
 				<!-- Right side -->
 				<div class="level-right">
 					<div class="level-item">
+						<a class="navbar-item button is-info is-5 is-marginless" href="https://github.com/dirigeants/klasa-pieces">
+							<span class="icon">
+								<b-icon icon="puzzle-piece" />
+							</span>
+							<span class="is-hidden-mobile">
+								Pieces
+							</span>
+						</a>
+					</div>
+					<div class="level-item">
 						<router-link class="navbar-item button is-info is-5 is-marginless" to="/docs">
 							<span class="icon">
 								<b-icon icon="book" />
