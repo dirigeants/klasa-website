@@ -6,7 +6,7 @@
 			<br>
 			<div class="tile is-ancestor">
 				<b-tooltip
-					class="tile is-parent"
+					class="tile is-parent is-flex"
 					label="The stable branch is currently unsupported awaiting a stable discord.js v12 release! Please use the master branch for now."
 					type="is-danger"
 					multilined
