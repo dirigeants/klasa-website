@@ -30,8 +30,8 @@
     "node-sass": "^4.13.0",
     "poi": "^12.7.4",
     "sass-loader": "^8.0.0",
-    "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.2"
   },
   "engines": {
