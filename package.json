@@ -29,7 +29,7 @@
     "eslint-plugin-vue": "^6.1.2",
     "node-sass": "^4.13.0",
     "poi": "^12.7.5",
-    "sass-loader": "^8.0.1",
+    "sass-loader": "^8.0.2",
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.5"
