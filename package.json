@@ -27,7 +27,7 @@
     "eslint": "^5.16.0",
     "eslint-config-klasa": "github:dirigeants/klasa-lint",
     "eslint-plugin-vue": "^6.1.2",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "poi": "^12.7.5",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.11",
