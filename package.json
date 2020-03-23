@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "buefy": "^0.8.13",
-    "bulma": "^0.8.0",
+    "bulma": "^0.8.1",
     "js-levenshtein": "^1.1.6",
     "marked": "^0.8.2",
     "timsort": "^0.3.0",
