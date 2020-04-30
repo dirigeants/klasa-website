@@ -702,9 +702,9 @@
   dependencies:
     chalk "^2.4.1"
 
-"@poi/plugin-eslint@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/@poi/plugin-eslint/-/plugin-eslint-12.0.1.tgz#121792337c3b22abf6c78891a18f74eb63307893"
+"@poi/plugin-eslint@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/@poi/plugin-eslint/-/plugin-eslint-12.1.0.tgz#45d3a93d587931704bb2e9ad44304e252edbe6a1"
   dependencies:
     eslint "^5.9.0"
     eslint-formatter-pretty "^2.0.0"
