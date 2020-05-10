@@ -13,7 +13,7 @@
     "build": "poi --prod"
   },
   "dependencies": {
-    "buefy": "^0.8.17",
+    "buefy": "^0.8.18",
     "bulma": "^0.8.2",
     "js-levenshtein": "^1.1.6",
     "marked": "^1.0.0",
