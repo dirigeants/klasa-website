@@ -15,14 +15,14 @@
 				contributors and Core Developers were banned from the Discord server.
 				<br>
 				We recommend you look for another framework to use. You may still use Klasa as is,
-				but you're doing so at your own risk, and <b>we will not provide support or bugfixes</b>.
+				but you're doing so at your own risk, and <b>we will not be able to provide support or bug fixes</b>.
 				<br>
 				We'd like to thank everyone who contributed to our projects, and our community!
-				It's sad to see Klasa and Dirigeants come to an end, however, as it stands our hands are tied.
+				It's sad to see Klasa and Dirigeants come to an end, however, as it stands, our hands are tied.
 				<br>
 				<br>
-				If you wish to learn more about this incident, we invite you to read its writeup, as recorded by
-				Favna#0001 (one of the more active members of Dirigeants before and during the events), <a href="https://gist.github.com/Favna/b9b6c23b6e545f7eddfdb55027a182df"> found here</a>
+				If you'd like a recap about this incident, we recommend you read its chain of events, as recorded by
+				Vladdy#0002 (one of the primary Core Developers of Dirigeants before the incident), <a href="https://gist.github.com/vladfrangu/835100b815470e3341f40601aefd3d10"> found here</a>
 			</div>
 			<div class="tile is-ancestor">
 				<div class="tile is-parent">
