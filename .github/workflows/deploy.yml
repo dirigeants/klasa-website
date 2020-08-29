@@ -48,5 +48,5 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.COMMIT_TOKEN }}
                   GITHUB_ACTOR: DiriBot
-                  GITHUB_EMAIL: 38255093+cfanoulis@users.noreply.github.com
+                  GITHUB_EMAIL: kingdgrizzle@gmail.com
                   TARGET_BRANCH: gh-pages
