@@ -7,7 +7,7 @@ export default new DocsSource({
 	name: 'Member Gateway',
 	global: 'kmg',
 	repo: 'dirigeants/klasa-member-gateway',
-	defaultTag: 'master',
+	defaultTag: 'settings',
 	branchFilter: branch => !branchBlacklist.has(branch) && !branch.startsWith('dependabot'),
 	tagFilter: tag => semver.gte(tag, '0.0.0')
 });

@@ -65,8 +65,10 @@ export default {
 
 			if (downloads) {
 				this.downloads = 0;
-				for (const item of downloads.downloads) this.downloads += item.downloads;
-				this.downloads = this.downloads.toLocaleString();
+				this.downloads = downloads.downloads
+					.map(entry => entry.downloads)
+					.reduce((acc, curr) => acc + curr)
+					.toLocaleString();
 			}
 			if (stars) this.stars = stars.stargazers_count.toLocaleString();
 			if (contributors) this.contributors = contributors.length.toLocaleString();

@@ -24,16 +24,6 @@
 						</router-link>
 					</div>
 					<div class="level-item">
-						<a class="navbar-item button is-info is-5 is-marginless" @click="invite()">
-							<span class="icon">
-								<i class="fab fa-discord" />
-							</span>
-							<span class="is-hidden-mobile">
-								Discord
-							</span>
-						</a>
-					</div>
-					<div class="level-item">
 						<a :href="`https://github.com/dirigeants/${this.$route.params.source || 'klasa'}/tree/${this.$route.params.tag || 'master'}`" class="navbar-item button is-info is-5 is-marginless">
 							<span class="icon">
 								<i class="fab fa-github" />
@@ -48,14 +38,3 @@
 		</div>
 	</div>
 </template>
-
-<script>
-export default {
-	name: 'AppNavbar',
-	computed: {
-		invite() {
-			return this.$parent.invite;
-		}
-	}
-};
-</script>

@@ -26,13 +26,13 @@
 			</div>
 			<div class="tile is-ancestor">
 				<div class="tile is-parent">
-					<article class="tile is-child box content is-not-feeling-so-good">
+					<article class="tile is-child box content opacity-3">
 						<h5><strong>Install Stable</strong></h5>
 						<pre v-highlightjs><code class="bash">npm install klasa</code></pre>
 					</article>
 				</div>
 				<div class="tile is-parent">
-					<article class="tile is-child box content is-not-feeling-so-good">
+					<article class="tile is-child box content opacity-3">
 						<h5><strong>Install Master</strong></h5>
 						<pre v-highlightjs><code class="bash">npm install dirigeants/klasa#build</code></pre>
 					</article>

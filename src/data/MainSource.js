@@ -7,7 +7,7 @@ export default new DocsSource({
 	name: 'Main library',
 	global: 'Klasa',
 	repo: 'dirigeants/klasa',
-	defaultTag: 'stable',
+	defaultTag: 'v0.5.0',
 	branchFilter: branch => !branchBlacklist.has(branch) && !branch.startsWith('dependabot'),
 	tagFilter: tag => semver.gte(tag, '0.5.0')
 });
