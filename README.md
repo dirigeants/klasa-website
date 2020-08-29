@@ -1,7 +1,6 @@
 # klasa-docs
 
-[![Build Status](https://dev.azure.com/dirigeants/klasa/_apis/build/status/dirigeants.klasa-website?branchName=master)](https://dev.azure.com/dirigeants/klasa/_build/latest?definitionId=5&branchName=master)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=dirigeants/klasa-website)](https://dependabot.com)
+![Continuous Delivery](https://github.com/dirigeants/klasa-website/workflows/Continuous%20Delivery/badge.svg?branch=master)
 
 > Documentation site for Klasa
 
@@ -9,11 +8,11 @@
 
 ```bash
 # install dependencies
-npm install
+yarn install
 
 # serve with hot reload at localhost:4000
-npm run dev
+yarn dev
 
 # build for production with minification
-npm run build
+yarn build
 ```

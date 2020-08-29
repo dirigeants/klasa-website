@@ -7,7 +7,7 @@ export default new DocsSource({
 	name: 'Dashboard Hooks',
 	global: 'kdh',
 	repo: 'dirigeants/klasa-dashboard-hooks',
-	defaultTag: 'master',
+	defaultTag: 'settings',
 	branchFilter: branch => !branchBlacklist.has(branch) && !branch.startsWith('dependabot'),
 	tagFilter: tag => semver.gte(tag, '0.0.0')
 });
