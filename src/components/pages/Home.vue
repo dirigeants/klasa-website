@@ -4,6 +4,26 @@
 			<img class="logo" src="static/klasa.svg">
 			<br>
 			<br>
+			<div class="unmaintainedBanner has-text-left">
+				<h2 class="title is-3">
+					<strong>
+						Klasa is not maintained anymore; here's why:
+					</strong>
+				</h2>
+				Due to the differences between us, the community, and one of the ex-Core Developers,
+				Dirigeants and all its projects are now unable to be maintained, as most of the active
+				contributors and Core Developers were banned from the Discord server.
+				<br>
+				We recommend you look for another framework to use. You may still use Klasa as is,
+				but you're doing so at your own risk, and <b>we will not be able to provide support or bug fixes</b>.
+				<br>
+				We'd like to thank everyone who contributed to our projects, and our community!
+				It's sad to see Klasa and Dirigeants come to an end, however, as it stands, our hands are tied.
+				<br>
+				<br>
+				If you'd like a recap about this incident, we recommend you read its chain of events, as recorded by
+				Vladdy#0002 (one of the primary Core Developers of Dirigeants before the incident), <a href="https://gist.github.com/vladfrangu/835100b815470e3341f40601aefd3d10"> found here</a>
+			</div>
 			<div class="tile is-ancestor">
 				<div class="tile is-parent">
 					<article class="tile is-child box content">
@@ -12,7 +32,7 @@
 					</article>
 				</div>
 				<div class="tile is-parent">
-					<article class="tile is-child box content">
+					<article class="tile is-child box content is-not-feeling-so-good">
 						<h5><strong>Install Master</strong></h5>
 						<pre v-highlightjs><code class="bash">npm install dirigeants/klasa#build</code></pre>
 					</article>
@@ -57,3 +77,14 @@
 <script>
 export default { name: 'Home' };
 </script>
+
+<style lang="scss">
+.unmaintainedBanner {
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+	padding-left: 16px;
+	border-left: 8px orange solid;
+	border-radius: 6px;
+	background: rgba($color: #FBCB04, $alpha: 0.15)
+}
+</style>

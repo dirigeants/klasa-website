@@ -15,14 +15,14 @@
 							</span>
 						</a>
 					</div>
-					<div class="column">
+					<!-- <div class="column">
 						<a href="https://www.patreon.com/klasa" class="button is-patreon">
 							<span>Support Klasa:</span>
 							<span class="icon">
 								<i class="fab fa-patreon" />
 							</span>
 						</a>
-					</div>
+					</div> -->
 					<div class="column">
 						<a class="button is-dark" @click="toggleDark()">
 							<span>{{ dark ? "Light" : "Dark" }} Mode</span>

@@ -1,0 +1,52 @@
+name: Continuous Delivery
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    Build:
+        name: Publish Build
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - name: Checkout Project
+              uses: actions/checkout@v2
+            - name: Use Node.js 14
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 14
+            - name: Restore CI Cache
+              uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
+            - name: Install Dependencies
+              run: yarn --ignore-scripts --frozen-lockfile
+            - name: Build Vue
+              run: yarn build
+            - name: Push new code
+              if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+              run: |
+                  echo -e "\n# Initialize some useful variables"
+                  REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+                  echo -e "\n# Checkout the repo in the target branch"
+                  git clone $REPO out -b $TARGET_BRANCH
+
+                  echo -e "\n# Move the generated docs to the newly-checked-out repo, to be committed and pushed"
+                  rsync -vaI dist/ out/
+
+                  echo -e "\n# Commit and push"
+                  cd out
+                  git add --all .
+                  git config user.name "${GITHUB_ACTOR}"
+                  git config user.email "${GITHUB_EMAIL}"
+                  git commit -m "build: site build for ${GITHUB_SHA}" || true
+                  git push origin $TARGET_BRANCH
+              env:
+                  GITHUB_TOKEN: ${{ secrets.COMMIT_TOKEN }}
+                  GITHUB_ACTOR: DiriBot
+                  GITHUB_EMAIL: kingdgrizzle@gmail.com
+                  TARGET_BRANCH: gh-pages
