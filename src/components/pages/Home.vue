@@ -15,7 +15,7 @@
 				contributors and Core Developers were banned from the Discord server.
 				<br>
 				We recommend you look for another framework to use. You may still use Klasa as is,
-				but you're doing so at your own risk, and <b>we wil not provide support or bugfixes</b>.
+				but you're doing so at your own risk, and <b>we will not provide support or bugfixes</b>.
 				<br>
 				We'd like to thank everyone who contributed to our projects, and our community!
 				It's sad to see this come to an end as it stands, however our hands are tied.
