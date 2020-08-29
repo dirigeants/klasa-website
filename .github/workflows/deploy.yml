@@ -47,6 +47,6 @@ jobs:
                   git push origin $TARGET_BRANCH
               env:
                   GITHUB_TOKEN: ${{ secrets.COMMIT_TOKEN }}
-                  GITHUB_ACTOR: DiriBot
+                  GITHUB_ACTOR: vladfrangu
                   GITHUB_EMAIL: kingdgrizzle@gmail.com
                   TARGET_BRANCH: gh-pages
