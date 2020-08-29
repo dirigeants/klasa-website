@@ -10,7 +10,7 @@
 						Klasa is not maintained anymore; here's why:
 					</strong>
 				</h2>
-				Due to the differences between us, the community, and one of the ex Core Developers,
+				Due to the differences between us, the community, and one of the ex-Core Developers,
 				Dirigeants and all its projects are now unable to be maintained, as most of the active
 				contributors and Core Developers were banned from the Discord server.
 				<br>
@@ -18,11 +18,11 @@
 				but you're doing so at your own risk, and <b>we will not provide support or bugfixes</b>.
 				<br>
 				We'd like to thank everyone who contributed to our projects, and our community!
-				It's sad to see this come to an end as it stands, however our hands are tied.
+				It's sad to see Klasa and Dirigeants come to an end, however, as it stands our hands are tied.
 				<br>
 				<br>
 				If you wish to learn more about this incident, we invite you to read its writeup, as recorded by
-				Favna, <a href="https://gist.github.com/Favna/b9b6c23b6e545f7eddfdb55027a182df"> found here</a>
+				Favna#0001 (one of the more active members of Dirigeants before and during the events), <a href="https://gist.github.com/Favna/b9b6c23b6e545f7eddfdb55027a182df"> found here</a>
 			</div>
 			<div class="tile is-ancestor">
 				<div class="tile is-parent">
