@@ -27,7 +27,7 @@ jobs:
             - name: Build Vue
               run: yarn build
             - name: Push new code
-              if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+              if: github.event_name == 'push' && github.ref == 'refs/heads/master'
               run: |
                   echo -e "\n# Initialize some useful variables"
                   REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
