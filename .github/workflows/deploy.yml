@@ -23,7 +23,7 @@ jobs:
                   path: node_modules
                   key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
             - name: Install Dependencies
-              run: yarn --ignore-scripts --frozen-lockfile
+              run: yarn --frozen-lockfile
             - name: Build Vue
               run: yarn build
             - name: Push new code
