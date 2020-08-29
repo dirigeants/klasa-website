@@ -133,7 +133,7 @@ export default {
 				console.error('Error while loading', startSource, startTag, err);
 				this.error = err;
 				this.loadingTag = null;
-				// this.warning();
+				this.warning();
 			});
 		},
 

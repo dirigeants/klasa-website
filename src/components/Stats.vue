@@ -70,8 +70,8 @@ export default {
 					.reduce((acc, curr) => acc + curr)
 					.toLocaleString();
 			}
-			if (stars) this.stars = stars.stargazers_count.toLocaleString();
-			if (contributors) this.contributors = contributors.length.toLocaleString();
+			if (stars && stars.stargazers_count) this.stars = stars.stargazers_count.toLocaleString();
+			if (contributors && contributors.length) this.contributors = contributors.length.toLocaleString();
 		}
 	}
 };

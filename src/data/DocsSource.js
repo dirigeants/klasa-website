@@ -34,7 +34,7 @@ export default class DocsSource {
 				if (tag.name !== this.defaultTag && this.tagFilter(tag.name)) this.tags.push(tag.name);
 			}
 
-			return this.tags.filter(tag => tag === 'v0.5.0' || tag === 'stable' || tag === 'settings');
+			return this.tags.filter(tag => tag === 'v0.5.0' || tag === 'settings');
 		} catch (err) {
 			if (localStorage[`source-${this.id}`]) {
 				console.error(err);
