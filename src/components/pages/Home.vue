@@ -25,10 +25,12 @@
 				Favna, <a href="https://gist.github.com/Favna/b9b6c23b6e545f7eddfdb55027a182df"> found here</a>
 			</div>
 			<div class="tile is-ancestor">
-				<article class="tile is-child box content is-not-feeling-so-good">
-					<h5><strong>Install Stable</strong></h5>
-					<pre v-highlightjs><code class="bash">npm install klasa</code></pre>
-				</article>
+				<div class="tile is-parent">
+					<article class="tile is-child box content">
+						<h5><strong>Install Stable</strong></h5>
+						<pre v-highlightjs><code class="bash">npm install klasa</code></pre>
+					</article>
+				</div>
 				<div class="tile is-parent">
 					<article class="tile is-child box content is-not-feeling-so-good">
 						<h5><strong>Install Master</strong></h5>
