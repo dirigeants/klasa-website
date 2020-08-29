@@ -5,36 +5,26 @@
 			<br>
 			<br>
 			<div class="unmaintainedBanner has-text-left">
-				<h2 class="title is-3">
+				<h2 class="title is-3 paddingTop has-text-centered">
 					<strong>
-						Klasa is not maintained anymore; here's why:
+						Klasa has been discontinued
 					</strong>
 				</h2>
-				Due to the differences between us, the community, and one of the ex-Core Developers,
-				Dirigeants and all its projects are now unable to be maintained, as most of the active
-				contributors and Core Developers were banned from the Discord server.
-				<br>
-				We recommend you look for another framework to use. You may still use Klasa as is,
-				but you're doing so at your own risk, and <b>we will not be able to provide support or bug fixes</b>.
-				<br>
-				We'd like to thank everyone who contributed to our projects, and our community!
-				It's sad to see Klasa and Dirigeants come to an end, however, as it stands, our hands are tied.
-				<br>
-				<br>
-				If you'd like a recap about this incident, we recommend you read its chain of events, as recorded by
-				Vladdy#0002 (one of the primary Core Developers of Dirigeants before the incident), <a href="https://gist.github.com/vladfrangu/835100b815470e3341f40601aefd3d10"> found here</a>
+				<p class="paddingBottom has-text-centered">
+					Due to many unprecedented events within the Dirigeants community, Klasa and related projects have now been discontinued and archived.
+				</p>
+				<p class="paddingBottom has-text-centered">
+					We would like to thank everyone for using, supporting and contributing to the project.
+					<span class="icon">
+						<i class="fas fa-heart redHeart" />
+					</span>
+				</p>
 			</div>
 			<div class="tile is-ancestor">
 				<div class="tile is-parent">
 					<article class="tile is-child box content opacity-3">
 						<h5><strong>Install Stable</strong></h5>
 						<pre v-highlightjs><code class="bash">npm install klasa</code></pre>
-					</article>
-				</div>
-				<div class="tile is-parent">
-					<article class="tile is-child box content opacity-3">
-						<h5><strong>Install Master</strong></h5>
-						<pre v-highlightjs><code class="bash">npm install dirigeants/klasa#build</code></pre>
 					</article>
 				</div>
 			</div>
@@ -85,6 +75,20 @@ export default { name: 'Home' };
 	padding-left: 16px;
 	border-left: 8px orange solid;
 	border-radius: 6px;
-	background: rgba($color: #FBCB04, $alpha: 0.15)
+	background: rgba($color: #FBCB04, $alpha: 0.15);
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.paddingTop {
+	padding-top: 0.5rem !important;
+}
+
+.paddingBottom {
+	padding-bottom: 0.5rem !important;
+}
+
+.redHeart {
+	color: red;
 }
 </style>
