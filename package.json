@@ -24,7 +24,7 @@
   "devDependencies": {
     "@poi/plugin-eslint": "^12.1.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.8.1",
+    "eslint": "^7.13.0",
     "eslint-config-klasa": "github:dirigeants/klasa-lint",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.1",
